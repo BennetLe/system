@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-nix build .#homeConfigurations.bennet.activationPackage
-./result/activate
+nix build /home/bennet/system#homeConfigurations.bennet.activationPackage
+/home/bennet/system/result/activate

@@ -35,9 +35,10 @@
       cat = "bat";
       s = "kitten ssh";
 
-      update = "nixos-rebuild switch --use-remote-sudo --flake /etc/nixos/#default";
-      config = "sudoedit /etc/nixos/configuration.nix";
-      homeconfig = "sudoedit /etc/nixos/home.nix";
+      update = "nixos-rebuild switch --use-remote-sudo --flake /home/bennet/system#bennet";
+      config = "nvim /home/bennet/system/flake.nix";
+      home-update = "/home/bennet/system/home.sh";
+      home-config = "nvim /home/bennet/system/home/bennet.nix";
       changewp = "swww img";
     };
   };
