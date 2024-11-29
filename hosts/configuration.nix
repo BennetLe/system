@@ -197,6 +197,7 @@ in
       wl-clipboard
       coreutils
       killall
+      ranger
     ];
   };
 
@@ -228,8 +229,8 @@ in
     printing = {
       enable = true;
     };
-    xserver.displayManager.sddm.wayland.enable = true;
-    xserver.displayManager.defaultSession = "hyprland";
+    displayManager.sddm.wayland.enable = true;
+    displayManager.defaultSession = "hyprland";
     displayManager.sddm.enable = true;
     desktopManager.plasma6.enable = true;
     xserver = {
