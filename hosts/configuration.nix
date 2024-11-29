@@ -296,14 +296,14 @@ in
     networkmanager.enable = true;
   };
 
-  home-manager.users.${vars.user} = {
-    home = {
-      stateVersion = "24.05";
-    };
-    programs = {
-      home-manager.enable = true;
-    };
-  };
+  # home-manager.users.${vars.user} = {
+    # home = {
+      # stateVersion = "24.05";
+    # };
+    # programs = {
+      # home-manager.enable = true;
+    # };
+  # };
 
   services.udev.extraRules = ''
   # CMSIS-DAP for microbit
