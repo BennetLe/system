@@ -198,6 +198,8 @@ in
       coreutils
       killall
       ranger
+      zinit
+      oh-my-posh
     ];
   };
 

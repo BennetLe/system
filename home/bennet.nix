@@ -23,12 +23,6 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
-    oh-my-zsh = {
-        enable = true;
-        plugins = [ "git" ];
-        theme = "agnoster";
-    };
-
     shellAliases = {
       ll = "ls -l";
       cls = "clear";
@@ -41,6 +35,23 @@
       home-config = "nvim /home/bennet/system/home/bennet.nix";
       changewp = "swww img";
     };
+
+    initExtra = ''
+      # Set the directory we want to store zinit and plugins
+      ZINIT_HOME="''${XDG_DATA_HOME:-''${HOME}/.local/share}/zinit/zinit.git"
+
+      # Download Zinit, if it's not there yet
+      if [ ! -d "$ZINIT_HOME" ]; then
+          mkdir -p "$(dirname $ZINIT_HOME)"
+          git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+      fi
+
+      # Source/Load zinit
+      source "''${ZINIT_HOME}/zinit.zsh"
+
+      # Prompt
+      eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
+    '';
   };
 
   programs.kitty = {

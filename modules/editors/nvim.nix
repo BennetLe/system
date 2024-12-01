@@ -1,9 +1,5 @@
 { config, lib, system, pkgs, vars, ... }:
 
-let
-  colors = import ../theming/colors.nix;
-
-in
 {
   environment = {
     systemPackages = with pkgs; [
@@ -34,18 +30,20 @@ in
       }
     ];
 
+    colorschemes.gruvbox.enable = true;
+
     opts = {
       number = true;
       relativenumber = true;
       hidden = true;
       foldlevel = 99;
-      shiftwidth = 2;
-      tabstop = 2;
+      shiftwidth = 4;
+      tabstop = 4;
       softtabstop = 2;
       expandtab = true;
       autoindent = true;
       wrap = false;
-      scrolloff = 5;
+      scrolloff = 25;
       spell = false;
       spelllang = [ "en" ];
     };
