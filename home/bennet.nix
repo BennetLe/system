@@ -19,9 +19,6 @@
 
   programs.zsh = {
     enable = true;
-    enableCompletion = true;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
 
     shellAliases = {
       ll = "ls -l";
@@ -51,6 +48,52 @@
 
       # Prompt
       eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
+
+      # Add in zsh plugins
+      zinit light zsh-users/zsh-syntax-highlighting
+      zinit light zsh-users/zsh-completions
+      zinit light zsh-users/zsh-autosuggestions
+      zinit light Aloxaf/fzf-tab
+
+      # Add in snippets
+      zinit snippet 'https://github.com/robbyrussell/oh-my-zsh/raw/master/plugins/git/git.plugin.zsh'
+      zinit snippet 'https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/refs/heads/master/plugins/sudo/sudo.plugin.zsh'
+
+      # Load completions
+      autoload -Uz compinit && compinit
+
+      zinit cdreplay -q
+
+      # Keybindings
+      bindkey "^y" autosuggest-accept
+      bindkey '^n' history-search-backward
+      bindkey '^p' history-search-forward
+
+      unalias run-help 2>/dev/null
+      autoload -U run-help
+
+      HISTSIZE=10000
+      SAVEHIST=$HISTSIZE
+      HISTFILE=~/.zsh_history
+      HISTDUP=erase
+      setopt appendhistory
+      setopt sharehistory
+      setopt hist_ignore_space
+      setopt hist_ignore_all_dups
+      setopt hist_save_no_dups
+      setopt hist_ignore_dups
+      setopt hist_find_no_dups
+
+      # Completion styling
+      zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+      zstyle ':completion:*' list-colors "''${(s.:.)LS_COLORS}"
+      zstyle ':completion:*' menu no
+      zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+      zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+
+      # Shell integration
+      eval "$(fzf --zsh)"
+      eval "$(zoxide init --cmd cd zsh)"
     '';
   };
 

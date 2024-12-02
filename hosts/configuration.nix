@@ -200,6 +200,8 @@ in
       ranger
       zinit
       oh-my-posh
+      fzf
+      zoxide
     ];
   };
 
