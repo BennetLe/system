@@ -27,8 +27,15 @@
       lualine.enable = true;
       telescope.enable = true;
       oil.enable = true;
-      treesitter.enable = true;
       luasnip.enable = true;
+
+      treesitter = {
+        enable = true;
+        settings = {
+          highlight.enable = true;
+        };
+        nixGrammars = true;
+      };
 
       lsp = {
         enable = true;
