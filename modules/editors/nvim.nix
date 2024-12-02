@@ -28,13 +28,15 @@
       telescope.enable = true;
       oil.enable = true;
       luasnip.enable = true;
+      guess-indent.enable = true;
 
       treesitter = {
         enable = true;
+        nixGrammars = true;
         settings = {
           highlight.enable = true;
+          auto_install = true;
         };
-        nixGrammars = true;
       };
 
       lsp = {
