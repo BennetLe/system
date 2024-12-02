@@ -22,13 +22,56 @@
     enableMan = false;
     viAlias = true;
     vimAlias = true;
-    autoCmd = [
-      {
-        event = "VimEnter";
-        command = "set nofoldenable";
-        desc = "Unfold All";
-      }
-    ];
+
+    plugins = {
+      lualine.enable = true;
+      telescope.enable = true;
+      oil.enable = true;
+      treesitter.enable = true;
+      luasnip.enable = true;
+
+      lsp = {
+        enable = true;
+        servers = {
+          ts_ls.enable = true;
+          lua_ls.enable = true;
+          rust_analyzer = {
+            enable = true;
+            installCargo = true;
+            installRustc = true;
+          };
+        };
+      };
+
+      cmp = {
+        enable = true;
+        autoEnableSources = true;
+        settings = {
+          sources = [
+            { name = "nvim_lsp"; }
+            { name = "emoji"; }
+            {
+              name = "buffer"; # text within current buffer
+              option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
+              keywordLength = 3;
+            }
+            {
+              name = "path"; # file system paths
+              keywordLength = 3;
+            }
+            {
+              name = "luasnip"; # snippets
+              keywordLength = 3;
+            }
+          ];
+          mapping = {
+            "<C-y>" = "cmp.mapping.confirm({ select = true })";
+            "<C-n>" = "cmp.mapping.select_next_item()";
+            "<C-p>" = "cmp.mapping.select_prev_item()";
+          };
+        };
+      };
+    };
 
     colorschemes.gruvbox.enable = true;
 
@@ -57,5 +100,12 @@
       mapleader = " ";
       maplocalleader = " ";
     };
+
+    keymaps = [
+      {
+        action = "<cmd>Telescope live_grep<CR>";
+        key = "<leader>g";
+      }
+    ];
   };
 }
