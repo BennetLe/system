@@ -57,7 +57,7 @@ in
     (nerdfonts.override {
       fonts = [
         "FiraCode"
-	"DroidSansMono"
+	      "DroidSansMono"
       ];
     })
   ];
@@ -233,18 +233,10 @@ in
     printing = {
       enable = true;
     };
+    libinput.enable = true;
 
     displayManager = {
       defaultSession = "hyprland";
-      sddm = {
-        enable = true;
-        wayland.enable = true;
-        settings = {
-          General = {
-            PrimaryDisplay = "DP-1";
-          };
-        };
-      };
     };
 
     desktopManager.plasma6.enable = true;
@@ -252,6 +244,12 @@ in
       enable = true;
       xkb.layout = "us";
       xkb.variant = "";
+      displayManager = {
+        gdm = {
+          enable = true;
+          wayland = true;
+        };
+      };
     };
     blueman.enable = true;
     pipewire = {
