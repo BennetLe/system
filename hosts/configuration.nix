@@ -233,11 +233,23 @@ in
     printing = {
       enable = true;
     };
-    displayManager.sddm.wayland.enable = true;
-    displayManager.defaultSession = "hyprland";
-    displayManager.sddm.enable = true;
+
+    displayManager = {
+      defaultSession = "hyprland";
+      sddm = {
+        enable = true;
+        wayland.enable = true;
+        settings = {
+          General = {
+            PrimaryDisplay = "DP-1";
+          };
+        };
+      };
+    };
+
     desktopManager.plasma6.enable = true;
     xserver = {
+      enable = true;
       xkb.layout = "us";
       xkb.variant = "";
     };
