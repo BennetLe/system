@@ -29,6 +29,23 @@
       oil.enable = true;
       luasnip.enable = true;
       guess-indent.enable = true;
+      web-devicons.enable = true;
+      undotree.enable = true;
+
+      mini = {
+        enable = true;
+        modules = {
+          comment = {
+            mappings = {
+              comment = "<leader>/";
+              comment_line = "<leader>/";
+              comment_visual = "<leader>/";
+              textobject = "<leader>/";
+            };
+          };
+          pairs = {};
+        };
+      };
 
       treesitter = {
         enable = true;
@@ -114,6 +131,10 @@
       {
         action = "<cmd>Telescope live_grep<CR>";
         key = "<leader>g";
+      }
+      {
+        action = "<cmd>UndotreeToggle<CR>";
+        key = "<leader>u";
       }
     ];
   };
