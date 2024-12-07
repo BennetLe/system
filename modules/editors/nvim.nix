@@ -23,6 +23,10 @@
     viAlias = true;
     vimAlias = true;
 
+    diagnostics = {
+      update_in_insert = true;
+    };
+
     plugins = {
       lualine.enable = true;
       telescope.enable = true;
@@ -51,13 +55,26 @@
         enable = true;
         nixGrammars = true;
         settings = {
-          highlight.enable = true;
+          highlight = {
+          enable = true;
+          additional_vim_regex_highlighting = true;
+          disable = ''
+          function(lang, buf)
+            local max_filesize = 100 * 1024 -- 100 KB
+            local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+            if ok and stats and stats.size > max_filesize then
+              return true
+            end
+          end
+          '';
+        };
           auto_install = true;
         };
       };
 
       lsp = {
         enable = true;
+        inlayHints = true;
         servers = {
           ts_ls.enable = true;
           lua_ls.enable = true;
@@ -65,6 +82,13 @@
             enable = true;
             installCargo = true;
             installRustc = true;
+          };
+          pyright.enable = true;
+        };
+        
+        keymaps = {
+          lspBuf = {
+            grn = "rename";
           };
         };
       };
@@ -136,6 +160,8 @@
         action = "<cmd>UndotreeToggle<CR>";
         key = "<leader>u";
       }
+    ];
+    autoCmd = [
     ];
   };
 }

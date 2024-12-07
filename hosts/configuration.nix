@@ -9,10 +9,6 @@ in
   );
 
   boot = {
-    tmp = {
-      cleanOnBoot = true;
-      tmpfsSize = "5GB";
-    };
   };
 
   users.users.${vars.user} = {
@@ -202,6 +198,8 @@ in
       oh-my-posh
       fzf
       zoxide
+      direnv
+      thunderbird
     ];
   };
 

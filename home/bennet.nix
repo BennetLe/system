@@ -94,6 +94,7 @@
       # Shell integration
       eval "$(fzf --zsh)"
       eval "$(zoxide init --cmd cd zsh)"
+      eval "$(direnv hook zsh)"
     '';
   };
 
