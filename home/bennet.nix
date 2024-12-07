@@ -34,6 +34,9 @@
     };
 
     initExtra = ''
+      #launche tmux if not in a session already
+      if [ "$TMUX" = "" ]; then tmux; fi
+
       # Set the directory we want to store zinit and plugins
       ZINIT_HOME="''${XDG_DATA_HOME:-''${HOME}/.local/share}/zinit/zinit.git"
 
