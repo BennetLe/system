@@ -1,15 +1,15 @@
-{ config, lib, system, pkgs, vars, ... }:
+{ config, lib, aystem, pkgs, vars, ... }:
 
 {
   environment = {
     systemPackages = with pkgs; [
       go
-      nodejs
-      (python3.withPackages (ps: with ps; [
-        pip
-      ]))
-      ripgrep
-      # zig
+        nodejs
+        (python3.withPackages (ps: with ps; [
+                                       pip
+        ]))
+        ripgrep
+# zig
     ];
     variables = {
       PATH="$HOME/.npm-packages/bin:$PATH";
@@ -56,18 +56,18 @@
         nixGrammars = true;
         settings = {
           highlight = {
-          enable = true;
-          additional_vim_regex_highlighting = true;
-          disable = ''
-          function(lang, buf)
-            local max_filesize = 100 * 1024 -- 100 KB
-            local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-            if ok and stats and stats.size > max_filesize then
-              return true
-            end
-          end
-          '';
-        };
+            enable = true;
+            additional_vim_regex_highlighting = true;
+            disable = ''
+              function(lang, buf)
+              local max_filesize = 100 * 1024 -- 100 KB
+              local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+              if ok and stats and stats.size > max_filesize then
+                return true
+                  end
+                  end
+            '';
+          };
           auto_install = true;
         };
       };
@@ -84,11 +84,16 @@
             installRustc = true;
           };
           pyright.enable = true;
+          nixd = {
+            enable = true;
+          };
         };
-        
+
         keymaps = {
           lspBuf = {
             grn = "rename";
+            "<leader>f" = "format";
+            gra = "code_action";
           };
         };
       };
@@ -98,21 +103,21 @@
         autoEnableSources = true;
         settings = {
           sources = [
-            { name = "nvim_lsp"; }
-            { name = "emoji"; }
-            {
-              name = "buffer"; # text within current buffer
+          { name = "nvim_lsp"; }
+          { name = "emoji"; }
+          {
+            name = "buffer"; # text within current buffer
               option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
+            keywordLength = 3;
+          }
+          {
+            name = "path"; # file system paths
               keywordLength = 3;
-            }
-            {
-              name = "path"; # file system paths
+          }
+          {
+            name = "luasnip"; # snippets
               keywordLength = 3;
-            }
-            {
-              name = "luasnip"; # snippets
-              keywordLength = 3;
-            }
+          }
           ];
           mapping = {
             "<C-y>" = "cmp.mapping.confirm({ select = true })";
@@ -152,14 +157,14 @@
     };
 
     keymaps = [
-      {
-        action = "<cmd>Telescope live_grep<CR>";
-        key = "<leader>g";
-      }
-      {
-        action = "<cmd>UndotreeToggle<CR>";
-        key = "<leader>u";
-      }
+    {
+      action = "<cmd>Telescope live_grep<CR>";
+      key = "<leader>g";
+    }
+    {
+      action = "<cmd>UndotreeToggle<CR>";
+      key = "<leader>u";
+    }
     ];
     autoCmd = [
     ];
