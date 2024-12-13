@@ -200,6 +200,7 @@ in
       zoxide
       direnv
       thunderbird
+      uv
     ];
   };
 
