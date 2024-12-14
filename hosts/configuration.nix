@@ -1,12 +1,17 @@
-{ lib, config, pkgs, inputs, vars, ...}:
+{
+  lib,
+  config,
+  pkgs,
+  inputs,
+  vars,
+  ...
+}:
 
 let
   terminal = pkgs.${vars.terminal};
 in
 {
-  imports = (
-    import ../modules/editors
-  );
+  imports = (import ../modules/editors);
 
   boot = {
   };
@@ -14,7 +19,18 @@ in
   users.users.${vars.user} = {
     isNormalUser = true;
     description = "Bennet";
-    extraGroups = [ "networkmanager" "wheel" "audio" "plugdev" "input" "libvirtd" "video" "audio" "lp" "scanner"];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "audio"
+      "plugdev"
+      "input"
+      "libvirtd"
+      "video"
+      "audio"
+      "lp"
+      "scanner"
+    ];
     shell = pkgs.zsh;
   };
 
@@ -50,12 +66,8 @@ in
     noto-fonts-cjk-serif
     noto-fonts-emoji
     cascadia-code
-    (nerdfonts.override {
-      fonts = [
-        "FiraCode"
-	      "DroidSansMono"
-      ];
-    })
+    nerd-fonts.fira-code
+    nerd-fonts.droid-sans-mono
   ];
 
   environment = {
@@ -81,8 +93,7 @@ in
       waybar
       (waybar.overrideAttrs (oldAttrs: {
         mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-        })
-      )
+      }))
       mako
       libnotify
       swww
@@ -202,6 +213,8 @@ in
       thunderbird
       uv
       zimfw
+      fd
+      nixfmt-rfc-style
     ];
   };
 
@@ -229,7 +242,7 @@ in
 
   services = {
     gnome.gnome-keyring.enable = true;
-    xserver.videoDrivers = ["amdgpu"];
+    xserver.videoDrivers = [ "amdgpu" ];
     printing = {
       enable = true;
     };
@@ -283,12 +296,10 @@ in
     '';
   };
   nixpkgs.config.allowUnfree = true;
-  
+
   system = {
     stateVersion = "24.05";
   };
-
-  
 
   xdg.portal = {
     enable = true;
@@ -298,10 +309,10 @@ in
   virtualisation = {
     libvirtd = {
       enable = true;
-        qemu = {
-          ovmf.enable = true;
-          swtpm.enable = true;
-        };
+      qemu = {
+        ovmf.enable = true;
+        swtpm.enable = true;
+      };
     };
     waydroid.enable = true;
   };
@@ -312,35 +323,35 @@ in
   };
 
   # home-manager.users.${vars.user} = {
-    # home = {
-      # stateVersion = "24.05";
-    # };
-    # programs = {
-      # home-manager.enable = true;
-    # };
+  # home = {
+  # stateVersion = "24.05";
+  # };
+  # programs = {
+  # home-manager.enable = true;
+  # };
   # };
 
   services.udev.extraRules = ''
-  # CMSIS-DAP for microbit
-  ACTION!="add|change", GOTO="microbit_rules_end"
-  SUBSYSTEM=="usb", ATTR{idVendor}=="0d28", ATTR{idProduct}=="0204", TAG+="uaccess"
-  LABEL="microbit_rules_end"
-  ACTION!="add|change", GOTO="oneplus_rules_end"
-  SUBSYSTEM=="usb", ATTR{idVendor}=="22d9", ATTR{idProduct}=="2769", MODE="0666", TAG+="uaccess"
-  LABEL="oneplus_rules_end"
-  ACTION!="add|change", GOTO="nuphy_rules_end"
-  SUBSYSTEM=="usb", ATTR{idVendor}=="19f5", ATTR{idProduct}=="3275", TAG+="uaccess"
-  LABEL="nuphy_rules_end"
-  ACTION!="add|change", GOTO="flipper_rules_end"
-  #Flipper Zero serial port
-  SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="5740", TAG+="uaccess", GROUP="dialout"
-  #Flipper Zero DFU
-  SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="df11", ATTRS{manufacturer}=="STMicroelectronics", TAG+="uaccess", GROUP="dialout"
-  #Flipper ESP32s2 BlackMagic
-  SUBSYSTEMS=="usb", ATTRS{idVendor}=="303a", ATTRS{idProduct}=="40??", ATTRS{manufacturer}=="Flipper Devices Inc.", TAG+="uaccess", GROUP="dialout"
-  #Flipper U2F
-  SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="5741", ATTRS{manufacturer}=="Flipper Devices Inc.", ENV{ID_SECURITY_TOKEN}="1"
-  SUBSYSTEMS=="usb", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="7523", TAG+="uaccess"
-  LABEL="flipper_rules_end"
+    # CMSIS-DAP for microbit
+        ACTION!="add|change", GOTO="microbit_rules_end"
+        SUBSYSTEM=="usb", ATTR{idVendor}=="0d28", ATTR{idProduct}=="0204", TAG+="uaccess"
+        LABEL="microbit_rules_end"
+        ACTION!="add|change", GOTO="oneplus_rules_end"
+        SUBSYSTEM=="usb", ATTR{idVendor}=="22d9", ATTR{idProduct}=="2769", MODE="0666", TAG+="uaccess"
+        LABEL="oneplus_rules_end"
+        ACTION!="add|change", GOTO="nuphy_rules_end"
+        SUBSYSTEM=="usb", ATTR{idVendor}=="19f5", ATTR{idProduct}=="3275", TAG+="uaccess"
+        LABEL="nuphy_rules_end"
+        ACTION!="add|change", GOTO="flipper_rules_end"
+    #Flipper Zero serial port
+        SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="5740", TAG+="uaccess", GROUP="dialout"
+    #Flipper Zero DFU
+        SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="df11", ATTRS{manufacturer}=="STMicroelectronics", TAG+="uaccess", GROUP="dialout"
+    #Flipper ESP32s2 BlackMagic
+        SUBSYSTEMS=="usb", ATTRS{idVendor}=="303a", ATTRS{idProduct}=="40??", ATTRS{manufacturer}=="Flipper Devices Inc.", TAG+="uaccess", GROUP="dialout"
+    #Flipper U2F
+        SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="5741", ATTRS{manufacturer}=="Flipper Devices Inc.", ENV{ID_SECURITY_TOKEN}="1"
+        SUBSYSTEMS=="usb", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="7523", TAG+="uaccess"
+        LABEL="flipper_rules_end"
   '';
 }

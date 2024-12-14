@@ -1,19 +1,28 @@
-{ config, lib, aystem, pkgs, vars, ... }:
+{
+  config,
+  lib,
+  aystem,
+  pkgs,
+  vars,
+  ...
+}:
 
 {
   environment = {
     systemPackages = with pkgs; [
       go
-        nodejs
-        (python3.withPackages (ps: with ps; [
-                                       pip
-        ]))
-        ripgrep
-# zig
+      nodejs
+      (python3.withPackages (
+        ps: with ps; [
+          pip
+        ]
+      ))
+      ripgrep
+      # zig
     ];
     variables = {
-      PATH="$HOME/.npm-packages/bin:$PATH";
-      NODE_PATH="$HOME/.npm-packages/lib/node_modules:$NODE_PATH:";
+      PATH = "$HOME/.npm-packages/bin:$PATH";
+      NODE_PATH = "$HOME/.npm-packages/lib/node_modules:$NODE_PATH:";
     };
   };
 
@@ -29,12 +38,20 @@
 
     plugins = {
       lualine.enable = true;
-      telescope.enable = true;
       oil.enable = true;
       luasnip.enable = true;
       guess-indent.enable = true;
       web-devicons.enable = true;
       undotree.enable = true;
+
+      telescope = {
+        enable = true;
+        keymaps = {
+          "<leader>fd" = "find_files";
+          "<leader>ff" = "live_grep";
+          "<leader>fh" = "help_tags";
+        };
+      };
 
       mini = {
         enable = true;
@@ -47,7 +64,7 @@
               textobject = "<leader>/";
             };
           };
-          pairs = {};
+          pairs = { };
         };
       };
 
@@ -65,7 +82,7 @@
               if ok and stats and stats.size > max_filesize then
                 return true
                   end
-                end
+                  end
             '';
           };
           auto_install = true;
@@ -103,21 +120,21 @@
         autoEnableSources = true;
         settings = {
           sources = [
-          { name = "nvim_lsp"; }
-          { name = "emoji"; }
-          {
-            name = "buffer"; # text within current buffer
+            { name = "nvim_lsp"; }
+            { name = "emoji"; }
+            {
+              name = "buffer"; # text within current buffer
               option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
-            keywordLength = 3;
-          }
-          {
-            name = "path"; # file system paths
               keywordLength = 3;
-          }
-          {
-            name = "luasnip"; # snippets
+            }
+            {
+              name = "path"; # file system paths
               keywordLength = 3;
-          }
+            }
+            {
+              name = "luasnip"; # snippets
+              keywordLength = 3;
+            }
           ];
           mapping = {
             "<C-y>" = "cmp.mapping.confirm({ select = true })";
@@ -157,14 +174,10 @@
     };
 
     keymaps = [
-    {
-      action = "<cmd>Telescope live_grep<CR>";
-      key = "<leader>g";
-    }
-    {
-      action = "<cmd>UndotreeToggle<CR>";
-      key = "<leader>u";
-    }
+      {
+        action = "<cmd>UndotreeToggle<CR>";
+        key = "<leader>u";
+      }
     ];
     autoCmd = [
     ];
