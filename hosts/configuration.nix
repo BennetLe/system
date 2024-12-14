@@ -201,6 +201,7 @@ in
       direnv
       thunderbird
       uv
+      zimfw
     ];
   };
 

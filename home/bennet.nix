@@ -34,38 +34,51 @@
     };
 
     initExtra = ''
-      # launche tmux if not in a session already
-      # if [ "$TMUX" = "" ]; then tmux; fi
-
       # Set the directory we want to store zinit and plugins
-      ZINIT_HOME="''${XDG_DATA_HOME:-''${HOME}/.local/share}/zinit/zinit.git"
+      # ZINIT_HOME="''${XDG_DATA_HOME:-''${HOME}/.local/share}/zinit/zinit.git"
+      
+      ZIM_HOME=~/.zim
 
       # Download Zinit, if it's not there yet
-      if [ ! -d "$ZINIT_HOME" ]; then
-          mkdir -p "$(dirname $ZINIT_HOME)"
-          git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+      # if [ ! -d "$ZINIT_HOME" ]; then
+      #     mkdir -p "$(dirname $ZINIT_HOME)"
+      #     git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+      # fi
+
+      # Download zimfw plugin manager if missing.
+      if [[ ! -e ''${ZIM_HOME}/zimfw.zsh ]]; then
+        curl -fsSL --create-dirs -o ''${ZIM_HOME}/zimfw.zsh \
+            https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
       fi
 
+      # Install missing modules, and update ''${ZIM_HOME}/init.zsh if missing or outdated.
+      if [[ ! ''${ZIM_HOME}/init.zsh -nt ''${ZDOTDIR:-''${HOME}}/.zimrc ]]; then
+        source ''${ZIM_HOME}/zimfw.zsh init -q
+      fi
+
+      # Initialize modules.
+      source ''${ZIM_HOME}/init.zsh
+
       # Source/Load zinit
-      source "''${ZINIT_HOME}/zinit.zsh"
+      # source "''${ZINIT_HOME}/zinit.zsh"
 
       # Prompt
       eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
 
       # Add in zsh plugins
-      zinit light zsh-users/zsh-syntax-highlighting
-      zinit light zsh-users/zsh-completions
-      zinit light zsh-users/zsh-autosuggestions
-      zinit light Aloxaf/fzf-tab
+      # zinit light zsh-users/zsh-syntax-highlighting
+      # zinit light zsh-users/zsh-completions
+      # zinit light zsh-users/zsh-autosuggestions
+      # zinit light Aloxaf/fzf-tab
 
       # Add in snippets
-      zinit snippet 'https://github.com/robbyrussell/oh-my-zsh/raw/master/plugins/git/git.plugin.zsh'
-      zinit snippet 'https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/refs/heads/master/plugins/sudo/sudo.plugin.zsh'
+      # zinit snippet 'https://github.com/robbyrussell/oh-my-zsh/raw/master/plugins/git/git.plugin.zsh'
+      # zinit snippet 'https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/refs/heads/master/plugins/sudo/sudo.plugin.zsh'
 
       # Load completions
-      autoload -Uz compinit && compinit
+      # autoload -Uz compinit && compinit
 
-      zinit cdreplay -q
+      # zinit cdreplay -q
 
       # Keybindings
       bindkey "^y" autosuggest-accept
@@ -88,11 +101,11 @@
       setopt hist_find_no_dups
 
       # Completion styling
-      zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-      zstyle ':completion:*' list-colors "''${(s.:.)LS_COLORS}"
-      zstyle ':completion:*' menu no
-      zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-      zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+      # zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+      # zstyle ':completion:*' list-colors "''${(s.:.)LS_COLORS}"
+      # zstyle ':completion:*' menu no
+      # zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+      # zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
       # Shell integration
       eval "$(fzf --zsh)"
