@@ -215,8 +215,14 @@ in
       zimfw
       fd
       nixfmt-rfc-style
+      htop
+      nix-alien
+      icu
+      icu76
+      nix-ld
     ];
   };
+
 
   programs = {
     hyprland.enable = true;
@@ -229,6 +235,7 @@ in
     };
     gamemode.enable = true;
     neovim.defaultEditor = true;
+    nix-ld.enable = true;
   };
 
   hardware = {
@@ -295,7 +302,13 @@ in
       keep-derivations      = true
     '';
   };
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs = {
+    config.allowUnfree = true;
+
+    overlays = [
+      inputs.nix-alien.overlays.default
+    ];
+  };
 
   system = {
     stateVersion = "24.05";

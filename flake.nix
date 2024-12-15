@@ -2,11 +2,11 @@
   description = "A very basic flake";
 
   inputs = {
-     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-     home-manager = {
-       url = "github:nix-community/home-manager/master";
-       inputs.nixpkgs.follows = "nixpkgs"; # Use system packages list where available
+    home-manager = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs"; # Use system packages list where available
     };
 
     # Neovim
@@ -14,15 +14,27 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-alien = {
+      url = "github:thiagokokada/nix-alien";
+    };
   };
 
-  outputs = inputs @ { self, nixpkgs, home-manager, nixvim, ... }:
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      home-manager,
+      nixvim,
+      nix-alien,
+      ...
+    }:
     let
       vars = {
         user = "bennet";
-	      localtion = "$HOME/system";
-	      terminal = "kitty";
-	      editor = "nvim";
+        localtion = "$HOME/system";
+        terminal = "kitty";
+        editor = "nvim";
       };
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -30,25 +42,33 @@
         config.allowUnfree = true;
       };
       lib = nixpkgs.lib;
-    in {
+    in
+    {
       nixosConfigurations = (
         import ./hosts {
-	        inherit (nixpkgs) lib;
-	        inherit inputs nixpkgs home-manager vars nixvim;
-	      }
+          inherit (nixpkgs) lib;
+          inherit
+            inputs
+            nixpkgs
+            home-manager
+            vars
+            nixvim
+            nix-alien
+            ;
+        }
       );
 
       homeConfigurations."bennet" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
         modules = [
           ./home/bennet.nix
-           {
-             home = {
-               username = "${vars.user}";
-                homeDirectory = "/home/${vars.user}";
-                stateVersion = "24.05";
-             };
-           }
+          {
+            home = {
+              username = "${vars.user}";
+              homeDirectory = "/home/${vars.user}";
+              stateVersion = "24.05";
+            };
+          }
         ];
       };
     };

@@ -111,6 +111,7 @@
             grn = "rename";
             "<leader>f" = "format";
             gra = "code_action";
+            grr = "references";
           };
         };
       };
@@ -174,6 +175,14 @@
     };
 
     keymaps = [
+      {
+        action = "<cmd>cnext<CR>";
+        key = "<M-j>";
+      }
+      {
+        action = "<cmd>cprev<CR>";
+        key = "<M-k>";
+      }
       {
         action = "<cmd>UndotreeToggle<CR>";
         key = "<leader>u";
