@@ -44,6 +44,7 @@
       guess-indent.enable = true;
       web-devicons.enable = true;
       undotree.enable = true;
+      lsp-signature.enable = true;
 
       # blink-cmp = {
       #   enable = true;
@@ -180,6 +181,9 @@
               	end, { "i" })
             '';
 
+          };
+          experimental = {
+            ghost_text = true;
           };
         };
       };
