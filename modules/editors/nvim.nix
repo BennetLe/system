@@ -40,10 +40,35 @@
       lualine.enable = true;
       oil.enable = true;
       luasnip.enable = true;
-      blink-cmp.enable = true;
+      friendly-snippets.enable = true;
       guess-indent.enable = true;
       web-devicons.enable = true;
       undotree.enable = true;
+
+      # blink-cmp = {
+      #   enable = true;
+      #   settings = {
+      #     keymap = {
+      #       preset = "default";
+      #       "<Up>" = [
+      #         # "hide"
+      #         "fallback"
+      #       ];
+      #       "<Down>" = [
+      #         # "hide"
+      #         "fallback"
+      #       ];
+      #       highlight = {
+      #         use_nvim_cmp_as_default = true;
+      #       };
+      #       trigger = {
+      #         signature_help = {
+      #           enabled = true;
+      #         };
+      #       };
+      #     };
+      #   };
+      # };
 
       telescope = {
         enable = true;
@@ -118,7 +143,7 @@
       };
 
       cmp = {
-        enable = false;
+        enable = true;
         autoEnableSources = true;
         settings = {
           sources = [
@@ -142,6 +167,19 @@
             "<C-y>" = "cmp.mapping.confirm({ select = true })";
             "<C-n>" = "cmp.mapping.select_next_item()";
             "<C-p>" = "cmp.mapping.select_prev_item()";
+            "<Up>" = ''
+                cmp.mapping(function(fallback)
+              	cmp.close()
+              	fallback()
+              	end, { "i" })
+            '';
+            "<Down>" = ''
+                cmp.mapping(function(fallback)
+              	cmp.close()
+              	fallback()
+              	end, { "i" })
+            '';
+
           };
         };
       };
@@ -188,25 +226,30 @@
         action = "<cmd>UndotreeToggle<CR>";
         key = "<leader>u";
       }
+      {
+        action = "<Nop>";
+        key = "gr";
+      }
     ];
     autoCmd = [
       {
         event = [
           "LspAttach"
         ];
+        desc = "Format current buffer on write";
         callback = {
           __raw = ''
-              function(args)
-                local client = vim.lsp.get_client_by_id(args.data.client_id)
-                if not client then return end
+            function(args)
+              local client = vim.lsp.get_client_by_id(args.data.client_id)
+              if not client then return end
 
-                vim.api.nvim_create_autocmd('BufWritePre', {
-                  buffer = args.buf,
-                  callback = function()
-                    vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
-                  end
-                })
-              end
+              vim.api.nvim_create_autocmd('BufWritePre', {
+                buffer = args.buf,
+                callback = function()
+                  vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
+                end
+              })
+            end
           '';
         };
       }
