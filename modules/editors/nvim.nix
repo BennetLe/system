@@ -40,6 +40,7 @@
       lualine.enable = true;
       oil.enable = true;
       luasnip.enable = true;
+      blink-cmp.enable = true;
       guess-indent.enable = true;
       web-devicons.enable = true;
       undotree.enable = true;
@@ -117,7 +118,7 @@
       };
 
       cmp = {
-        enable = true;
+        enable = false;
         autoEnableSources = true;
         settings = {
           sources = [
@@ -189,6 +190,26 @@
       }
     ];
     autoCmd = [
+      {
+        event = [
+          "LspAttach"
+        ];
+        callback = {
+          __raw = ''
+              function(args)
+                local client = vim.lsp.get_client_by_id(args.data.client_id)
+                if not client then return end
+
+                vim.api.nvim_create_autocmd('BufWritePre', {
+                  buffer = args.buf,
+                  callback = function()
+                    vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
+                  end
+                })
+              end
+          '';
+        };
+      }
     ];
   };
 }
