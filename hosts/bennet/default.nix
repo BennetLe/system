@@ -14,5 +14,11 @@
       timeout = 5;
     };
   };
+  environment = {
+    systemPackages = with pkgs; [
+      gimp-with-plugins
+      darktable
+    ];
+  };
 
 }
