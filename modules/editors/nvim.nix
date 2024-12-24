@@ -18,7 +18,6 @@
         ]
       ))
       ripgrep
-      # zig
     ];
     variables = {
       PATH = "$HOME/.npm-packages/bin:$PATH";
@@ -39,38 +38,38 @@
     plugins = {
       lualine.enable = true;
       oil.enable = true;
-      luasnip.enable = true;
       friendly-snippets.enable = true;
+      luasnip.enable = true;
       guess-indent.enable = true;
       web-devicons.enable = true;
       undotree.enable = true;
       lsp-signature.enable = true;
       zig.enable = true;
 
-      # blink-cmp = {
-      #   enable = true;
-      #   settings = {
-      #     keymap = {
-      #       preset = "default";
-      #       "<Up>" = [
-      #         # "hide"
-      #         "fallback"
-      #       ];
-      #       "<Down>" = [
-      #         # "hide"
-      #         "fallback"
-      #       ];
-      #       highlight = {
-      #         use_nvim_cmp_as_default = true;
-      #       };
-      #       trigger = {
-      #         signature_help = {
-      #           enabled = true;
-      #         };
-      #       };
-      #     };
-      #   };
-      # };
+      blink-cmp = {
+        enable = true;
+        settings = {
+          keymap = {
+            preset = "default";
+            "<Up>" = [
+              # "hide"
+              "fallback"
+            ];
+            "<Down>" = [
+              # "hide"
+              "fallback"
+            ];
+            highlight = {
+              use_nvim_cmp_as_default = true;
+            };
+            trigger = {
+              signature_help = {
+                enabled = true;
+              };
+            };
+          };
+        };
+      };
 
       telescope = {
         enable = true;
@@ -123,14 +122,14 @@
         servers = {
           ts_ls.enable = true;
           lua_ls.enable = true;
-          rust_analyzer = {
-            enable = true;
-            installCargo = true;
-            installRustc = true;
-          };
           pyright.enable = true;
           nixd = {
             enable = true;
+          };
+          rust_analyzer = {
+            enable = true;
+            installCargo = false;
+            installRustc = false;
           };
           zls.enable = true;
         };
@@ -146,7 +145,7 @@
       };
 
       cmp = {
-        enable = true;
+        enable = false;
         autoEnableSources = true;
         settings = {
           sources = [
@@ -170,6 +169,17 @@
             "<C-y>" = "cmp.mapping.confirm({ select = true })";
             "<C-n>" = "cmp.mapping.select_next_item()";
             "<C-p>" = "cmp.mapping.select_prev_item()";
+            "<C-l>" = ''
+                cmp.mapping(function(fallback)
+                  vim.snippet.jump(1)
+              	end, { "i" })
+            '';
+            "<C-j>" = ''
+                cmp.mapping(function(fallback)
+                  vim.snippet.jump(-1)
+              	end, { "i" })
+            '';
+
             "<Up>" = ''
                 cmp.mapping(function(fallback)
               	cmp.close()
@@ -184,9 +194,9 @@
             '';
 
           };
-          experimental = {
-            ghost_text = true;
-          };
+          # experimental = {
+          #   ghost_text = true;
+          # };
         };
       };
     };
