@@ -220,9 +220,9 @@ in
       icu
       icu76
       nix-ld
+      inputs.hyprland-qtutils.packages."${pkgs.system}".default
     ];
   };
-
 
   programs = {
     hyprland.enable = true;

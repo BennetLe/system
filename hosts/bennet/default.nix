@@ -20,6 +20,7 @@
       darktable
       libreoffice-qt6-unwrapped
       joplin-desktop
+      vdhcoapp
     ];
   };
 

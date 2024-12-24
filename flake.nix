@@ -18,6 +18,8 @@
     nix-alien = {
       url = "github:thiagokokada/nix-alien";
     };
+
+    hyprland-qtutils.url = "github:hyprwm/hyprland-qtutils";
   };
 
   outputs =
@@ -27,6 +29,7 @@
       home-manager,
       nixvim,
       nix-alien,
+      hyprland-qtutils,
       ...
     }:
     let
@@ -54,6 +57,7 @@
             vars
             nixvim
             nix-alien
+            hyprland-qtutils
             ;
         }
       );
