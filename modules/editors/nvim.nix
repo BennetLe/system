@@ -45,6 +45,7 @@
       web-devicons.enable = true;
       undotree.enable = true;
       lsp-signature.enable = true;
+      zig.enable = true;
 
       # blink-cmp = {
       #   enable = true;
@@ -131,6 +132,7 @@
           nixd = {
             enable = true;
           };
+          zls.enable = true;
         };
 
         keymaps = {

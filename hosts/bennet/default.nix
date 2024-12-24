@@ -18,6 +18,8 @@
     systemPackages = with pkgs; [
       gimp-with-plugins
       darktable
+      libreoffice-qt6-unwrapped
+      joplin-desktop
     ];
   };
 
