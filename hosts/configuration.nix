@@ -221,6 +221,7 @@ in
       icu76
       nix-ld
       inputs.hyprland-qtutils.packages."${pkgs.system}".default
+      kdePackages.kcalc
     ];
   };
 
