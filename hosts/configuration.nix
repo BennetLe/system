@@ -285,6 +285,53 @@ in
     gvfs.enable = true;
     udisks2.enable = true;
     flatpak.enable = true;
+
+    udev = {
+      enable = true;
+      packages = with pkgs; [
+        via
+      ];
+      extraRules = ''
+        # CMSIS-DAP for microbit
+        ACTION!="add|change", GOTO="microbit_rules_end"
+        SUBSYSTEM=="usb", ATTR{idVendor}=="0d28", ATTR{idProduct}=="0204", TAG+="uaccess"
+        LABEL="microbit_rules_end"
+
+        # OnePlus
+        ACTION!="add|change", GOTO="oneplus_rules_end"
+        SUBSYSTEM=="usb", ATTR{idVendor}=="22d9", ATTR{idProduct}=="2769", MODE="0666", TAG+="uaccess"
+        LABEL="oneplus_rules_end"
+
+        # Nuphy Gem80
+        ACTION!="add|change", GOTO="nuphy_rules_end"
+        SUBSYSTEM=="usb", ATTR{idVendor}=="19f5", ATTR{idProduct}=="3275", TAG+="uaccess"
+        LABEL="nuphy_rules_end"
+
+        # Flipper Zero
+        ACTION!="add|change", GOTO="flipper_rules_end"
+        #Flipper Zero serial port
+        SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="5740", TAG+="uaccess", GROUP="dialout"
+        #Flipper Zero DFU
+        SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="df11", ATTRS{manufacturer}=="STMicroelectronics", TAG+="uaccess", GROUP="dialout"
+        #Flipper ESP32s2 BlackMagic
+        SUBSYSTEMS=="usb", ATTRS{idVendor}=="303a", ATTRS{idProduct}=="40??", ATTRS{manufacturer}=="Flipper Devices Inc.", TAG+="uaccess", GROUP="dialout"
+        #Flipper U2F
+        SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="5741", ATTRS{manufacturer}=="Flipper Devices Inc.", ENV{ID_SECURITY_TOKEN}="1"
+        SUBSYSTEMS=="usb", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="7523", TAG+="uaccess"
+        LABEL="flipper_rules_end"
+
+        # Vial Universal rule
+        KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
+
+        # Via rule
+        KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
+
+        # Cidooo V21 Pro rule
+        ACTION!="add|change", GOTO="cidooo_rules_end"
+        SUBSYSTEM=="usb", ATTRS{idVendor}=="320f", ATTRS{idProduct}=="5055", MODE="0666", TAG+="uaccess"
+        LABEL="cidooo_rules_end"
+      '';
+    };
   };
 
   nix = {
@@ -345,27 +392,4 @@ in
   # };
   # };
 
-  services.udev.extraRules = ''
-    # CMSIS-DAP for microbit
-        ACTION!="add|change", GOTO="microbit_rules_end"
-        SUBSYSTEM=="usb", ATTR{idVendor}=="0d28", ATTR{idProduct}=="0204", TAG+="uaccess"
-        LABEL="microbit_rules_end"
-        ACTION!="add|change", GOTO="oneplus_rules_end"
-        SUBSYSTEM=="usb", ATTR{idVendor}=="22d9", ATTR{idProduct}=="2769", MODE="0666", TAG+="uaccess"
-        LABEL="oneplus_rules_end"
-        ACTION!="add|change", GOTO="nuphy_rules_end"
-        SUBSYSTEM=="usb", ATTR{idVendor}=="19f5", ATTR{idProduct}=="3275", TAG+="uaccess"
-        LABEL="nuphy_rules_end"
-        ACTION!="add|change", GOTO="flipper_rules_end"
-    #Flipper Zero serial port
-        SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="5740", TAG+="uaccess", GROUP="dialout"
-    #Flipper Zero DFU
-        SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="df11", ATTRS{manufacturer}=="STMicroelectronics", TAG+="uaccess", GROUP="dialout"
-    #Flipper ESP32s2 BlackMagic
-        SUBSYSTEMS=="usb", ATTRS{idVendor}=="303a", ATTRS{idProduct}=="40??", ATTRS{manufacturer}=="Flipper Devices Inc.", TAG+="uaccess", GROUP="dialout"
-    #Flipper U2F
-        SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="5741", ATTRS{manufacturer}=="Flipper Devices Inc.", ENV{ID_SECURITY_TOKEN}="1"
-        SUBSYSTEMS=="usb", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="7523", TAG+="uaccess"
-        LABEL="flipper_rules_end"
-  '';
 }

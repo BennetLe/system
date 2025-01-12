@@ -21,7 +21,23 @@
       libreoffice-qt6-unwrapped
       joplin-desktop
       vdhcoapp
+      vial
+      numlockx
+      zed-editor
     ];
   };
 
+  services = {
+    openssh = {
+      enable = true;
+      ports = [ 22 ];
+      settings = {
+        PasswordAuthentication = true;
+        AllowUsers = [ "bennet" ];
+        UseDns = true;
+        X11Forwarding = false;
+        PermitRootLogin = "prohibit-password";
+      };
+    };
+  };
 }
