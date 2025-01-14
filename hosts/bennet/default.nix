@@ -24,6 +24,7 @@
       vial
       numlockx
       zed-editor
+      ollama
     ];
   };
 
