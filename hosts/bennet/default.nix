@@ -25,6 +25,7 @@
       numlockx
       zed-editor
       ollama
+      lsof
     ];
   };
 

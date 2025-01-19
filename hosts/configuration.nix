@@ -112,6 +112,7 @@ in
       prismlauncher
       wmctrl
       jre8
+      jdk17
       google-chrome
       obsidian
       cascadia-code
