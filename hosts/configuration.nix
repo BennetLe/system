@@ -30,6 +30,7 @@ in
       "audio"
       "lp"
       "scanner"
+      "docker"
     ];
     shell = pkgs.zsh;
   };
