@@ -26,6 +26,7 @@
       zed-editor
       ollama
       lsof
+      appimage-run
     ];
   };
 
