@@ -24,6 +24,7 @@ in
       "wheel"
       "audio"
       "plugdev"
+      "dialout"
       "input"
       "libvirtd"
       "video"
