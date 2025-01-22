@@ -10,10 +10,11 @@
 
     sessionVariables = {
       EDITOR = "nvim";
-      XDG_DATA_DIRS= "$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
+      XDG_DATA_DIRS = "$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
       PATH = "/home/bennet/.cargo/bin:$PATH";
       TERMINAL = "kitty";
       HYPRSHOT_DIR = "/home/bennet/Pictures/Hyprshot";
+      HSA_OVERRIDE_GFX_VERSION = "10.3.0";
     };
   };
 
@@ -36,7 +37,7 @@
     initExtra = ''
       # Set the directory we want to store zinit and plugins
       # ZINIT_HOME="''${XDG_DATA_HOME:-''${HOME}/.local/share}/zinit/zinit.git"
-      
+
       ZIM_HOME=~/.zim
 
       # Download Zinit, if it's not there yet
@@ -118,34 +119,34 @@
     enable = true;
     shellIntegration.mode = "zsh";
     settings = {
-        confirm_os_window_close = 0;
-        enable_audio_bell = false;
-        dynamic_background_opacity = true;
-        background_opacity = "0.75";
-        
-        # custom gruvbox theme with no bg and fg
-        selection_foreground = "#ebdbb2";
-        selection_background = "#d65d0e";
-        color0 = "#3c3836";
-        color1 = "#cc241d";
-        color2 = "#98971a";
-        color3 = "#d79921";
-        color4 = "#458588";
-        color5 = "#b16286";
-        color6 = "#689d6a";
-        color7 = "#a89984";
-        color8 = "#928374";
-        color9 = "#fb4934";
-        color10 = "#b8bb26";
-        color11 = "#fabd2f";
-        color12 = "#83a598";
-        color13 = "#d3869b";
-        color14 = "#8ec07c";
-        color15 = "#fbf1c7";
-        cursor = "#bdae93";
-        cursor_text_color = "#665c54";
-        url_color = "#458588";
-      };
+      confirm_os_window_close = 0;
+      enable_audio_bell = false;
+      dynamic_background_opacity = true;
+      background_opacity = "0.75";
+
+      # custom gruvbox theme with no bg and fg
+      selection_foreground = "#ebdbb2";
+      selection_background = "#d65d0e";
+      color0 = "#3c3836";
+      color1 = "#cc241d";
+      color2 = "#98971a";
+      color3 = "#d79921";
+      color4 = "#458588";
+      color5 = "#b16286";
+      color6 = "#689d6a";
+      color7 = "#a89984";
+      color8 = "#928374";
+      color9 = "#fb4934";
+      color10 = "#b8bb26";
+      color11 = "#fabd2f";
+      color12 = "#83a598";
+      color13 = "#d3869b";
+      color14 = "#8ec07c";
+      color15 = "#fbf1c7";
+      cursor = "#bdae93";
+      cursor_text_color = "#665c54";
+      url_color = "#458588";
+    };
   };
 
   services.mako = {
@@ -164,19 +165,19 @@
     font = "monospace 14";
 
     extraConfig = ''
-    [urgency=low]
-    border-color=#33ccff
+      [urgency=low]
+      border-color=#33ccff
 
-    [urgency=normal]
-    border-color=#d08770
+      [urgency=normal]
+      border-color=#d08770
 
-    [urgency=high]
-    border-color=#bf616a
-    default-timeout=0
+      [urgency=high]
+      border-color=#bf616a
+      default-timeout=0
 
-    [category=mdp]
-    default-timeout=2000
-    group-by=category
+      [category=mdp]
+      default-timeout=2000
+      group-by=category
     '';
   };
 

@@ -25,6 +25,7 @@
       numlockx
       zed-editor
       ollama-rocm
+      alpaca
       lsof
       appimage-run
     ];
