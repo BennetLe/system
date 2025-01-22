@@ -28,6 +28,7 @@
       alpaca
       lsof
       appimage-run
+      rocmPackages.rocminfo
     ];
   };
 
