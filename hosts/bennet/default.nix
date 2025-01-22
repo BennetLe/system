@@ -24,7 +24,7 @@
       vial
       numlockx
       zed-editor
-      ollama
+      ollama-rocm
       lsof
       appimage-run
     ];
