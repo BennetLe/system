@@ -226,6 +226,9 @@ in
       inputs.hyprland-qtutils.packages."${pkgs.system}".default
       kdePackages.kcalc
       xwayland
+      (callPackage ./../pkgs/sddm-astronaut-theme.nix {
+        theme = "post-apocalyptic_hacker";
+      })
     ];
   };
 
@@ -241,6 +244,16 @@ in
     gamemode.enable = true;
     neovim.defaultEditor = true;
     nix-ld.enable = true;
+    uwsm = {
+      enable = true;
+      waylandCompositors = {
+        hyprland = {
+          prettyName = "Hyprland";
+          comment = "Hyprland compositor manager by UWSM";
+          binPath = "/run/current-system/sw/bin/Hyprland";
+        };
+      };
+    };
   };
 
   hardware = {
@@ -270,9 +283,19 @@ in
       xkb.layout = "us";
       xkb.variant = "";
       displayManager = {
-        gdm = {
-          enable = true;
-          wayland = true;
+        # gdm = {
+        #   enable = true;
+        #   wayland = true;
+        # };
+        sddm = {
+          enable = true; # Enable SDDM.
+          extraPackages = with pkgs; [
+            kdePackages.qtsvg
+            kdePackages.qtmultimedia
+            kdePackages.qtvirtualkeyboard
+          ];
+          wayland.enable = true;
+          theme = "sddm-astronaut-theme";
         };
       };
     };
