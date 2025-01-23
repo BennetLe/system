@@ -227,7 +227,7 @@ in
       kdePackages.kcalc
       xwayland
       (callPackage ./../pkgs/sddm-astronaut-theme.nix {
-        theme = "post-apocalyptic_hacker";
+        theme = "astronaut";
       })
     ];
   };
@@ -275,6 +275,21 @@ in
 
     displayManager = {
       defaultSession = "hyprland";
+      sddm = {
+        enable = true; # Enable SDDM.
+        extraPackages = with pkgs; [
+          kdePackages.qtsvg
+          kdePackages.qtmultimedia
+          kdePackages.qtvirtualkeyboard
+        ];
+        wayland.enable = true;
+        theme = "sddm-astronaut-theme";
+        settings = {
+          Display = {
+            PrimaryMonitor = "DP-1";
+          };
+        };
+      };
     };
 
     desktopManager.plasma6.enable = true;
@@ -283,20 +298,13 @@ in
       xkb.layout = "us";
       xkb.variant = "";
       displayManager = {
+        setupCommands = ''
+          xrandr --output DP-1 --primary --auto
+        '';
         # gdm = {
         #   enable = true;
         #   wayland = true;
         # };
-        sddm = {
-          enable = true; # Enable SDDM.
-          extraPackages = with pkgs; [
-            kdePackages.qtsvg
-            kdePackages.qtmultimedia
-            kdePackages.qtvirtualkeyboard
-          ];
-          wayland.enable = true;
-          theme = "sddm-astronaut-theme";
-        };
       };
     };
     blueman.enable = true;
