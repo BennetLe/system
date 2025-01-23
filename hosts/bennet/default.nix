@@ -24,7 +24,6 @@
       vial
       numlockx
       zed-editor
-      ollama-rocm
       alpaca
       lsof
       appimage-run
@@ -43,6 +42,14 @@
         X11Forwarding = false;
         PermitRootLogin = "prohibit-password";
       };
+    };
+    ollama = {
+      enable = true;
+      acceleration = "rocm";
+      environmentVariables = {
+        HCC_AMDGPU_TARGET = "gfx1030";
+      };
+      rocmOverrideGfx = "10.3.0";
     };
   };
   virtualisation = {

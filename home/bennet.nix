@@ -14,7 +14,6 @@
       PATH = "/home/bennet/.cargo/bin:$PATH";
       TERMINAL = "kitty";
       HYPRSHOT_DIR = "/home/bennet/Pictures/Hyprshot";
-      HSA_OVERRIDE_GFX_VERSION = "10.3.0";
     };
   };
 
