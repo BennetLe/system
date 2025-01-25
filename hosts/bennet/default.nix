@@ -28,6 +28,7 @@
       lsof
       appimage-run
       rocmPackages.rocminfo
+      tor-browser
     ];
   };
 
