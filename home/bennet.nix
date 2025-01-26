@@ -187,6 +187,25 @@
       timeout-low = 2;
       timeout-critical = 0;
     };
+    style = ''
+      /* Low priority notifications */
+      .notification.low {
+          border-left: 4px solid #8ec07c; /* Green accent */
+          background-color: #1d2021;      /* Optional background */
+      }
+
+      /* Normal priority notifications */
+      .notification.normal {
+          border-left: 4px solid #d79921; /* Yellow accent */
+          background-color: #282828;      /* Optional background */
+      }
+
+      /* Critical priority notifications */
+      .notification.critical {
+          border-left: 4px solid #fb4934; /* Red accent */
+          background-color: #3c3836;      /* Optional background */
+      }
+    '';
   };
 
   programs.home-manager.enable = true;
