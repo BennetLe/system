@@ -216,7 +216,12 @@
       wrap = false;
       scrolloff = 25;
       spell = false;
-      spelllang = [ "en" ];
+      spelllang = [
+        "en"
+        "de"
+      ];
+      ignorecase = true;
+      smartcase = true;
     };
 
     clipboard = {
