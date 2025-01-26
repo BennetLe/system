@@ -180,6 +180,15 @@
   #   '';
   # };
 
+  services.swaync = {
+    enable = true;
+    settings = {
+      timeout = 5;
+      timeout-low = 2;
+      timeout-critical = 0;
+    };
+  };
+
   programs.home-manager.enable = true;
 
   nixpkgs.config.allowUnfree = true;

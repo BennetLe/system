@@ -228,7 +228,6 @@ in
       (callPackage ./../pkgs/sddm-astronaut-theme.nix {
         theme = "astronaut";
       })
-      swaynotificationcenter
     ];
   };
 
