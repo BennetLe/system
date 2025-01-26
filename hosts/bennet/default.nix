@@ -29,6 +29,7 @@
       appimage-run
       rocmPackages.rocminfo
       tor-browser
+      texliveFull
     ];
   };
 

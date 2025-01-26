@@ -269,6 +269,18 @@ in
     xserver.videoDrivers = [ "amdgpu" ];
     printing = {
       enable = true;
+      drivers = with pkgs; [
+        gutenprint
+        hplip
+        splix
+        canon-cups-ufr2
+        ijs
+      ];
+    };
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
     };
     libinput.enable = true;
 
