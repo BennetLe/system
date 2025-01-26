@@ -148,37 +148,37 @@
     };
   };
 
-  services.mako = {
-    enable = true;
-    sort = "-time";
-    layer = "overlay";
-    backgroundColor = "#2e3440";
-    width = 300;
-    height = 110;
-    borderSize = 2;
-    borderColor = "#33ccff";
-    borderRadius = 15;
-    maxIconSize = 64;
-    defaultTimeout = 4000;
-    ignoreTimeout = true;
-    font = "monospace 14";
-
-    extraConfig = ''
-      [urgency=low]
-      border-color=#33ccff
-
-      [urgency=normal]
-      border-color=#d08770
-
-      [urgency=high]
-      border-color=#bf616a
-      default-timeout=0
-
-      [category=mdp]
-      default-timeout=2000
-      group-by=category
-    '';
-  };
+  # services.mako = {
+  #   enable = true;
+  #   sort = "-time";
+  #   layer = "overlay";
+  #   backgroundColor = "#2e3440";
+  #   width = 300;
+  #   height = 110;
+  #   borderSize = 2;
+  #   borderColor = "#33ccff";
+  #   borderRadius = 15;
+  #   maxIconSize = 64;
+  #   defaultTimeout = 4000;
+  #   ignoreTimeout = true;
+  #   font = "monospace 14";
+  #
+  #   extraConfig = ''
+  #     [urgency=low]
+  #     border-color=#33ccff
+  #
+  #     [urgency=normal]
+  #     border-color=#d08770
+  #
+  #     [urgency=high]
+  #     border-color=#bf616a
+  #     default-timeout=0
+  #
+  #     [category=mdp]
+  #     default-timeout=2000
+  #     group-by=category
+  #   '';
+  # };
 
   programs.home-manager.enable = true;
 

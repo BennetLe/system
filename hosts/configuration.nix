@@ -96,7 +96,6 @@ in
       (waybar.overrideAttrs (oldAttrs: {
         mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
       }))
-      mako
       libnotify
       swww
       rofi-wayland
