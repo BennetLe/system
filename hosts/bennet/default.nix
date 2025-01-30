@@ -30,6 +30,7 @@
       rocmPackages.rocminfo
       tor-browser
       texliveFull
+      protontricks
     ];
   };
 
