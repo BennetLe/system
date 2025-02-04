@@ -34,12 +34,13 @@
 
       # VM
       qemu_full
+      qemu
       libvirt
       virt-manager
       looking-glass-client
       virtio-win
       kvmtool
-      libguestfs
+      libguestfs-with-appliance
       dmg2img
       tesseract
       nettools

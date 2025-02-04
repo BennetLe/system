@@ -417,6 +417,7 @@ in
     libvirtd = {
       enable = true;
       qemu = {
+        package = pkgs.qemu_full;
         ovmf.enable = true;
         swtpm.enable = true;
       };
