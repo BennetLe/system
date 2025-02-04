@@ -27,6 +27,7 @@ in
       "dialout"
       "input"
       "libvirtd"
+      "kvm"
       "video"
       "audio"
       "lp"
