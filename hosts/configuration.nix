@@ -397,7 +397,12 @@ in
     '';
   };
   nixpkgs = {
-    config.allowUnfree = true;
+    config = {
+      allowUnfree = true;
+      permittedInsecurePackages = [
+        "dotnet-runtime-7.0.20"
+      ];
+    };
 
     overlays = [
       inputs.nix-alien.overlays.default

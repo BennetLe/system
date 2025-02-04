@@ -31,6 +31,7 @@
       tor-browser
       texliveFull
       protontricks
+      btop-rocm
 
       # VM
       qemu_full
@@ -45,7 +46,8 @@
       tesseract
       nettools
 
-      btop-rocm
+      # Games
+      vintagestory
     ];
   };
 
