@@ -154,13 +154,7 @@ in
       r2modman
       qFlipper
       hyprshot
-      qemu
-      libvirt
-      qemu_kvm
       iproute2
-      kvmtool
-      virt-manager
-      virtio-win
       spice-vdagent
       spice
       desmume

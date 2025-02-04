@@ -265,6 +265,14 @@
         ];
 
       };
+      harpoon = {
+        enable = true;
+        enableTelescope = true;
+        keymaps = {
+          addFile = "<leader>ha";
+          toggleQuickMenu = "<leader>hf";
+        };
+      };
     };
 
     colorschemes.gruvbox.enable = true;

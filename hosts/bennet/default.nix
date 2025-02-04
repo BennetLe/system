@@ -31,6 +31,14 @@
       tor-browser
       texliveFull
       protontricks
+
+      # VM
+      qemu_full
+      libvirt
+      virt-manager
+      looking-glass-client
+      virtio-win
+      kvmtool
     ];
   };
 
