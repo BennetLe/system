@@ -39,6 +39,10 @@
       looking-glass-client
       virtio-win
       kvmtool
+      libguestfs
+      dmg2img
+      tesseract
+      nettools
 
       btop-rocm
     ];
