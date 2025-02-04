@@ -39,6 +39,8 @@
       looking-glass-client
       virtio-win
       kvmtool
+
+      btop-rocm
     ];
   };
 
