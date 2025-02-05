@@ -33,6 +33,7 @@ in
       "lp"
       "scanner"
       "docker"
+      "disk"
     ];
     shell = pkgs.zsh;
   };

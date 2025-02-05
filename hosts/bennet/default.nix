@@ -32,6 +32,7 @@
       texliveFull
       protontricks
       btop-rocm
+      vivaldi
 
       # VM
       qemu_full
