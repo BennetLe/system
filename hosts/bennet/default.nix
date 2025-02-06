@@ -33,6 +33,7 @@
       protontricks
       btop-rocm
       vivaldi
+      brave
 
       # VM
       qemu_full
