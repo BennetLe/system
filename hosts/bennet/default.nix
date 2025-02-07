@@ -91,4 +91,11 @@
       });
     })
   ];
+  networking = {
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [ 42420 ];
+      allowedUDPPorts = [ 42420 ];
+    };
+  };
 }
