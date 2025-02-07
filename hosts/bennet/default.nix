@@ -34,6 +34,7 @@
       btop-rocm
       vivaldi
       brave
+      cloudflared
 
       # VM
       qemu_full
