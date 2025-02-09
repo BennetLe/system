@@ -56,7 +56,14 @@ in
 
   console.keyMap = "us";
 
-  security.rtkit.enable = true;
+  security = {
+    rtkit.enable = true;
+    pam = {
+      services.kwallet.enableKwallet = true;
+      services.login.enableKwallet = true;
+      services.sddm.enableKwallet = true;
+    };
+  };
 
   fonts.packages = with pkgs; [
     carlito # NixOS
@@ -237,6 +244,12 @@ in
     steam = {
       enable = true;
       gamescopeSession.enable = true;
+    };
+    gamescope = {
+      enable = true;
+      package = pkgs.gamescope.overrideAttrs (_: {
+        NIX_CFLAGS_COMPILE = [ "-fno-fast-math" ];
+      });
     };
     gamemode.enable = true;
     neovim.defaultEditor = true;
