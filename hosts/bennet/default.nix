@@ -35,6 +35,7 @@
       vivaldi
       brave
       cloudflared
+      nmap
 
       # VM
       qemu_full
