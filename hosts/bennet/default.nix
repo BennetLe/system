@@ -49,6 +49,9 @@
       dmg2img
       tesseract
       nettools
+      spice
+      spice-vdagent
+      virt-viewer
 
       # Games
       vintagestory
