@@ -36,6 +36,9 @@
       brave
       cloudflared
       nmap
+      sqlite-web
+      gnupg
+      encfs
 
       # VM
       qemu_full
