@@ -39,6 +39,7 @@
       sqlite-web
       gnupg
       encfs
+      unzip
 
       # VM
       qemu_full
