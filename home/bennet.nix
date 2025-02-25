@@ -9,7 +9,7 @@
     };
 
     sessionVariables = {
-      EDITOR = "nvim";
+      EDITOR = "vim";
       XDG_DATA_DIRS = "$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
       PATH = "/home/bennet/.cargo/bin:$PATH";
       TERMINAL = "kitty";
@@ -25,6 +25,9 @@
       cls = "clear";
       cat = "bat";
       s = "kitten ssh";
+
+      vi = "vim";
+      nvim = "vim";
 
       update = "nixos-rebuild switch --use-remote-sudo --flake /home/bennet/system#bennet";
       config = "nvim /home/bennet/system/flake.nix";

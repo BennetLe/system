@@ -82,6 +82,10 @@
       };
       rocmOverrideGfx = "10.3.0";
     };
+    monado = {
+      enable = true;
+      defaultRuntime = true;
+    };
   };
   virtualisation = {
     docker = {
@@ -105,5 +109,9 @@
       allowedTCPPorts = [ 42420 ];
       allowedUDPPorts = [ 42420 ];
     };
+  };
+  systemd.user.services.monado.environment = {
+    STEAMVR_LH_ENABLE = "1";
+    XRT_COMPOSITOR_COMPUTE = "1";
   };
 }

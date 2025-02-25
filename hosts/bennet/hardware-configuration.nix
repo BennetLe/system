@@ -1,30 +1,47 @@
-{ config, lib, pkgs, modulesPath, var, host, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  modulesPath,
+  var,
+  host,
+  ...
+}:
 
 {
-  imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
-    ];
-  
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "sd_mod" ];
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
+  ];
+
+  boot.initrd.availableKernelModules = [
+    "nvme"
+    "xhci_pci"
+    "ahci"
+    "usbhid"
+    "sd_mod"
+  ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/666fa37c-dcbb-41b2-b2ac-65788c40413e";
-      fsType = "ext4";
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/666fa37c-dcbb-41b2-b2ac-65788c40413e";
+    fsType = "ext4";
+  };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/6431-A63D";
-      fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/6431-A63D";
+    fsType = "vfat";
+    options = [
+      "fmask=0022"
+      "dmask=0022"
+    ];
+  };
 
-  fileSystems."/media/IronWolf" =
-    { device = "/dev/disk/by-uuid/cf4ca41c-5e7c-41fa-8788-38880f125c09";
-      fsType = "ext4";
-    };
+  fileSystems."/media/IronWolf" = {
+    device = "/dev/disk/by-uuid/cf4ca41c-5e7c-41fa-8788-38880f125c09";
+    fsType = "ext4";
+  };
 
   swapDevices = [ ];
 
@@ -38,4 +55,5 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.steam-hardware.enable = true;
 }

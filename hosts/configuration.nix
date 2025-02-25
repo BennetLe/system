@@ -252,7 +252,8 @@ in
       });
     };
     gamemode.enable = true;
-    neovim.defaultEditor = true;
+    # neovim.defaultEditor = true;
+    vim.defaultEditor = true;
     nix-ld.enable = true;
     uwsm = {
       enable = true;
@@ -284,7 +285,7 @@ in
         gutenprint
         hplip
         splix
-        canon-cups-ufr2
+        # canon-cups-ufr2
         ijs
       ];
     };
@@ -329,6 +330,7 @@ in
         # };
       };
     };
+
     blueman.enable = true;
     pipewire = {
       enable = true;
