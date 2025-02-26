@@ -26,9 +26,6 @@
       cat = "bat";
       s = "kitten ssh";
 
-      vi = "vim";
-      nvim = "vim";
-
       update = "nixos-rebuild switch --use-remote-sudo --flake /home/bennet/system#bennet";
       config = "nvim /home/bennet/system/flake.nix";
       home-update = "/home/bennet/system/home.sh";
@@ -37,6 +34,7 @@
     };
 
     initExtra = ''
+      export PATH="/home/bennet/.nix-profile/bin:$PATH"
       # Set the directory we want to store zinit and plugins
       # ZINIT_HOME="''${XDG_DATA_HOME:-''${HOME}/.local/share}/zinit/zinit.git"
 
@@ -114,6 +112,9 @@
       eval "$(fzf --zsh)"
       eval "$(zoxide init --cmd cd zsh)"
       eval "$(direnv hook zsh)"
+
+      # remove dulicate PATH Varaibles
+      export PATH=$(echo "$PATH" | tr ':' '\n' | awk '!a[$0]++' | tr '\n' ':')
     '';
   };
 

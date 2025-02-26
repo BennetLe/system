@@ -59,9 +59,9 @@ in
   security = {
     rtkit.enable = true;
     pam = {
-      services.kwallet.enableKwallet = true;
-      services.login.enableKwallet = true;
-      services.sddm.enableKwallet = true;
+      # services.kwallet.enableKwallet = true;
+      # services.login.enableKwallet = true;
+      # services.sddm.enableKwallet = true;
     };
   };
 
@@ -227,7 +227,7 @@ in
       nix-ld
       inputs.hyprland-qtutils.packages."${pkgs.system}".default
       kdePackages.kcalc
-      kdePackages.kwallet-pam
+      # kdePackages.kwallet-pam
       xwayland
       (callPackage ./../pkgs/sddm-astronaut-theme.nix {
         theme = "astronaut";
@@ -253,7 +253,6 @@ in
     };
     gamemode.enable = true;
     # neovim.defaultEditor = true;
-    vim.defaultEditor = true;
     nix-ld.enable = true;
     uwsm = {
       enable = true;

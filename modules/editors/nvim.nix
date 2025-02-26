@@ -30,6 +30,7 @@
     enableMan = false;
     viAlias = true;
     vimAlias = true;
+    defaultEditor = true;
 
     diagnostics = {
       update_in_insert = true;

@@ -20,6 +20,8 @@
     };
 
     hyprland-qtutils.url = "github:hyprwm/hyprland-qtutils";
+
+    nvf.url = "github:notashelf/nvf";
   };
 
   outputs =
@@ -30,6 +32,7 @@
       nixvim,
       nix-alien,
       hyprland-qtutils,
+      nvf,
       ...
     }:
     let
@@ -58,6 +61,7 @@
             nixvim
             nix-alien
             hyprland-qtutils
+            nvf
             ;
         }
       );
