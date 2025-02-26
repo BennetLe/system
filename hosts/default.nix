@@ -1,4 +1,12 @@
-{ inputs, nixpkgs, home-manager, vars, nixvim, ... }:
+{
+  inputs,
+  nixpkgs,
+  home-manager,
+  vars,
+  nixvim,
+  nvf,
+  ...
+}:
 
 let
   system = "x86_64-linux";
@@ -23,13 +31,14 @@ in
     };
     modules = [
       nixvim.nixosModules.nixvim
+      nvf.nixosModules.default
       ./bennet
       ./configuration.nix
 
       home-manager.nixosModules.home-manager
       {
         home-manager.useGlobalPkgs = true;
-	home-manager.useUserPackages = true;
+        home-manager.useUserPackages = true;
       }
     ];
   };

@@ -26,7 +26,7 @@
   };
 
   programs.nixvim = {
-    enable = true;
+    enable = false;
     enableMan = false;
     viAlias = true;
     vimAlias = true;

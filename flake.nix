@@ -21,7 +21,10 @@
 
     hyprland-qtutils.url = "github:hyprwm/hyprland-qtutils";
 
-    nvf.url = "github:notashelf/nvf";
+    nvf = {
+        url = "github:notashelf/nvf";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -40,7 +43,7 @@
         user = "bennet";
         localtion = "$HOME/system";
         terminal = "kitty";
-        editor = "nvim";
+        editor = "vim";
       };
       system = "x86_64-linux";
       pkgs = import nixpkgs {
