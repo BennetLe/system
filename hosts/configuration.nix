@@ -233,6 +233,7 @@ in
         theme = "astronaut";
       })
       rpi-imager
+      hyprpolkitagent
     ];
   };
 
