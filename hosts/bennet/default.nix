@@ -16,30 +16,17 @@
   };
   environment = {
     systemPackages = with pkgs; [
-      gimp-with-plugins
-      darktable
-      libreoffice-qt6-unwrapped
       joplin-desktop
       vdhcoapp
       vial
-      numlockx
-      zed-editor
       alpaca
-      lsof
-      appimage-run
       rocmPackages.rocminfo
       tor-browser
-      texliveFull
-      protontricks
       btop-rocm
       vivaldi
-      brave
       cloudflared
       nmap
       sqlite-web
-      gnupg
-      encfs
-      unzip
 
       # VM
       qemu_full
@@ -59,6 +46,15 @@
 
       # Games
       vintagestory
+      protonup
+      atlauncher
+      prismlauncher
+      heroic
+      lutris-unwrapped
+      r2modman
+      melonDS
+      protonup-qt
+      protontricks
     ];
   };
 

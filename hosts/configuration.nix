@@ -117,16 +117,12 @@ in
       spotify
       neofetch
       dbus
-      protonup
-      atlauncher
-      prismlauncher
       wmctrl
       jre8
       jdk17
       google-chrome
       obsidian
       cascadia-code
-      heroic
       wineWowPackages.stable
       winetricks
       wineWowPackages.waylandFull
@@ -159,8 +155,6 @@ in
       bat
       strawberry
       p7zip
-      lutris-unwrapped
-      r2modman
       qFlipper
       hyprshot
       iproute2
@@ -169,12 +163,10 @@ in
       desmume
       jetbrains.idea-ultimate
       jdt-language-server
-      melonDS
       waydroid
       burpsuite
       chromium
       bottles
-      protonup-qt
       anki
       nextcloud-client
       mangohud
@@ -222,18 +214,28 @@ in
       nixfmt-rfc-style
       htop
       nix-alien
-      icu
       icu76
       nix-ld
       inputs.hyprland-qtutils.packages."${pkgs.system}".default
       kdePackages.kcalc
-      # kdePackages.kwallet-pam
+      kdePackages.kwallet-pam
       xwayland
       (callPackage ./../pkgs/sddm-astronaut-theme.nix {
         theme = "astronaut";
       })
       rpi-imager
       hyprpolkitagent
+      libreoffice-qt6-unwrapped
+      gimp-with-plugins
+      darktable
+      numlockx
+      lsof
+      appimage-run
+      texliveFull
+      brave
+      gnupg
+      encfs
+      unzip
     ];
   };
 
