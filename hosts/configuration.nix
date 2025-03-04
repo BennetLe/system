@@ -236,6 +236,7 @@ in
       gnupg
       encfs
       unzip
+      gnumake
     ];
   };
 
