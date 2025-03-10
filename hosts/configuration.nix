@@ -237,6 +237,7 @@ in
       encfs
       unzip
       gnumake
+      solaar
     ];
   };
 
