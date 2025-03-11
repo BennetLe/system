@@ -238,6 +238,7 @@ in
       unzip
       gnumake
       solaar
+      nixd
     ];
   };
 
