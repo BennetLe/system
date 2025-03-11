@@ -398,6 +398,9 @@ in
         ACTION!="add|change", GOTO="cidooo_rules_end"
         SUBSYSTEM=="usb", ATTRS{idVendor}=="320f", ATTRS{idProduct}=="5055", MODE="0666", TAG+="uaccess"
         LABEL="cidooo_rules_end"
+
+        # Solaar
+        KERNEL=="uinput", GROUP="input", MODE="0660"
       '';
     };
   };

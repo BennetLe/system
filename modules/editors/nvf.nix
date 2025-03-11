@@ -12,6 +12,16 @@
         viAlias = true;
         vimAlias = true;
 
+        spellcheck = {
+          languages = [
+            "en"
+            "de"
+          ];
+        };
+
+        searchCase = "smart";
+        useSystemClipboard = true;
+
         theme = {
           enable = true;
           name = "gruvbox";
