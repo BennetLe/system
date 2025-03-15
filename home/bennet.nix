@@ -196,10 +196,10 @@
       exec-once = [
         "hyprctl dispatch workspace 1 &"
         "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-        "~/.config/hypr/scripts/screensharing.sh"
         "systemctl --user start hyprpolkitagent"
         "hyprctl setcursors Sweet-cursor 24"
-        "~/.config/hypr/scripts/start.sh"
+        "~/.local/scripts/hypr/screensharing.sh"
+        "~/.local/scripts/hypr/start.sh"
       ];
 
       env = [
