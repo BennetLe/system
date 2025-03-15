@@ -174,15 +174,15 @@
         "hyprctl dispatch workspace 1 &"
         "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "systemctl --user start hyprpolkitagent"
-        "hyprctl setcursors Sweet-cursor 24"
+        # "hyprctl setcursors Sweet-cursor 24"
         "~/.local/scripts/hypr/screensharing.sh"
         "~/.local/scripts/hypr/start.sh"
       ];
 
       env = [
-        "XCURSOR_SIZE,24"
-        "HYPRCURSOR_SIZE,24"
-        "HYPRCURSOR_THEME,Sweet-cursors"
+        # "XCURSOR_SIZE,24"
+        # "HYPRCURSOR_SIZE,24"
+        # "HYPRCURSOR_THEME,Sweet-cursors"
         "XDG_SESSION_TYPE,wayland"
         "XDG_CURRENT_DESKTOP,Hyprland"
         "MOZ_ENABLE_WAYLAND,1"
