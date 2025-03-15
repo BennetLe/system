@@ -25,6 +25,8 @@
         url = "github:notashelf/nvf";
         inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    stylix.url = "github:danth/stylix";
   };
 
   outputs =
@@ -36,6 +38,7 @@
       nix-alien,
       hyprland-qtutils,
       nvf,
+      stylix,
       ...
     }:
     let
@@ -65,22 +68,23 @@
             nix-alien
             hyprland-qtutils
             nvf
+            stylix
             ;
         }
       );
 
-      homeConfigurations."bennet" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.${system};
-        modules = [
-          ./home/bennet.nix
-          {
-            home = {
-              username = "${vars.user}";
-              homeDirectory = "/home/${vars.user}";
-              stateVersion = "24.05";
-            };
-          }
-        ];
-      };
+      # homeConfigurations."bennet" = home-manager.lib.homeManagerConfiguration {
+      #   pkgs = nixpkgs.legacyPackages.${system};
+      #   modules = [
+      #     ./home/bennet.nix
+      #     {
+      #       home = {
+      #         username = "${vars.user}";
+      #         homeDirectory = "/home/${vars.user}";
+      #         stateVersion = "24.05";
+      #       };
+      #     }
+      #   ];
+      # };
     };
 }

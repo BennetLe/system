@@ -22,11 +22,11 @@
         searchCase = "smart";
         useSystemClipboard = true;
 
-        theme = {
-          enable = true;
-          name = "gruvbox";
-          style = "dark";
-        };
+        # theme = {
+        #   enable = true;
+        #   name = "gruvbox";
+        #   style = "dark";
+        # };
 
         visuals = {
           nvim-web-devicons.enable = true;

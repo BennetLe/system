@@ -25,8 +25,6 @@ in
       inherit inputs system vars;
       host = {
         hostName = "bennet";
-        mainMonitor = "DP-2";
-        secondMonitor = "DP-1";
       };
     };
     modules = [
@@ -35,10 +33,13 @@ in
       ./bennet
       ./configuration.nix
 
+      inputs.stylix.nixosModules.stylix
+
       home-manager.nixosModules.home-manager
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
+        home-manager.backupFileExtension = ".old";
       }
     ];
   };

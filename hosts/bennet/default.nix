@@ -1,9 +1,16 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports = [
     ./hardware-configuration.nix
   ];
+
+  home-manager = {
+    extraSpecialArgs = {inherit inputs; };
+    users = {
+      bennet = import ../../home/bennet.nix;
+    };
+  };
 
   boot = {
     loader = {

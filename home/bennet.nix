@@ -2,6 +2,9 @@
 
 {
   home = {
+    username = "bennet";
+    homeDirectory = "/home/bennet";
+    stateVersion = "24.05";
     packages = [
     ];
 
@@ -28,8 +31,6 @@
 
       update = "nixos-rebuild switch --use-remote-sudo --flake /home/bennet/system#bennet";
       config = "nvim /home/bennet/system/flake.nix";
-      home-update = "/home/bennet/system/home.sh";
-      home-config = "nvim /home/bennet/system/home/bennet.nix";
       changewp = "swww img";
     };
 
@@ -125,30 +126,6 @@
       confirm_os_window_close = 0;
       enable_audio_bell = false;
       dynamic_background_opacity = true;
-      background_opacity = "0.75";
-
-      # custom gruvbox theme with no bg and fg
-      selection_foreground = "#ebdbb2";
-      selection_background = "#d65d0e";
-      color0 = "#3c3836";
-      color1 = "#cc241d";
-      color2 = "#98971a";
-      color3 = "#d79921";
-      color4 = "#458588";
-      color5 = "#b16286";
-      color6 = "#689d6a";
-      color7 = "#a89984";
-      color8 = "#928374";
-      color9 = "#fb4934";
-      color10 = "#b8bb26";
-      color11 = "#fabd2f";
-      color12 = "#83a598";
-      color13 = "#d3869b";
-      color14 = "#8ec07c";
-      color15 = "#fbf1c7";
-      cursor = "#bdae93";
-      cursor_text_color = "#665c54";
-      url_color = "#458588";
     };
   };
 
@@ -237,7 +214,6 @@
           enabled = true;
           range = 4;
           render_power = 3;
-          color = "rgba(1a1a1aee)";
         };
 
         blur = {
@@ -431,9 +407,6 @@
         dots_size = 0.2;
         dots_spacing = 0.15;
         dots_center = true;
-        outer_color = "rgb(126, 247, 138)";
-        inner_color = "rgb(0, 0, 0)";
-        font_color = "rgb(126, 247, 138)";
         fade_on_empty = true;
         placeholder_text = "<i>Password...</i>";
         hide_input = false;
@@ -529,13 +502,14 @@
     enable = true;
     prefix = "C-Space";
 
-    shell = "zsh";
+    # shell = "\${pkgs.zsh}/bin/zsh";
     mouse = true;
     clock24 = true;
     keyMode = "vi";
     shortcut = "Space";
-    terminal = ",xterm*:Tc";
     extraConfig = ''
+      set-option -sa terminal-overrides ",xterm*:Tc"
+
       set -g base-index 1
       set -g pane-base-index 1
       set-window-option -g pane-base-index 1
@@ -569,5 +543,5 @@
 
   programs.home-manager.enable = true;
 
-  nixpkgs.config.allowUnfree = true;
+  # nixpkgs.config.allowUnfree = true;
 }

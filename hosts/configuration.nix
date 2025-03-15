@@ -11,7 +11,8 @@ let
   terminal = pkgs.${vars.terminal};
 in
 {
-  imports = (import ../modules/editors);
+  imports = (import ../modules/editors) ++
+    (import ../modules/themes);
 
   boot = {
   };
