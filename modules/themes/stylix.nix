@@ -28,6 +28,10 @@
         package = pkgs.dejavu_fonts;
         name = "DejaVu Serif";
       };
+      emoji = {
+        package = pkgs.nerd-fonts.jetbrains-mono;
+        name = "JetBrainsMono Nerd Font Mono";
+      };
 
       sizes = {
         applications = 12;
