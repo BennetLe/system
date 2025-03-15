@@ -525,16 +525,47 @@
     };
   };
 
-  # programs.tmux = {
-  #   enable = true;
-  #   prefix = "C-Space";
-  #
-  #   plugins = with pkgs; [
-  #     {
-  #
-  #     }
-  #   ];
-  # };
+  programs.tmux = {
+    enable = true;
+    prefix = "C-Space";
+
+    shell = "zsh";
+    mouse = true;
+    clock24 = true;
+    keyMode = "vi";
+    shortcut = "Space";
+    terminal = ",xterm*:Tc";
+    extraConfig = ''
+      set -g base-index 1
+      set -g pane-base-index 1
+      set-window-option -g pane-base-index 1
+      set-option -g renumber-windows on
+
+      bind -n M-H previous-window
+      bind -n M-L next-window
+
+      bind-key -T copy-mode-vi v send-keys -X begin-selection
+      bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
+      bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+      bind-key -r i run-shell "tmux neww ~/.local/scripts/tmux-cht.sh"
+    '';
+
+    plugins = with pkgs; [
+      {
+        plugin = tmuxPlugins.gruvbox;
+        extraConfig = "set -g @tmux-gruvbox 'dark'";
+      }
+      {
+        plugin = tmuxPlugins.sensible;
+      }
+      {
+        plugin = tmuxPlugins.yank;
+      }
+      {
+        plugin = tmuxPlugins.vim-tmux-navigator;
+      }
+    ];
+  };
 
   programs.home-manager.enable = true;
 
