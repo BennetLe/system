@@ -239,6 +239,8 @@ in
       gnumake
       solaar
       nixd
+      patchelf
+      gcc
     ];
   };
 

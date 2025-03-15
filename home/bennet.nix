@@ -152,38 +152,6 @@
     };
   };
 
-  # services.mako = {
-  #   enable = true;
-  #   sort = "-time";
-  #   layer = "overlay";
-  #   backgroundColor = "#2e3440";
-  #   width = 300;
-  #   height = 110;
-  #   borderSize = 2;
-  #   borderColor = "#33ccff";
-  #   borderRadius = 15;
-  #   maxIconSize = 64;
-  #   defaultTimeout = 4000;
-  #   ignoreTimeout = true;
-  #   font = "monospace 14";
-  #
-  #   extraConfig = ''
-  #     [urgency=low]
-  #     border-color=#33ccff
-  #
-  #     [urgency=normal]
-  #     border-color=#d08770
-  #
-  #     [urgency=high]
-  #     border-color=#bf616a
-  #     default-timeout=0
-  #
-  #     [category=mdp]
-  #     default-timeout=2000
-  #     group-by=category
-  #   '';
-  # };
-
   services.swaync = {
     enable = true;
     settings = {
@@ -210,6 +178,217 @@
           background-color: #3c3836;      /* Optional background */
       }
     '';
+  };
+
+  programs.hyprland = {
+    enable = true;
+    settings = {
+      "$terminal" = "kitty";
+      "$fileManager" = "nemo";
+      "$menu" = "rofi -show drun -show-icons";
+      "$mainMod" = "SUPER";
+
+      monitor = [
+        "DP-1,3440x1440@144,0x-450,1"
+        "DP-2,1920x1080@75,3440x0,1"
+      ];
+
+      exec-once = [
+        "hyprctl dispatch workspace 1 &"
+        "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+        "~/.config/hypr/scripts/screensharing.sh"
+        "systemctl --user start hyprpolkitagent"
+        "hyprctl setcursors Sweet-cursor 24"
+        "~/.config/hypr/scripts/start.sh"
+      ];
+
+      env = [
+        "XCURSOR_SIZE,24"
+        "HYPRCURSOR_SIZE,24"
+        "HYPRCURSOR_THEME,Sweet-cursors"
+        "XDG_SESSION_TYPE,wayland"
+        "XDG_CURRENT_DESKTOP,Hyprland"
+        "MOZ_ENABLE_WAYLAND,1"
+        "ANKI_WAYLAND,1"
+        "QT_AUTO_SCREEN_SCALE_FACTOR,1"
+        "QT_QPA_PLATFORM=wayland,xcb"
+        "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+        "ELECTRON_OZONE_PLATFORM_HINT,auto"
+        "SDL_VIDEODRIVER,wayland"
+        "CLUTTER_BACKEND,wayland"
+      ];
+
+      general = {
+        gaps_in = 5;
+        gaps_out = 20;
+        border_size = 1;
+        resize_on_border = false;
+        allow_tearing = false;
+        layout = "dwindle";
+      };
+
+      decoration = {
+        rounding = 10;
+        active_opacity = 1;
+        inactive_opacity = 1;
+        fullscreen_opacity = 1;
+
+        shadow = {
+          enable = true;
+          range = 4;
+          render_power = 3;
+          color = "rgba(1a1a1aee)";
+        };
+
+        blur = {
+          enable = true;
+          size = 2;
+          passes = 1;
+          vibrancy = 0.1696;
+        };
+      };
+
+      animations = {
+        enable = true;
+        bezier = ["myBezier, 0.05, 0.9, 0.1, 1.05"];
+        animation = [
+          "windows, 1, 7, myBezier"
+          "windowsOut, 1, 7, default, popin 80%"
+          "border, 1, 10, default"
+          "borderangle, 1, 8, default"
+          "fade, 1, 7, default"
+          "workspaces, 1, 6, default"
+        ];
+      };
+
+      dwindle = {
+        pseudotile = true;
+        preserve_split = true;
+      };
+
+      master = {
+        new_status = "master";
+      };
+
+      misc = {
+        force_default_wallpaper = -1;
+        disable_hyprland_logo = true;
+      };
+
+      input = {
+        kb_layout = ["us" "de"];
+        kb_variant = [];
+        kb_model = [];
+        kb_options = ["compose:caps"];
+        numlock_by_default = true;
+        kb_rules = [];
+        follow_mouse = 1;
+        sensitivity = 0;
+        accel_profile = "flat";
+
+        touchpad = {
+          natural_scroll = false;
+        };
+      };
+
+      gestures = {
+        workspace_swipe = false;
+      };
+
+      bind = [
+        "$mainMod, Q, exec, $terminal"
+        "$mainMod, C, killactive"
+        "$mainMod, M, exit"
+        "$mainMod, E, exec, $fileManager"
+        "$mainMod, V, togglefloating"
+        "$mainMod, R, exec, ~/.config/rofi/launchers/type-1/launcher.sh"
+        "$mainMod, P, pseudo"
+        "$mainMod, J, togglesplit"
+        "$mainMod, L, exec, hyprlock"
+        ",switch:Lid Switch, exec, hyprlock"
+        "SUPER_SHIFT, S, exec, hyprshot -m region -o /home/bennet/Pictures/Hyprshot"
+        "$mainMod, F, fullscreen"
+
+        "SUPER_SHIFT, R, exec, pkill waybar && waybar &"
+
+        "SUPER_SHIFT, C, forcekillactive"
+
+        "CTRL_ALT, delete, exec, bash ~/.config/rofi/powermenu/type-6/powermenu.sh"
+
+        "$mainMod, B, exec, brave"
+
+        "$mainMod, left, movefocus, l"
+        "$mainMod, right, movefocus, r"
+        "$mainMod, up, movefocus, u"
+        "$mainMod, down, movefocus, d"
+
+        "$mainMod SHIFT, left, swapwindow, l"
+        "$mainMod SHIFT, right, swapwindow, r"
+        "$mainMod SHIFT, up, swapwindow, u"
+        "$mainMod SHIFT, down, swapwindow, d"
+
+        "$mainMod, 1, workspace, 1"
+        "$mainMod, 2, workspace, 2"
+        "$mainMod, 3, workspace, 3"
+        "$mainMod, 4, workspace, 4"
+        "$mainMod, 5, workspace, 5"
+        "$mainMod, 6, workspace, 6"
+        "$mainMod, 7, workspace, 7"
+        "$mainMod, 8, workspace, 8"
+        "$mainMod, 9, workspace, 9"
+
+        "$mainMod SHIFT, 1, movetoworkspace, 1"
+        "$mainMod SHIFT, 2, movetoworkspace, 2"
+        "$mainMod SHIFT, 3, movetoworkspace, 3"
+        "$mainMod SHIFT, 4, movetoworkspace, 4"
+        "$mainMod SHIFT, 5, movetoworkspace, 5"
+        "$mainMod SHIFT, 6, movetoworkspace, 6"
+        "$mainMod SHIFT, 7, movetoworkspace, 7"
+        "$mainMod SHIFT, 8, movetoworkspace, 8"
+        "$mainMod SHIFT, 9, movetoworkspace, 9"
+      ];
+
+      bindm = [
+        "$mod,mouse:272, movewindow" # Move Window (mouse)
+        "$mod,R, resizewindow" # Resize Window (mouse)
+      ];
+
+      bindl = [
+        ",XF86AudioMute, exec, sound-toggle" # Toggle Mute
+        ",XF86AudioPlay, exec, ${pkgs.playerctl}/bin/playerctl play-pause" # Play/Pause Song
+        ",XF86AudioNext, exec, ${pkgs.playerctl}/bin/playerctl next" # Next Song
+        ",XF86AudioPrev, exec, ${pkgs.playerctl}/bin/playerctl previous" # Previous Song
+        ",switch:Lid Switch, exec, ${pkgs.hyprlock}/bin/hyprlock" # Lock when closing Lid
+      ];
+
+      bindle = [
+        ",XF86AudioRaiseVolume, exec, sound-up" # Sound Up
+        ",XF86AudioLowerVolume, exec, sound-down" # Sound Down
+        ",XF86MonBrightnessUp, exec, brightness-up" # Brightness Up
+        ",XF86MonBrightnessDown, exec, brightness-down" # Brightness Down
+      ];
+
+      windowrulev2 = [
+        "suppressevent maximize, class:.*"
+        "opacity 1.0, fullscreen:(1)"
+        "opacity 0.9, class:(kitty)"
+        "float, title:(Friends List)"
+
+        "workspace 6 silent, class:(Spotify)"
+        "workspace 10 silent, class:(discord)"
+        "workspace 10 silent, class:(vesktop)"
+        "workspace 9 silent, class:(org.keepassxc.KeePassXC)"
+        "workspace 7 silent, title:(Steam)"
+
+        # xwayland_bridge fix
+        "opacity 0.0 override, class:^(xwaylandvideobridge)$"
+        "noanim, class:^(xwaylandvideobridge)$"
+        "noinitialfocus, class:^(xwaylandvideobridge)$"
+        "maxsize 1 1, class:^(xwaylandvideobridge)$"
+        "noblur, class:^(xwaylandvideobridge)$"
+        "nofocus, class:^(xwaylandvideobridge)$"
+      ];
+    };
   };
 
   programs.home-manager.enable = true;
