@@ -180,7 +180,7 @@
     '';
   };
 
-  programs.hyprland = {
+  wayland.windowManager.hyprland = {
     enable = true;
     settings = {
       "$terminal" = "kitty";
@@ -234,14 +234,14 @@
         fullscreen_opacity = 1;
 
         shadow = {
-          enable = true;
+          enabled = true;
           range = 4;
           render_power = 3;
           color = "rgba(1a1a1aee)";
         };
 
         blur = {
-          enable = true;
+          enabled = true;
           size = 2;
           passes = 1;
           vibrancy = 0.1696;
@@ -249,7 +249,7 @@
       };
 
       animations = {
-        enable = true;
+        enabled = true;
         bezier = ["myBezier, 0.05, 0.9, 0.1, 1.05"];
         animation = [
           "windows, 1, 7, myBezier"
@@ -276,14 +276,14 @@
       };
 
       input = {
-        kb_layout = ["us" "de"];
+        kb_layout = "us, de";
         kb_variant = [];
         kb_model = [];
         kb_options = ["compose:caps"];
         numlock_by_default = true;
         kb_rules = [];
         follow_mouse = 1;
-        sensitivity = 0;
+        sensitivity = 0.5;
         accel_profile = "flat";
 
         touchpad = {
@@ -349,8 +349,8 @@
       ];
 
       bindm = [
-        "$mod,mouse:272, movewindow" # Move Window (mouse)
-        "$mod,R, resizewindow" # Resize Window (mouse)
+        "$mainMod, mouse:272, movewindow"
+        "$mainMod, mouse:273, resizewindow"
       ];
 
       bindl = [
