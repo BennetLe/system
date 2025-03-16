@@ -34,6 +34,7 @@
       cloudflared
       nmap
       sqlite-web
+      spicetify-cli
 
       # VM
       qemu_full
