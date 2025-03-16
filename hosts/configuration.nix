@@ -242,6 +242,7 @@ in
       nixd
       patchelf
       gcc
+      protonmail-bridge
     ];
   };
 
