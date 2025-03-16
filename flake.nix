@@ -41,6 +41,7 @@
       hyprland-qtutils,
       nvf,
       stylix,
+      spicetify-nix,
       ...
     }:
     let
@@ -71,6 +72,7 @@
             hyprland-qtutils
             nvf
             stylix
+            spicetify-nix
             ;
         }
       );

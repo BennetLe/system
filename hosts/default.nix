@@ -34,6 +34,7 @@ in
       ./configuration.nix
 
       inputs.stylix.nixosModules.stylix
+      inputs.spicetify-nix.nixosModules.spicetify
 
       home-manager.nixosModules.home-manager
       {

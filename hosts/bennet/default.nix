@@ -12,6 +12,12 @@
     };
   };
 
+  programs = {
+    spicetify = {
+      enable = true;
+    };
+  };
+
   boot = {
     loader = {
       systemd-boot = {
