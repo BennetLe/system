@@ -242,7 +242,8 @@ in
       nixd
       patchelf
       gcc
-      protonmail-bridge
+      protonmail-desktop
+      protonmail-bridge-gui
     ];
   };
 
