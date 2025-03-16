@@ -27,6 +27,8 @@
     };
 
     stylix.url = "github:danth/stylix";
+
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
   };
 
   outputs =
