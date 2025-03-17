@@ -60,9 +60,11 @@ in
   security = {
     rtkit.enable = true;
     pam = {
-      # services.kwallet.enableKwallet = true;
-      # services.login.enableKwallet = true;
-      # services.sddm.enableKwallet = true;
+      services = {
+        kwallet.enableKwallet = true;
+        login.enableKwallet = true;
+        sddm.enableKwallet = true;
+      };
     };
   };
 
