@@ -114,20 +114,24 @@
         languages = {
           enableLSP = true;
           enableTreesitter = true;
+          enableFormat = true;
           nix = {
             enable = true;
-            extraDiagnostics.enable = true;
-            format.enable = true;
+            extraDiagnostics = {
+              enable = true;
+            };
+            lsp = {
+              enable = true;
+              server = "nixd";
+            };
           };
           ts = {
             enable = true;
-            format.enable = true;
           };
           rust = {
             enable = true;
             crates.enable = true;
             dap.enable = true;
-            format.enable = true;
           };
           zig = {
             enable = true;
