@@ -5,14 +5,12 @@
   inputs,
   vars,
   ...
-}:
-
-let
+}: let
   terminal = pkgs.${vars.terminal};
-in
-{
-  imports = (import ../modules/editors) ++
-    (import ../modules/themes);
+in {
+  imports =
+    (import ../modules/editors)
+    ++ (import ../modules/themes);
 
   boot = {
   };
@@ -106,7 +104,7 @@ in
       hyprland
       waybar
       (waybar.overrideAttrs (oldAttrs: {
-        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+        mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
       }))
       libnotify
       swww
@@ -244,7 +242,6 @@ in
       nixd
       patchelf
       gcc
-      protonmail-desktop
       protonmail-bridge-gui
     ];
   };
@@ -261,7 +258,7 @@ in
     gamescope = {
       enable = true;
       package = pkgs.gamescope.overrideAttrs (_: {
-        NIX_CFLAGS_COMPILE = [ "-fno-fast-math" ];
+        NIX_CFLAGS_COMPILE = ["-fno-fast-math"];
       });
     };
     gamemode.enable = true;
@@ -290,7 +287,7 @@ in
 
   services = {
     gnome.gnome-keyring.enable = true;
-    xserver.videoDrivers = [ "amdgpu" ];
+    xserver.videoDrivers = ["amdgpu"];
     printing = {
       enable = true;
       drivers = with pkgs; [
@@ -448,7 +445,7 @@ in
 
   xdg.portal = {
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    extraPortals = [pkgs.xdg-desktop-portal-gtk];
   };
 
   virtualisation = {
@@ -476,5 +473,4 @@ in
   # home-manager.enable = true;
   # };
   # };
-
 }
