@@ -134,6 +134,12 @@
             dap.enable = true;
           };
         };
+
+        binds = {
+          whichKey = {
+            enable = true;
+          };
+        };
       };
     };
   };
