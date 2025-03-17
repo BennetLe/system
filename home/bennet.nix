@@ -162,7 +162,8 @@
     settings = {
       "$terminal" = "kitty";
       "$fileManager" = "nemo";
-      "$menu" = "rofi -show drun -show-icons";
+      # "$menu" = "rofi -show drun -show-icons";
+      "$menu" = "wofi";
       "$mainMod" = "SUPER";
 
       monitor = [
@@ -277,7 +278,8 @@
         "$mainMod, M, exit"
         "$mainMod, E, exec, $fileManager"
         "$mainMod, V, togglefloating"
-        "$mainMod, R, exec, ~/.config/rofi/launchers/type-1/launcher.sh"
+        # "$mainMod, R, exec, ~/.config/rofi/launchers/type-1/launcher.sh"
+        "$mainMod, R, exec, $menu"
         "$mainMod, P, pseudo"
         "$mainMod, J, togglesplit"
         "$mainMod, L, exec, hyprlock"
@@ -548,7 +550,25 @@
     enable = true;
   }; 
 
-    programs.home-manager.enable = true;
+  programs.wofi = {
+    enable = true;
+    settings = {
+      height = "40%";
+      hide_scroll = true;
+      insensitive = true;
+      location=2;
+      matching="fuzzy";
+      mode="drun";
+      term="kitty";
+      width="40%";
+      yoffset=300;
+      line_wrap="word";
+      single_click=true;
+      allow_images=true;
+    };
+  };
+
+  programs.home-manager.enable = true;
 
   # nixpkgs.config.allowUnfree = true;
 }
