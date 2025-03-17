@@ -1,11 +1,6 @@
-{
-  pkgs,
-  ...
-}:
-
-{
+{pkgs, ...}: {
   programs.nvf = {
-     enable = true;
+    enable = true;
 
     settings = {
       vim = {
@@ -21,12 +16,6 @@
 
         searchCase = "smart";
         useSystemClipboard = true;
-
-        # theme = {
-        #   enable = true;
-        #   name = "gruvbox";
-        #   style = "dark";
-        # };
 
         visuals = {
           nvim-web-devicons.enable = true;
@@ -44,13 +33,12 @@
               package = pkgs.vimPlugins.guess-indent-nvim;
               setupModule = "guess-indent";
             };
-            
+
             "oil.nvim" = {
               package = pkgs.vimPlugins.oil-nvim;
               setupModule = "oil";
             };
 
-            
             "undotree" = {
               package = pkgs.vimPlugins.undotree;
 
@@ -62,7 +50,7 @@
                   mode = "n";
                 }
               ];
-            };   
+            };
           };
         };
 
@@ -80,7 +68,7 @@
               };
             };
           };
-          git.enable = true; 
+          git.enable = true;
           hipatterns.enable = true;
           icons.enable = true;
           indentscope.enable = true;
@@ -116,7 +104,13 @@
             };
           };
         };
-        
+
+        lsp = {
+          formatOnSave = true;
+          mappings = {
+          };
+        };
+
         languages = {
           enableLSP = true;
           enableTreesitter = true;
