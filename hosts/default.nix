@@ -40,4 +40,31 @@ in
       }
     ];
   };
+  framework = lib.nixosSystem {
+    inherit system;
+    specialArgs = {
+      inherit inputs system vars;
+      host = {
+        hostName = "bennet";
+      };
+    };
+    modules = [
+      nixvim.nixosModules.nixvim
+      nvf.nixosModules.default
+      ./framework
+      ./configuration.nix
+
+      inputs.stylix.nixosModules.stylix
+      inputs.spicetify-nix.nixosModules.spicetify
+
+      home-manager.nixosModules.home-manager
+      {
+        home-manager = {
+        useGlobalPkgs = true;
+        useUserPackages = true;
+        backupFileExtension = ".old";
+        };
+      }
+    ];
+  };
 }
