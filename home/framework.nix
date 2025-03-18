@@ -1,6 +1,8 @@
-{ inputs, pkgs, ... }:
-
 {
+  inputs,
+  pkgs,
+  ...
+}: {
   home = {
     username = "bennet";
     homeDirectory = "/home/bennet";
@@ -29,7 +31,7 @@
       cat = "bat";
       s = "kitten ssh";
 
-      update = "nixos-rebuild switch --use-remote-sudo --flake /home/bennet/system#bennet";
+      update = "nixos-rebuild switch --use-remote-sudo --flake /home/bennet/system#framework";
       config = "nvim /home/bennet/system/flake.nix";
       changewp = "swww img";
     };
@@ -383,7 +385,6 @@
         "8,monitor:DP-2"
         "9,monitor:DP-2"
         "10,monitor:DP-2"
-
       ];
     };
   };
@@ -548,7 +549,7 @@
 
   programs.rofi = {
     enable = true;
-  }; 
+  };
 
   programs.wofi = {
     enable = true;
@@ -556,15 +557,15 @@
       height = "40%";
       hide_scroll = true;
       insensitive = true;
-      location=2;
-      matching="fuzzy";
-      mode="drun";
-      term="kitty";
-      width="40%";
-      yoffset=300;
-      line_wrap="word";
-      single_click=true;
-      allow_images=true;
+      location = 2;
+      matching = "fuzzy";
+      mode = "drun";
+      term = "kitty";
+      width = "40%";
+      yoffset = 300;
+      line_wrap = "word";
+      single_click = true;
+      allow_images = true;
     };
   };
 

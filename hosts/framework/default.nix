@@ -26,7 +26,7 @@
         enable = true;
         configurationLimit = 3;
       };
-      timeout = 5;
+      efi.canTouchEfiVariables = true;
     };
   };
 

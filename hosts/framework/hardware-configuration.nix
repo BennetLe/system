@@ -8,20 +8,20 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "thunderbolt" ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "thunderbolt" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/5b46b57e-fcf3-4b7e-81e6-b247fa7dbd09";
+    { device = "/dev/disk/by-uuid/fde399d7-5abb-4171-af37-e3f9c924a7c5";
       fsType = "ext4";
     };
 
-  boot.initrd.luks.devices."luks-539f409b-ee7a-4707-a1ae-94c5d54828ab".device = "/dev/disk/by-uuid/539f409b-ee7a-4707-a1ae-94c5d54828ab";
+  boot.initrd.luks.devices."luks-24ab78a7-7d6e-440f-aafd-85ab1d2b1658".device = "/dev/disk/by-uuid/24ab78a7-7d6e-440f-aafd-85ab1d2b1658";
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/F3AB-3D99";
+    { device = "/dev/disk/by-uuid/2919-6AF6";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
