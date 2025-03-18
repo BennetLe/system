@@ -1,6 +1,8 @@
-{ inputs, pkgs, ... }:
-
 {
+  inputs,
+  pkgs,
+  ...
+}: {
   home = {
     username = "bennet";
     homeDirectory = "/home/bennet";
@@ -337,7 +339,7 @@
       ];
 
       bindl = [
-        ",XF86AudioMute, exec, sound-toggle" # Toggle Mute
+        ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle" # Toggle Mute
         ",XF86AudioPlay, exec, ${pkgs.playerctl}/bin/playerctl play-pause" # Play/Pause Song
         ",XF86AudioNext, exec, ${pkgs.playerctl}/bin/playerctl next" # Next Song
         ",XF86AudioPrev, exec, ${pkgs.playerctl}/bin/playerctl previous" # Previous Song
@@ -383,7 +385,6 @@
         "8,monitor:DP-2"
         "9,monitor:DP-2"
         "10,monitor:DP-2"
-
       ];
     };
   };
@@ -548,7 +549,7 @@
 
   programs.rofi = {
     enable = true;
-  }; 
+  };
 
   programs.wofi = {
     enable = true;
@@ -556,15 +557,15 @@
       height = "40%";
       hide_scroll = true;
       insensitive = true;
-      location=2;
-      matching="fuzzy";
-      mode="drun";
-      term="kitty";
-      width="40%";
-      yoffset=300;
-      line_wrap="word";
-      single_click=true;
-      allow_images=true;
+      location = 2;
+      matching = "fuzzy";
+      mode = "drun";
+      term = "kitty";
+      width = "40%";
+      yoffset = 300;
+      line_wrap = "word";
+      single_click = true;
+      allow_images = true;
     };
   };
 
