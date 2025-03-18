@@ -6,13 +6,10 @@
   nixvim,
   nvf,
   ...
-}:
-
-let
+}: let
   system = "x86_64-linux";
   lib = nixpkgs.lib;
-in
-{
+in {
   bennet = lib.nixosSystem {
     inherit system;
     specialArgs = {
@@ -33,9 +30,9 @@ in
       home-manager.nixosModules.home-manager
       {
         home-manager = {
-        useGlobalPkgs = true;
-        useUserPackages = true;
-        backupFileExtension = ".old";
+          useGlobalPkgs = true;
+          useUserPackages = true;
+          backupFileExtension = "old";
         };
       }
     ];
@@ -60,9 +57,9 @@ in
       home-manager.nixosModules.home-manager
       {
         home-manager = {
-        useGlobalPkgs = true;
-        useUserPackages = true;
-        backupFileExtension = ".old";
+          useGlobalPkgs = true;
+          useUserPackages = true;
+          backupFileExtension = "old";
         };
       }
     ];
