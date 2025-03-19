@@ -169,8 +169,6 @@
       "$mainMod" = "SUPER";
 
       monitor = [
-        # "DP-1,3440x1440@144,0x-450,1"
-        # "DP-2,1920x1080@75,3440x0,1"
         "eDP-1,2256x1504@60,0x0,1"
       ];
 
@@ -332,6 +330,8 @@
 
         ", XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +1%"
         ", XF86AudioLowerVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -1%"
+        ", XF86MonBrightnessUp, exec, brightnessctl set +5%"
+        ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
       ];
 
       bindm = [
