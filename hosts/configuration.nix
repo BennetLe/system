@@ -116,7 +116,7 @@ in {
       nomacs
       alsa-utils
       spotify
-      neofetch
+      fastfetch
       dbus
       wmctrl
       jre8
