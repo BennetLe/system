@@ -284,7 +284,7 @@
         "$mainMod, P, pseudo"
         "$mainMod, J, togglesplit"
         "$mainMod, L, exec, hyprlock"
-        ",switch:Lid Switch, exec, hyprlock"
+        ",switch:Lid Switch, exec, hyprlock && systemctl suspend-then-hibernate"
         "SUPER_SHIFT, S, exec, hyprshot -m region -o /home/bennet/Pictures/Hyprshot"
         "$mainMod, F, fullscreen"
 
