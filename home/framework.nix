@@ -502,6 +502,12 @@
           valign = "bottom";
         }
       ];
+
+      auth = {
+        fingerprint = {
+          enabled = true;
+        };
+      };
     };
   };
 
