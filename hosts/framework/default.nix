@@ -48,4 +48,10 @@
   };
 
   security.pam.services.login.fprintAuth = true;
+
+  # suspend-then-hibernate
+  systemd.sleep.extraConfig = ''
+    HibernateDelaySec=30m
+    SuspendState=mem
+  '';
 }
