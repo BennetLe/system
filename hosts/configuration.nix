@@ -59,19 +59,19 @@ in {
     rtkit.enable = true;
     pam = {
       services = {
-        kwallet.enableKwallet = true;
-        login.enableKwallet = true;
+        # kwallet.enableKwallet = true;
+        # login.enableKwallet = true;
         sddm = {
-          enableKwallet = true;
+          # enableKwallet = true;
         };
-        login.kwallet = {
-          enable = true;
-        };
+        # login.kwallet = {
+        # enable = true;
+        # };
         kde = {
           allowNullPassword = true;
-          kwallet = {
-            enable = true;
-          };
+          # kwallet = {
+          #   enable = true;
+          # };
         };
       };
     };
@@ -230,7 +230,7 @@ in {
       nix-ld
       inputs.hyprland-qtutils.packages."${pkgs.system}".default
       kdePackages.kcalc
-      kdePackages.kwallet-pam
+      # kdePackages.kwallet-pam
       xwayland
       (callPackage ./../pkgs/sddm-astronaut-theme.nix {
         theme = "astronaut";
@@ -254,6 +254,7 @@ in {
       patchelf
       gcc
       protonmail-bridge-gui
+      seahorse
     ];
   };
 
