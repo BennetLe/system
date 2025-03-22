@@ -264,7 +264,7 @@
         numlock_by_default = true;
         kb_rules = [];
         follow_mouse = 1;
-        sensitivity = 0.5;
+        sensitivity = 0.6;
         accel_profile = "flat";
 
         touchpad = {
