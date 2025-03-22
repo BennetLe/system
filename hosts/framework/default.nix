@@ -45,9 +45,23 @@
       #   driver = pkgs.libfprint-2-tod1-vfs0090;
       # };
     };
+    fwupd.enable = true;
   };
 
-  security.pam.services.login.fprintAuth = true;
+  security = {
+    pam = {
+      services = {
+        login = {
+          fprintAuth = false;
+        };
+        sddm = {
+          allowNullPassword = true;
+          unixAuth = true;
+          fprintAuth = false;
+        };
+      };
+    };
+  };
 
   # suspend-then-hibernate
   systemd.sleep.extraConfig = ''

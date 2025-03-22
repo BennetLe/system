@@ -5,6 +5,7 @@
   vars,
   nixvim,
   nvf,
+  nixos-hardware,
   ...
 }: let
   system = "x86_64-linux";
@@ -53,6 +54,8 @@ in {
 
       inputs.stylix.nixosModules.stylix
       inputs.spicetify-nix.nixosModules.spicetify
+
+      nixos-hardware.nixosModules.framework-13-7040-amd
 
       home-manager.nixosModules.home-manager
       {

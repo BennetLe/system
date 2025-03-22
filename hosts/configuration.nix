@@ -61,7 +61,18 @@ in {
       services = {
         kwallet.enableKwallet = true;
         login.enableKwallet = true;
-        sddm.enableKwallet = true;
+        sddm = {
+          enableKwallet = true;
+        };
+        login.kwallet = {
+          enable = true;
+        };
+        kde = {
+          allowNullPassword = true;
+          kwallet = {
+            enable = true;
+          };
+        };
       };
     };
   };

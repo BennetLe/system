@@ -22,73 +22,74 @@
     hyprland-qtutils.url = "github:hyprwm/hyprland-qtutils";
 
     nvf = {
-        url = "github:notashelf/nvf";
-        inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     stylix.url = "github:danth/stylix";
 
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
-  outputs =
-    inputs@{
-      self,
-      nixpkgs,
-      home-manager,
-      nixvim,
-      nix-alien,
-      hyprland-qtutils,
-      nvf,
-      stylix,
-      spicetify-nix,
-      ...
-    }:
-    let
-      vars = {
-        user = "bennet";
-        localtion = "$HOME/system";
-        terminal = "kitty";
-        editor = "vim";
-      };
-      system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
-      lib = nixpkgs.lib;
-    in
-    {
-      nixosConfigurations = (
-        import ./hosts {
-          inherit (nixpkgs) lib;
-          inherit
-            inputs
-            nixpkgs
-            home-manager
-            vars
-            nixvim
-            nix-alien
-            hyprland-qtutils
-            nvf
-            stylix
-            spicetify-nix
-            ;
-        }
-      );
-
-      # homeConfigurations."bennet" = home-manager.lib.homeManagerConfiguration {
-      #   pkgs = nixpkgs.legacyPackages.${system};
-      #   modules = [
-      #     ./home/bennet.nix
-      #     {
-      #       home = {
-      #         username = "${vars.user}";
-      #         homeDirectory = "/home/${vars.user}";
-      #         stateVersion = "24.05";
-      #       };
-      #     }
-      #   ];
-      # };
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    home-manager,
+    nixvim,
+    nix-alien,
+    hyprland-qtutils,
+    nvf,
+    stylix,
+    spicetify-nix,
+    nixos-hardware,
+    ...
+  }: let
+    vars = {
+      user = "bennet";
+      localtion = "$HOME/system";
+      terminal = "kitty";
+      editor = "vim";
     };
+    system = "x86_64-linux";
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+    };
+    lib = nixpkgs.lib;
+  in {
+    nixosConfigurations = (
+      import ./hosts {
+        inherit (nixpkgs) lib;
+        inherit
+          inputs
+          nixpkgs
+          home-manager
+          vars
+          nixvim
+          nix-alien
+          hyprland-qtutils
+          nvf
+          stylix
+          spicetify-nix
+          nixos-hardware
+          ;
+      }
+    );
+
+    # homeConfigurations."bennet" = home-manager.lib.homeManagerConfiguration {
+    #   pkgs = nixpkgs.legacyPackages.${system};
+    #   modules = [
+    #     ./home/bennet.nix
+    #     {
+    #       home = {
+    #         username = "${vars.user}";
+    #         homeDirectory = "/home/${vars.user}";
+    #         stateVersion = "24.05";
+    #       };
+    #     }
+    #   ];
+    # };
+  };
 }
