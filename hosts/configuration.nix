@@ -255,6 +255,8 @@ in {
       gcc
       protonmail-bridge-gui
       seahorse
+      libsForQt5.qtstyleplugin-kvantum
+      kdePackages.qtstyleplugin-kvantum
     ];
   };
 

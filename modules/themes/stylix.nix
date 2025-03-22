@@ -33,5 +33,11 @@
         applications = 12;
       };
     };
+    targets = {
+      qt = {
+        enable = true;
+        platform = "kde";
+      };
+    };
   };
 }
