@@ -34,6 +34,8 @@
       update = "nixos-rebuild switch --use-remote-sudo --flake /home/bennet/system#bennet";
       config = "nvim /home/bennet/system/flake.nix";
       changewp = "swww img";
+
+      brave = "brave --password-store=gnome";
     };
 
     initExtra = ''
@@ -295,7 +297,7 @@
 
         "CTRL_ALT, delete, exec, bash ~/.config/rofi/powermenu/type-6/powermenu.sh"
 
-        "$mainMod, B, exec, brave"
+        "$mainMod, B, exec, brave --password-store=gnome"
 
         "$mainMod, left, movefocus, l"
         "$mainMod, right, movefocus, r"
