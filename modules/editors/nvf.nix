@@ -7,6 +7,15 @@
         viAlias = true;
         vimAlias = true;
 
+        keymaps = [
+          {
+            key = "<leader>d";
+            mode = ["n" "v"];
+            silent = true;
+            action = "\"_d";
+          }
+        ];
+
         spellcheck = {
           languages = [
             "en"
