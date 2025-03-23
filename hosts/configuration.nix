@@ -138,6 +138,8 @@ in {
       wineWowPackages.stable
       winetricks
       wineWowPackages.waylandFull
+      wineWow64Packages.stable
+      wineWow64Packages.waylandFull
       wofi
       hyprlock
       hypridle
@@ -257,6 +259,7 @@ in {
       seahorse
       libsForQt5.qtstyleplugin-kvantum
       kdePackages.qtstyleplugin-kvantum
+      nssmdns
     ];
   };
 
@@ -455,6 +458,8 @@ in {
 
   system = {
     stateVersion = "24.05";
+    # fixed printer
+    nssDatabases.hosts = ["resolve [!UNAVAIL=return]"];
   };
 
   xdg.portal = {
