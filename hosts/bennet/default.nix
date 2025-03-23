@@ -1,12 +1,14 @@
-{ pkgs, inputs, ... }:
-
 {
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
   ];
 
   home-manager = {
-    extraSpecialArgs = {inherit inputs; };
+    extraSpecialArgs = {inherit inputs;};
     users = {
       bennet = import ../../home/bennet.nix;
     };
@@ -75,10 +77,10 @@
   services = {
     openssh = {
       enable = true;
-      ports = [ 22 ];
+      ports = [22];
       settings = {
         PasswordAuthentication = true;
-        AllowUsers = [ "bennet" ];
+        AllowUsers = ["bennet"];
         UseDns = true;
         X11Forwarding = false;
         PermitRootLogin = "prohibit-password";
@@ -116,8 +118,8 @@
   networking = {
     firewall = {
       enable = true;
-      allowedTCPPorts = [ 42420 ];
-      allowedUDPPorts = [ 42420 ];
+      allowedTCPPorts = [42420];
+      allowedUDPPorts = [42420];
     };
   };
   systemd.user.services.monado.environment = {
