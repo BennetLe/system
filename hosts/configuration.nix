@@ -265,6 +265,7 @@ in {
       imagemagick
       ueberzugpp
       ffmpeg-full
+      ranger
     ];
   };
 
