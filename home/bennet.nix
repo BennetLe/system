@@ -26,6 +26,7 @@
     enable = true;
 
     shellAliases = {
+      ls = "eza";
       ll = "ls -l";
       cls = "clear";
       cat = "bat";

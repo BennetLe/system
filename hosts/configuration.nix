@@ -260,6 +260,7 @@ in {
       libsForQt5.qtstyleplugin-kvantum
       kdePackages.qtstyleplugin-kvantum
       nssmdns
+      eza
     ];
   };
 
