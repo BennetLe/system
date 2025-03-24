@@ -42,7 +42,6 @@
       cloudflared
       nmap
       sqlite-web
-      anytype
 
       # VM
       qemu_full
