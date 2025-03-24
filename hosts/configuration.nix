@@ -261,6 +261,10 @@ in {
       kdePackages.qtstyleplugin-kvantum
       nssmdns
       eza
+      yazi-unwrapped
+      imagemagick
+      ueberzugpp
+      ffmpeg-full
     ];
   };
 
