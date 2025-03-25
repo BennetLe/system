@@ -180,7 +180,6 @@ in {
       waydroid
       burpsuite
       chromium
-      bottles
       anki
       nextcloud-client
       mangohud
