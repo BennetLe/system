@@ -419,8 +419,8 @@
       };
 
       background = {
-        path = "~/Wallpapers/Gruvbox/gruvy-night.png";
-        blur_size = 5;
+        path = "~/Wallpapers/Gruvbox/ign-waifu.png";
+        blur_size = 4;
         blur_passes = 1;
         noise = 0.0117;
         contrast = 1.3;
