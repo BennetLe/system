@@ -555,9 +555,13 @@
     '';
 
     plugins = with pkgs; [
+      # {
+      #   plugin = tmuxPlugins.gruvbox;
+      #   extraConfig = "set -g @tmux-gruvbox 'dark'";
+      # }
       {
-        plugin = tmuxPlugins.gruvbox;
-        extraConfig = "set -g @tmux-gruvbox 'dark'";
+        plugin = tmuxPlugins.catppuccin;
+        extraConfig = "set -g @catppuccin_flavor 'mocha'"; # latte, frappe, macchiato or mocha
       }
       {
         plugin = tmuxPlugins.sensible;
