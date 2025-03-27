@@ -91,6 +91,8 @@
       bindkey "^y" autosuggest-accept
       bindkey '^n' history-search-backward
       bindkey '^p' history-search-forward
+      bindkey "^[[1;5C" forward-word
+      bindkey "^[[1;5D" backward-word
 
       unalias run-help 2>/dev/null
       autoload -U run-help
