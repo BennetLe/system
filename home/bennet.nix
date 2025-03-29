@@ -188,8 +188,8 @@
     settings = {
       "$terminal" = "kitty";
       "$fileManager" = "nemo";
-      # "$menu" = "rofi -show drun -show-icons";
-      "$menu" = "wofi";
+      "$menu" = "rofi -show drun -show-icons";
+      # "$menu" = "wofi";
       "$mainMod" = "SUPER";
 
       monitor = [
@@ -355,6 +355,9 @@
 
         ", XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +1%"
         ", XF86AudioLowerVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -1%"
+
+        "$mainMod, K, exec, rofi -show calc -modi calc -no-show-match -no-sort"
+        "$mainMod, period, exec, rofi -modi emoji -show emoji"
       ];
 
       bindm = [
@@ -577,6 +580,13 @@
 
   programs.rofi = {
     enable = true;
+    yoffset = 0;
+    xoffset = 0;
+    location = "center";
+    plugins = with pkgs; [
+      rofi-emoji
+      rofi-calc
+    ];
   };
 
   programs.wofi = {
