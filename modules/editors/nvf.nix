@@ -14,6 +14,27 @@
             silent = true;
             action = "\"_d";
           }
+          # disable arrow keys
+          {
+            key = "<Left>";
+            mode = ["n" "v" "i"];
+            action = "";
+          }
+          {
+            key = "<Right>";
+            mode = ["n" "v" "i"];
+            action = "";
+          }
+          {
+            key = "<Up>";
+            mode = ["n" "v" "i"];
+            action = "";
+          }
+          {
+            key = "<Down>";
+            mode = ["n" "v" "i"];
+            action = "";
+          }
         ];
 
         spellcheck = {
