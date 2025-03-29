@@ -129,9 +129,9 @@
           enableFormat = true;
           nix = {
             enable = true;
-            extraDiagnostics = {
-              enable = true;
-            };
+            # extraDiagnostics = {
+            #   enable = true;
+            # };
             lsp = {
               enable = true;
               server = "nixd";
