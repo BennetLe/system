@@ -583,6 +583,11 @@
     yoffset = 0;
     xoffset = 0;
     location = "center";
+    extraConfig = {
+      modi = "drun,emoji,window,ssh";
+      drun-display-format = "{name}";
+      window-format = "{w} · {c} · {t}";
+    };
     plugins = with pkgs; [
       rofi-emoji
       rofi-calc

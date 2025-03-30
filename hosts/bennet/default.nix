@@ -42,6 +42,7 @@
       cloudflared
       nmap
       sqlite-web
+      bluez
 
       # VM
       qemu_full
