@@ -22,146 +22,338 @@
     };
   };
 
-  programs.zsh = {
-    enable = true;
+  programs = {
+    zsh = {
+      enable = true;
 
-    shellAliases = {
-      ls = "eza";
-      ll = "ls -l";
-      cls = "clear";
-      cat = "bat";
-      s = "kitten ssh";
+      shellAliases = {
+        ls = "eza";
+        ll = "ls -l";
+        cls = "clear";
+        cat = "bat";
+        s = "kitten ssh";
 
-      update = "nixos-rebuild switch --use-remote-sudo --flake /home/bennet/system#framework";
-      config = "nvim /home/bennet/system/flake.nix";
-      changewp = "swww img";
+        update = "nixos-rebuild switch --use-remote-sudo --flake /home/bennet/system#framework";
+        config = "nvim /home/bennet/system/flake.nix";
+        changewp = "swww img";
 
-      brave = "brave --password-store=gnome";
+        brave = "brave --password-store=gnome";
+      };
+
+      initExtra = ''
+        export PATH="/home/bennet/.nix-profile/bin:$PATH"
+        # Set the directory we want to store zinit and plugins
+        # ZINIT_HOME="''${XDG_DATA_HOME:-''${HOME}/.local/share}/zinit/zinit.git"
+
+        ZIM_HOME=~/.zim
+
+        # Download Zinit, if it's not there yet
+        # if [ ! -d "$ZINIT_HOME" ]; then
+        #     mkdir -p "$(dirname $ZINIT_HOME)"
+        #     git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+        # fi
+
+        # Download zimfw plugin manager if missing.
+        if [[ ! -e ''${ZIM_HOME}/zimfw.zsh ]]; then
+          curl -fsSL --create-dirs -o ''${ZIM_HOME}/zimfw.zsh \
+              https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+        fi
+
+        # Install missing modules, and update ''${ZIM_HOME}/init.zsh if missing or outdated.
+        if [[ ! ''${ZIM_HOME}/init.zsh -nt ''${ZDOTDIR:-''${HOME}}/.zimrc ]]; then
+          source ''${ZIM_HOME}/zimfw.zsh init -q
+        fi
+
+        # Initialize modules.
+        source ''${ZIM_HOME}/init.zsh
+
+        # Source/Load zinit
+        # source "''${ZINIT_HOME}/zinit.zsh"
+
+        # Prompt
+        eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
+
+        # Add in zsh plugins
+        # zinit light zsh-users/zsh-syntax-highlighting
+        # zinit light zsh-users/zsh-completions
+        # zinit light zsh-users/zsh-autosuggestions
+        # zinit light Aloxaf/fzf-tab
+
+        # Add in snippets
+        # zinit snippet 'https://github.com/robbyrussell/oh-my-zsh/raw/master/plugins/git/git.plugin.zsh'
+        # zinit snippet 'https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/refs/heads/master/plugins/sudo/sudo.plugin.zsh'
+
+        # Load completions
+        # autoload -Uz compinit && compinit
+
+        # zinit cdreplay -q
+
+        # Keybindings
+        bindkey "^y" autosuggest-accept
+        bindkey '^n' history-search-backward
+        bindkey '^p' history-search-forward
+        bindkey "^[[1;5C" forward-word
+        bindkey "^[[1;5D" backward-word
+
+        unalias run-help 2>/dev/null
+        autoload -U run-help
+
+        HISTSIZE=10000
+        SAVEHIST=$HISTSIZE
+        HISTFILE=~/.zsh_history
+        HISTDUP=erase
+        setopt appendhistory
+        setopt sharehistory
+        setopt hist_ignore_space
+        setopt hist_ignore_all_dups
+        setopt hist_save_no_dups
+        setopt hist_ignore_dups
+        setopt hist_find_no_dups
+
+        # Completion styling
+        # zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+        # zstyle ':completion:*' list-colors "''${(s.:.)LS_COLORS}"
+        # zstyle ':completion:*' menu no
+        # zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+        # zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+
+        # Shell integration
+        eval "$(fzf --zsh)"
+        eval "$(zoxide init --cmd cd zsh)"
+        eval "$(direnv hook zsh)"
+
+        # remove dulicate PATH Varaibles
+        export PATH=$(echo "$PATH" | tr ':' '\n' | awk '!a[$0]++' | tr '\n' ':')
+      '';
     };
+    kitty = {
+      enable = true;
+      shellIntegration.mode = "zsh";
+      settings = {
+        confirm_os_window_close = 0;
+        enable_audio_bell = false;
+        dynamic_background_opacity = true;
+      };
+    };
+    hyprlock = {
+      enable = true;
+      settings = {
+        general = {
+          grace = 1;
+        };
 
-    initExtra = ''
-      export PATH="/home/bennet/.nix-profile/bin:$PATH"
-      # Set the directory we want to store zinit and plugins
-      # ZINIT_HOME="''${XDG_DATA_HOME:-''${HOME}/.local/share}/zinit/zinit.git"
+        background = {
+          path = "~/Wallpapers/Gruvbox/gruvy-night.png";
+          blur_size = 5;
+          blur_passes = 1;
+          noise = 0.0117;
+          contrast = 1.3;
+          brightness = 0.5;
+          vibrancy = 0.21;
+          vibrancy_darkness = 0.5;
+        };
 
-      ZIM_HOME=~/.zim
+        input-field = {
+          size = "250, 50";
+          outline_thickness = 0;
+          dots_size = 0.2;
+          dots_spacing = 0.15;
+          dots_center = true;
+          fade_on_empty = true;
+          placeholder_text = "<i>Password...</i>";
+          hide_input = false;
+          position = "0, 100";
+          halign = "center";
+          valign = "bottom";
+        };
 
-      # Download Zinit, if it's not there yet
-      # if [ ! -d "$ZINIT_HOME" ]; then
-      #     mkdir -p "$(dirname $ZINIT_HOME)"
-      #     git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-      # fi
+        label = [
+          # Date
+          {
+            monitor = "";
+            text = ''cmd[update:18000000] echo "<b> "$(date +'%A, %-d %B %Y')" </b>"'';
+            color = "rgba(184, 212, 224, 0.6)";
+            font_size = 28;
+            font_family = "JetBrains Mono Nerd Font Mono ExtraBold";
+            position = "0, -420";
+            halign = "center";
+            valign = "top";
+          }
+          # Time
+          {
+            monitor = "";
+            text = ''cmd[update:1000] echo -e "$(date +"%H":"%M")"'';
+            color = "rgba(184, 212, 224, 0.6)";
+            font_size = 130;
+            font_family = "JetBrains Mono Nerd Font Mono ExtraBold";
+            position = "0, -220";
+            halign = "center";
+            valign = "top";
+          }
+          # User
+          {
+            monitor = "";
+            text = ''$USER'';
+            color = "rgb(126, 247, 138)";
+            font_size = 16;
+            font_family = "Inter Display Medium";
+            position = "0, 70";
+            halign = "center";
+            valign = "bottom";
+          }
+          # Uptime
+          {
+            monitor = "";
+            text = ''cmd[update:60000] echo "<b> "$(uptime -p || $Scripts/UptimeNixOS.sh)" </b>"'';
+            color = "rgba(184, 212, 224, 0.4)";
+            font_size = 12;
+            font_family = "JetBrains Mono Nerd Font Mono ExtraBold";
+            position = "5, 5";
+            halign = "right";
+            valign = "bottom";
+          }
+          # # Music Player Info # #
+          # PLAYER TITLE
+          {
+            monitor = "DP-1";
+            text = ''cmd[update:1000] echo "$(playerctl metadata --format "{{ xesam:title }}" 2>/dev/null | cut -c1-50'';
+            color = "rgba(184, 212, 224, 0.8)";
+            font_size = 14;
+            font_family = "Inter Display Medium";
+            position = "180, 120";
+            halign = "left";
+            valign = "bottom";
+          }
+          # PLAYER ARTIST
+          {
+            monitor = "DP-1";
+            text = ''cmd[update:1000] echo "$(playerctl metadata --format "{{ xesam:artist }}" 2>/dev/null | cut -c1-50)"'';
+            color = "rgba(184, 212, 224, 0.8)";
+            font_size = 14;
+            font_family = "Inter Display Medium";
+            position = "180, 80";
+            halign = "left";
+            valign = "bottom";
+          }
+          # PLAYER ALBUM
+          {
+            monitor = "DP-1";
+            text = ''cmd[update:1000] echo "$(playerctl metadata --format "{{ xesam:album }}" 2>/dev/null | cut -c1-50)"'';
+            color = "rgba(184, 212, 224, 0.8)";
+            font_size = 14;
+            font_family = "Inter Display Medium";
+            position = "180, 40";
+            halign = "left";
+            valign = "bottom";
+          }
+        ];
 
-      # Download zimfw plugin manager if missing.
-      if [[ ! -e ''${ZIM_HOME}/zimfw.zsh ]]; then
-        curl -fsSL --create-dirs -o ''${ZIM_HOME}/zimfw.zsh \
-            https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
-      fi
+        auth = {
+          fingerprint = {
+            enabled = true;
+          };
+        };
+      };
+    };
+    tmux = {
+      enable = true;
+      prefix = "C-Space";
 
-      # Install missing modules, and update ''${ZIM_HOME}/init.zsh if missing or outdated.
-      if [[ ! ''${ZIM_HOME}/init.zsh -nt ''${ZDOTDIR:-''${HOME}}/.zimrc ]]; then
-        source ''${ZIM_HOME}/zimfw.zsh init -q
-      fi
+      # shell = "\${pkgs.zsh}/bin/zsh";
+      mouse = true;
+      clock24 = true;
+      keyMode = "vi";
+      shortcut = "Space";
+      extraConfig = ''
+        set-option -sa terminal-overrides ",xterm*:Tc"
 
-      # Initialize modules.
-      source ''${ZIM_HOME}/init.zsh
+        set -g base-index 1
+        set -g pane-base-index 1
+        set-window-option -g pane-base-index 1
+        set-option -g renumber-windows on
 
-      # Source/Load zinit
-      # source "''${ZINIT_HOME}/zinit.zsh"
+        bind -n M-H previous-window
+        bind -n M-L next-window
 
-      # Prompt
-      eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
+        bind-key -T copy-mode-vi v send-keys -X begin-selection
+        bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
+        bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+        bind-key -r i run-shell "tmux neww ~/.local/scripts/tmux-cht.sh"
+      '';
 
-      # Add in zsh plugins
-      # zinit light zsh-users/zsh-syntax-highlighting
-      # zinit light zsh-users/zsh-completions
-      # zinit light zsh-users/zsh-autosuggestions
-      # zinit light Aloxaf/fzf-tab
-
-      # Add in snippets
-      # zinit snippet 'https://github.com/robbyrussell/oh-my-zsh/raw/master/plugins/git/git.plugin.zsh'
-      # zinit snippet 'https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/refs/heads/master/plugins/sudo/sudo.plugin.zsh'
-
-      # Load completions
-      # autoload -Uz compinit && compinit
-
-      # zinit cdreplay -q
-
-      # Keybindings
-      bindkey "^y" autosuggest-accept
-      bindkey '^n' history-search-backward
-      bindkey '^p' history-search-forward
-      bindkey "^[[1;5C" forward-word
-      bindkey "^[[1;5D" backward-word
-
-      unalias run-help 2>/dev/null
-      autoload -U run-help
-
-      HISTSIZE=10000
-      SAVEHIST=$HISTSIZE
-      HISTFILE=~/.zsh_history
-      HISTDUP=erase
-      setopt appendhistory
-      setopt sharehistory
-      setopt hist_ignore_space
-      setopt hist_ignore_all_dups
-      setopt hist_save_no_dups
-      setopt hist_ignore_dups
-      setopt hist_find_no_dups
-
-      # Completion styling
-      # zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-      # zstyle ':completion:*' list-colors "''${(s.:.)LS_COLORS}"
-      # zstyle ':completion:*' menu no
-      # zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-      # zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
-
-      # Shell integration
-      eval "$(fzf --zsh)"
-      eval "$(zoxide init --cmd cd zsh)"
-      eval "$(direnv hook zsh)"
-
-      # remove dulicate PATH Varaibles
-      export PATH=$(echo "$PATH" | tr ':' '\n' | awk '!a[$0]++' | tr '\n' ':')
-    '';
+      plugins = with pkgs; [
+        {
+          plugin = tmuxPlugins.gruvbox;
+          extraConfig = "set -g @tmux-gruvbox 'dark'";
+        }
+        {
+          plugin = tmuxPlugins.sensible;
+        }
+        {
+          plugin = tmuxPlugins.yank;
+        }
+        {
+          plugin = tmuxPlugins.vim-tmux-navigator;
+        }
+      ];
+    };
+    rofi = {
+      enable = true;
+      yoffset = 0;
+      xoffset = 0;
+      location = "center";
+      plugins = with pkgs; [
+        rofi-emoji
+        rofi-calc
+      ];
+    };
+    wofi = {
+      enable = true;
+      settings = {
+        height = "40%";
+        hide_scroll = true;
+        insensitive = true;
+        location = 2;
+        matching = "fuzzy";
+        mode = "drun";
+        term = "kitty";
+        width = "40%";
+        yoffset = 300;
+        line_wrap = "word";
+        single_click = true;
+        allow_images = true;
+      };
+    };
   };
 
-  programs.kitty = {
-    enable = true;
-    shellIntegration.mode = "zsh";
-    settings = {
-      confirm_os_window_close = 0;
-      enable_audio_bell = false;
-      dynamic_background_opacity = true;
+  services = {
+    swaync = {
+      enable = true;
+      settings = {
+        timeout = 5;
+        timeout-low = 2;
+        timeout-critical = 0;
+      };
+      style = ''
+        /* Low priority notifications */
+        .notification.low {
+            border-left: 4px solid #8ec07c; /* Green accent */
+            background-color: #1d2021;      /* Optional background */
+        }
+
+        /* Normal priority notifications */
+        .notification.normal {
+            border-left: 4px solid #d79921; /* Yellow accent */
+            background-color: #282828;      /* Optional background */
+        }
+
+        /* Critical priority notifications */
+        .notification.critical {
+            border-left: 4px solid #fb4934; /* Red accent */
+            background-color: #3c3836;      /* Optional background */
+        }
+      '';
     };
-  };
-
-  services.swaync = {
-    enable = true;
-    settings = {
-      timeout = 5;
-      timeout-low = 2;
-      timeout-critical = 0;
-    };
-    style = ''
-      /* Low priority notifications */
-      .notification.low {
-          border-left: 4px solid #8ec07c; /* Green accent */
-          background-color: #1d2021;      /* Optional background */
-      }
-
-      /* Normal priority notifications */
-      .notification.normal {
-          border-left: 4px solid #d79921; /* Yellow accent */
-          background-color: #282828;      /* Optional background */
-      }
-
-      /* Critical priority notifications */
-      .notification.critical {
-          border-left: 4px solid #fb4934; /* Red accent */
-          background-color: #3c3836;      /* Optional background */
-      }
-    '';
   };
 
   wayland.windowManager.hyprland = {
@@ -398,200 +590,5 @@
     };
   };
 
-  programs.hyprlock = {
-    enable = true;
-    settings = {
-      general = {
-        grace = 1;
-      };
-
-      background = {
-        path = "~/Wallpapers/Gruvbox/gruvy-night.png";
-        blur_size = 5;
-        blur_passes = 1;
-        noise = 0.0117;
-        contrast = 1.3;
-        brightness = 0.5;
-        vibrancy = 0.21;
-        vibrancy_darkness = 0.5;
-      };
-
-      input-field = {
-        size = "250, 50";
-        outline_thickness = 0;
-        dots_size = 0.2;
-        dots_spacing = 0.15;
-        dots_center = true;
-        fade_on_empty = true;
-        placeholder_text = "<i>Password...</i>";
-        hide_input = false;
-        position = "0, 100";
-        halign = "center";
-        valign = "bottom";
-      };
-
-      label = [
-        # Date
-        {
-          monitor = "";
-          text = ''cmd[update:18000000] echo "<b> "$(date +'%A, %-d %B %Y')" </b>"'';
-          color = "rgba(184, 212, 224, 0.6)";
-          font_size = 28;
-          font_family = "JetBrains Mono Nerd Font Mono ExtraBold";
-          position = "0, -420";
-          halign = "center";
-          valign = "top";
-        }
-        # Time
-        {
-          monitor = "";
-          text = ''cmd[update:1000] echo -e "$(date +"%H":"%M")"'';
-          color = "rgba(184, 212, 224, 0.6)";
-          font_size = 130;
-          font_family = "JetBrains Mono Nerd Font Mono ExtraBold";
-          position = "0, -220";
-          halign = "center";
-          valign = "top";
-        }
-        # User
-        {
-          monitor = "";
-          text = ''$USER'';
-          color = "rgb(126, 247, 138)";
-          font_size = 16;
-          font_family = "Inter Display Medium";
-          position = "0, 70";
-          halign = "center";
-          valign = "bottom";
-        }
-        # Uptime
-        {
-          monitor = "";
-          text = ''cmd[update:60000] echo "<b> "$(uptime -p || $Scripts/UptimeNixOS.sh)" </b>"'';
-          color = "rgba(184, 212, 224, 0.4)";
-          font_size = 12;
-          font_family = "JetBrains Mono Nerd Font Mono ExtraBold";
-          position = "5, 5";
-          halign = "right";
-          valign = "bottom";
-        }
-        # # Music Player Info # #
-        # PLAYER TITLE
-        {
-          monitor = "DP-1";
-          text = ''cmd[update:1000] echo "$(playerctl metadata --format "{{ xesam:title }}" 2>/dev/null | cut -c1-50'';
-          color = "rgba(184, 212, 224, 0.8)";
-          font_size = 14;
-          font_family = "Inter Display Medium";
-          position = "180, 120";
-          halign = "left";
-          valign = "bottom";
-        }
-        # PLAYER ARTIST
-        {
-          monitor = "DP-1";
-          text = ''cmd[update:1000] echo "$(playerctl metadata --format "{{ xesam:artist }}" 2>/dev/null | cut -c1-50)"'';
-          color = "rgba(184, 212, 224, 0.8)";
-          font_size = 14;
-          font_family = "Inter Display Medium";
-          position = "180, 80";
-          halign = "left";
-          valign = "bottom";
-        }
-        # PLAYER ALBUM
-        {
-          monitor = "DP-1";
-          text = ''cmd[update:1000] echo "$(playerctl metadata --format "{{ xesam:album }}" 2>/dev/null | cut -c1-50)"'';
-          color = "rgba(184, 212, 224, 0.8)";
-          font_size = 14;
-          font_family = "Inter Display Medium";
-          position = "180, 40";
-          halign = "left";
-          valign = "bottom";
-        }
-      ];
-
-      auth = {
-        fingerprint = {
-          enabled = true;
-        };
-      };
-    };
-  };
-
-  programs.tmux = {
-    enable = true;
-    prefix = "C-Space";
-
-    # shell = "\${pkgs.zsh}/bin/zsh";
-    mouse = true;
-    clock24 = true;
-    keyMode = "vi";
-    shortcut = "Space";
-    extraConfig = ''
-      set-option -sa terminal-overrides ",xterm*:Tc"
-
-      set -g base-index 1
-      set -g pane-base-index 1
-      set-window-option -g pane-base-index 1
-      set-option -g renumber-windows on
-
-      bind -n M-H previous-window
-      bind -n M-L next-window
-
-      bind-key -T copy-mode-vi v send-keys -X begin-selection
-      bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
-      bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
-      bind-key -r i run-shell "tmux neww ~/.local/scripts/tmux-cht.sh"
-    '';
-
-    plugins = with pkgs; [
-      {
-        plugin = tmuxPlugins.gruvbox;
-        extraConfig = "set -g @tmux-gruvbox 'dark'";
-      }
-      {
-        plugin = tmuxPlugins.sensible;
-      }
-      {
-        plugin = tmuxPlugins.yank;
-      }
-      {
-        plugin = tmuxPlugins.vim-tmux-navigator;
-      }
-    ];
-  };
-
-  programs.rofi = {
-    enable = true;
-    yoffset = 0;
-    xoffset = 0;
-    location = "center";
-    plugins = with pkgs; [
-      rofi-emoji
-      rofi-calc
-    ];
-  };
-
-  programs.wofi = {
-    enable = true;
-    settings = {
-      height = "40%";
-      hide_scroll = true;
-      insensitive = true;
-      location = 2;
-      matching = "fuzzy";
-      mode = "drun";
-      term = "kitty";
-      width = "40%";
-      yoffset = 300;
-      line_wrap = "word";
-      single_click = true;
-      allow_images = true;
-    };
-  };
-
   programs.home-manager.enable = true;
-
-  # nixpkgs.config.allowUnfree = true;
 }
