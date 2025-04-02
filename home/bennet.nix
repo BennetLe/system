@@ -351,6 +351,12 @@
         allow_images = true;
       };
     };
+
+    direnv = {
+      enable = true;
+      enableBashIntegration = true;
+      nix-direnv.enable = true;
+    };
   };
 
   services = {
