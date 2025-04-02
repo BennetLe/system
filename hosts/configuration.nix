@@ -265,6 +265,8 @@ in {
       ueberzugpp
       ffmpeg-full
       ranger
+      rustc
+      cargo
     ];
   };
 
