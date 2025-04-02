@@ -219,7 +219,6 @@ in {
       oh-my-posh
       fzf
       zoxide
-      direnv
       thunderbird
       uv
       zimfw
@@ -298,6 +297,7 @@ in {
         };
       };
     };
+    direnv.enable = true;
   };
 
   hardware = {
