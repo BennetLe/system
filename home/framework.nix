@@ -120,7 +120,6 @@
         # Shell integration
         eval "$(fzf --zsh)"
         eval "$(zoxide init --cmd cd zsh)"
-        eval "$(direnv hook zsh)"
 
         # remove dulicate PATH Varaibles
         export PATH=$(echo "$PATH" | tr ':' '\n' | awk '!a[$0]++' | tr '\n' ':')
@@ -323,6 +322,12 @@
         single_click = true;
         allow_images = true;
       };
+    };
+
+    direnv = {
+      enable = true;
+      enableZshIntegration = true;
+      nix-direnv.enable = true;
     };
   };
 
