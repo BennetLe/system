@@ -35,8 +35,7 @@
     };
     targets = {
       qt = {
-        enable = true;
-        platform = "kde";
+        enable = false;
       };
     };
   };
