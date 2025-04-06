@@ -7,6 +7,11 @@
         viAlias = true;
         vimAlias = true;
 
+        options = {
+          tabstop = 4;
+          shiftwidth = 4;
+        };
+
         keymaps = [
           {
             key = "<leader>d";
@@ -169,6 +174,9 @@
           zig = {
             enable = true;
             dap.enable = true;
+          };
+          java = {
+            enable = true;
           };
         };
 
