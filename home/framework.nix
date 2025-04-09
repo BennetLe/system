@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  lib,
   ...
 }: {
   home = {
@@ -298,6 +299,7 @@
     };
     rofi = {
       enable = true;
+      font = lib.mkForce "JetBrainsMono Nerd Font Mono 16";
       yoffset = 0;
       xoffset = 0;
       location = "center";
