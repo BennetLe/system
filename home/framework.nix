@@ -339,19 +339,23 @@
       settings = {
         general = {
           after_sleep_cmd = "hyprctl dispatch dpms on";
-          ignore_dbus_inhibit = false;
-          lock_cmd = "hyprlock";
+          before_sleep_cmd = "loginctl lock-session";
+          lock_cmd = "pidof hyprlock || hyperlock";
         };
 
         listener = [
           {
-            timeout = 900;
-            on-timeout = "hyprlock";
+            timeout = 600; # 10 min time out
+            on-timeout = "loginctl lock-session";
           }
           {
-            timeout = 1200;
+            timeout = 720; # 12 min time out
             on-timeout = "hyprctl dispatch dpms off";
             on-resume = "hyprctl dispatch dpms on";
+          }
+          {
+            timeout = 900; # 15 min time out
+            on-timeout = "systemctl hibernate";
           }
         ];
       };
