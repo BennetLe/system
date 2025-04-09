@@ -35,6 +35,8 @@
       fwupd
       brightnessctl
       fprintd
+      mysql84
+      mysql-workbench
     ];
   };
   services = {
@@ -46,6 +48,10 @@
       # };
     };
     fwupd.enable = true;
+    mysql = {
+      enable = true;
+      package = pkgs.mariadb;
+    };
   };
 
   security = {

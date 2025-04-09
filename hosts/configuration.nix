@@ -132,7 +132,6 @@ in {
       wmctrl
       jre8
       jdk17
-      google-chrome
       obsidian
       cascadia-code
       wineWowPackages.stable
@@ -179,7 +178,6 @@ in {
       jdt-language-server
       waydroid
       burpsuite
-      chromium
       anki
       nextcloud-client
       mangohud
@@ -273,7 +271,6 @@ in {
     hyprland.enable = true;
     virt-manager.enable = true;
     zsh.enable = true;
-    firefox.enable = true;
     steam = {
       enable = true;
       gamescopeSession.enable = true;
