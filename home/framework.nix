@@ -283,8 +283,8 @@
 
       plugins = with pkgs; [
         {
-          plugin = tmuxPlugins.gruvbox;
-          extraConfig = "set -g @tmux-gruvbox 'dark'";
+          plugin = tmuxPlugins.catppuccin;
+          extraConfig = "set -g @catppuccin_flavor 'mocha'"; # latte, frappe, macchiato or mocha
         }
         {
           plugin = tmuxPlugins.sensible;
@@ -346,7 +346,7 @@
         listener = [
           {
             timeout = 600; # 10 min time out
-            on-timeout = "loginctl lock-session";
+            on-timeout = "hyperlock";
           }
           {
             timeout = 720; # 12 min time out
@@ -355,7 +355,7 @@
           }
           {
             timeout = 900; # 15 min time out
-            on-timeout = "systemctl hibernate";
+            on-timeout = "systemctl suspend";
           }
         ];
       };
@@ -496,6 +496,7 @@
 
         touchpad = {
           natural_scroll = true;
+          scroll_factor = 0.5;
         };
       };
 

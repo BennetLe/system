@@ -15,7 +15,7 @@
   boot = {
     kernelModules = ["kvm-amd"];
     kernelParams = [
-      "mem_sleep_default=deep"
+      # "mem_sleep_default=deep"
     ];
     initrd.kernelModules = [];
     initrd.availableKernelModules = ["nvme" "xhci_pci" "thunderbolt" "usb_storage" "sd_mod"];
