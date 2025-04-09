@@ -37,6 +37,7 @@
       fprintd
       mysql84
       mysql-workbench
+      btop-rocm
     ];
   };
   services = {
