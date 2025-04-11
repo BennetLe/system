@@ -143,7 +143,7 @@
         };
 
         background = {
-          path = "~/Wallpapers/Gruvbox/gruvy-night.png";
+          path = "~/Wallpapers/wallhaven/wallhaven-85vm3k.png";
           blur_size = 5;
           blur_passes = 1;
           noise = 0.0117;
