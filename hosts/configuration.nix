@@ -468,7 +468,7 @@ in {
 
   xdg.portal = {
     enable = true;
-    extraPortals = [pkgs.xdg-desktop-portal-gtk];
+    extraPortals = with pkgs; [xdg-desktop-portal-hyprland];
   };
 
   virtualisation = {
