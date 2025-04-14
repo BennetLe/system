@@ -23,6 +23,14 @@
     };
   };
 
+  gtk = {
+    enable = true;
+    iconTheme = {
+      name = "Tela-light";
+      package = pkgs.tela-icon-theme;
+    };
+  };
+
   programs = {
     zsh = {
       enable = true;
