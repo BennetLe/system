@@ -178,6 +178,9 @@
           java = {
             enable = true;
           };
+          csharp = {
+            enable = true;
+          };
         };
 
         binds = {
