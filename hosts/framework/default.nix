@@ -40,7 +40,6 @@
       btop-rocm
       nmap
       omnisharp-roslyn
-      jetbrains.rider
     ];
   };
   services = {
