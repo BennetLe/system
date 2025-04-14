@@ -180,6 +180,7 @@
           };
           csharp = {
             enable = true;
+            lsp.server = "omnisharp";
           };
         };
 
