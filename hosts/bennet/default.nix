@@ -120,7 +120,7 @@
     firewall = {
       enable = true;
       allowedTCPPorts = [42420 53317];
-      allowedUDPPorts = [42420 53317];
+      allowedUDPPorts = [42420 53317 5353];
     };
   };
   systemd.user.services.monado.environment = {

@@ -72,6 +72,14 @@
     };
   };
 
+  networking = {
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [42420 53317];
+      allowedUDPPorts = [42420 53317 5353];
+    };
+  };
+
   # suspend-then-hibernate
   systemd.sleep.extraConfig = ''
     HibernateDelaySec=30m
