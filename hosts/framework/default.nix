@@ -40,6 +40,9 @@
       btop-rocm
       nmap
       omnisharp-roslyn
+      protonup-qt
+      protontricks
+      protonup
     ];
   };
   services = {
