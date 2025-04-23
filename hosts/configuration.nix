@@ -323,6 +323,10 @@ in {
       enable = true;
       nssmdns4 = true;
       openFirewall = true;
+      publish = {
+        enable = true;
+        userServices = true;
+      };
     };
     libinput.enable = true;
 
