@@ -42,6 +42,7 @@
       protonup-qt
       protontricks
       protonup
+      godot
 
       # Pentesting
       nmap
