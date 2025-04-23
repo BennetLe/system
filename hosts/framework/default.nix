@@ -38,11 +38,15 @@
       mysql84
       mysql-workbench
       btop-rocm
-      nmap
       omnisharp-roslyn
       protonup-qt
       protontricks
       protonup
+
+      # Pentesting
+      nmap
+      wordlists
+      gobuster
     ];
   };
   services = {
