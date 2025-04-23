@@ -182,7 +182,6 @@ in {
       nextcloud-client
       mangohud
       quickemu
-      protonvpn-gui
       gvfs
       nemo-with-extensions
       jmtpfs

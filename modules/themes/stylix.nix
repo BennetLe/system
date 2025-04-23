@@ -36,7 +36,7 @@
     targets = {
       qt = {
         enable = true;
-        platform = "kde";
+        platform = "kde6";
       };
     };
   };
