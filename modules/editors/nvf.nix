@@ -7,6 +7,10 @@
         viAlias = true;
         vimAlias = true;
 
+        diagnostics = {
+          enable = true;
+        };
+
         options = {
           tabstop = 4;
           shiftwidth = 4;
