@@ -44,6 +44,9 @@
       protonup
       godot
 
+      # Games
+      prismlauncher
+
       # Pentesting
       nmap
       wordlists
