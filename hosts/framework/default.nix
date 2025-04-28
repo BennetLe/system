@@ -43,6 +43,7 @@
       protontricks
       protonup
       godot
+      mongodb-compass
 
       # Games
       prismlauncher
@@ -65,6 +66,10 @@
     mysql = {
       enable = true;
       package = pkgs.mariadb;
+    };
+    mongodb = {
+      enable = true;
+      package = pkgs.mongodb-ce;
     };
   };
 
