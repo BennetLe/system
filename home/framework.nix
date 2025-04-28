@@ -573,7 +573,7 @@
         ", XF86MonBrightnessUp, exec, brightnessctl set +5%"
         ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
 
-        "$mainMod, K, exec, rofi -show calc -modi calc -no-show-match -no-sort"
+        "$mainMod, K, exec, rofi -show calc -modi calc -no-show-match -no-sort -no-persist-history"
         "$mainMod, period, exec, rofi -modi emoji -show emoji"
       ];
 

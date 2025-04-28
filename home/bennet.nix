@@ -561,7 +561,7 @@
         ", XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +1%"
         ", XF86AudioLowerVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -1%"
 
-        "$mainMod, K, exec, rofi -show calc -modi calc -no-show-match -no-sort"
+        "$mainMod, K, exec, rofi -show calc -modi calc -no-show-match -no-sort -no-persist-history"
         "$mainMod, period, exec, rofi -modi emoji -show emoji"
       ];
 
