@@ -33,6 +33,7 @@ in {
       "scanner"
       "docker"
       "disk"
+      "adbusers"
     ];
     shell = pkgs.zsh;
   };
@@ -383,6 +384,11 @@ in {
       enable = true;
       packages = with pkgs; [
         via
+        android-udev-rules
+        qmk-udev-rules
+        nitrokey-udev-rules
+        logitech-udev-rules
+        game-devices-udev-rules
       ];
       extraRules = ''
         # CMSIS-DAP for microbit
