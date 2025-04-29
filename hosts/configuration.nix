@@ -234,7 +234,8 @@ in {
       })
       rpi-imager
       hyprpolkitagent
-      libreoffice-qt6-unwrapped
+      libreoffice
+      hyphenDicts.de_DE
       gimp-with-plugins
       darktable
       numlockx
