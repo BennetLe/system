@@ -64,6 +64,16 @@
             mode = ["n" "v"];
             action = "";
           }
+          {
+            key = "<leader>tt";
+            mode = ["n"];
+            action = ":ToggleTerm<CR>";
+          }
+          {
+            key = "<ESC><ESC>";
+            mode = ["t"];
+            action = "<C-\\><C-n>";
+          }
         ];
 
         spellcheck = {
