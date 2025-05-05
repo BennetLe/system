@@ -7,6 +7,12 @@
         viAlias = true;
         vimAlias = true;
 
+        navigation = {
+          harpoon = {
+            enable = true;
+          };
+        };
+
         terminal = {
           toggleterm = {
             enable = true;
