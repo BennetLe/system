@@ -7,6 +7,32 @@
         viAlias = true;
         vimAlias = true;
 
+        navigation = {
+          harpoon = {
+            enable = true;
+          };
+        };
+
+        terminal = {
+          toggleterm = {
+            enable = true;
+            lazygit = {
+              enable = true;
+              mappings.open = "<leader>gl";
+            };
+          };
+        };
+
+        filetree = {
+          nvimTree = {
+            setupOpts = {
+              git = {
+                enable = true;
+              };
+            };
+          };
+        };
+
         diagnostics = {
           enable = true;
         };
@@ -43,6 +69,16 @@
             key = "<Down>";
             mode = ["n" "v"];
             action = "";
+          }
+          {
+            key = "<leader>tt";
+            mode = ["n"];
+            action = ":ToggleTerm<CR>";
+          }
+          {
+            key = "<ESC><ESC>";
+            mode = ["t"];
+            action = "<C-\\><C-n>";
           }
         ];
 
@@ -181,6 +217,10 @@
           };
           java = {
             enable = true;
+          };
+          python = {
+            enable = true;
+            dap.enable = true;
           };
           csharp = {
             enable = true;
