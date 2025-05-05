@@ -7,6 +7,16 @@
         viAlias = true;
         vimAlias = true;
 
+        terminal = {
+          toggleterm = {
+            enable = true;
+            lazygit = {
+              enable = true;
+              mappings.open = "<leader>gl";
+            };
+          };
+        };
+
         filetree = {
           nvimTree = {
             setupOpts = {
