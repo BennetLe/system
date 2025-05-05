@@ -49,7 +49,7 @@
         brave = "brave --password-store=gnome";
       };
 
-      initExtra = ''
+      initContent = ''
         export PATH="/home/bennet/.nix-profile/bin:$PATH"
         # Set the directory we want to store zinit and plugins
         # ZINIT_HOME="''${XDG_DATA_HOME:-''${HOME}/.local/share}/zinit/zinit.git"

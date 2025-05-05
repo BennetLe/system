@@ -184,13 +184,13 @@
         };
 
         lsp = {
+          enable = true;
           formatOnSave = true;
           mappings = {
           };
         };
 
         languages = {
-          enableLSP = true;
           enableTreesitter = true;
           enableFormat = true;
           nix = {
