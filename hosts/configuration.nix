@@ -265,6 +265,7 @@ in {
       ranger
       rustc
       cargo
+      gparted
     ];
   };
 
