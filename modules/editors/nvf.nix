@@ -7,6 +7,16 @@
         viAlias = true;
         vimAlias = true;
 
+        filetree = {
+          nvimTree = {
+            setupOpts = {
+              git = {
+                enable = true;
+              };
+            };
+          };
+        };
+
         diagnostics = {
           enable = true;
         };
@@ -181,6 +191,10 @@
           };
           java = {
             enable = true;
+          };
+          python = {
+            enable = true;
+            dap.enable = true;
           };
           csharp = {
             enable = true;
