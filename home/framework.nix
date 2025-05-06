@@ -287,6 +287,12 @@
         bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
         bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
         bind-key -r i run-shell "tmux neww ~/.local/scripts/tmux-cht.sh"
+
+
+        unbind-key -n C-h
+        unbind-key -n C-j
+        unbind-key -n C-k
+        unbind-key -n C-l
       '';
 
       plugins = with pkgs; [
