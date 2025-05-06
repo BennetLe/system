@@ -227,6 +227,10 @@
             enable = true;
             dap.enable = true;
           };
+          go = {
+            enable = true;
+            dap.enable = true;
+          };
           csharp = {
             enable = true;
             lsp.server = "omnisharp";
