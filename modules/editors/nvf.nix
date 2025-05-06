@@ -7,6 +7,11 @@
         viAlias = true;
         vimAlias = true;
 
+        git = {
+          enable = true;
+          vim-fugitive.enable = false;
+        };
+
         navigation = {
           harpoon = {
             enable = true;
