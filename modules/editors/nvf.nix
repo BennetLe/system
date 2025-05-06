@@ -12,10 +12,15 @@
           grammars = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
             regex
             templ
+            toml
+            json5
+            json
+            jsonc
           ];
           context = {
             enable = true;
           };
+          autotagHtml = true;
         };
 
         git = {
