@@ -7,6 +7,17 @@
         viAlias = true;
         vimAlias = true;
 
+        treesitter = {
+          enable = true;
+          grammars = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+            regex
+            templ
+          ];
+          context = {
+            enable = true;
+          };
+        };
+
         git = {
           enable = true;
           vim-fugitive.enable = false;
