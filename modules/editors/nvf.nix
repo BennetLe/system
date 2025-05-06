@@ -209,6 +209,13 @@
         languages = {
           enableTreesitter = true;
           enableFormat = true;
+
+          css = {
+            enable = true;
+          };
+          html = {
+            enable = true;
+          };
           nix = {
             enable = true;
             extraDiagnostics = {
