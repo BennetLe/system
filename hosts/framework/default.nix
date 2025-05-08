@@ -43,7 +43,10 @@
       protontricks
       protonup
       godot
+
+      # Uni
       mongodb-compass
+      antlr
 
       # Games
       prismlauncher
