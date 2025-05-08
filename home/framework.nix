@@ -153,7 +153,7 @@
         };
 
         background = {
-          path = "~/Wallpapers/wallhaven/wallhaven-85vm3k.png";
+          path = "/home/bennet/Wallpapers/Gruvbox/wall.png";
           blur_size = 5;
           blur_passes = 1;
           noise = 0.0117;
