@@ -43,6 +43,7 @@
       nmap
       sqlite-web
       bluez
+      google-chrome
 
       # VM
       qemu_full
