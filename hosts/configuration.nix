@@ -495,6 +495,9 @@ in {
       };
     };
     waydroid.enable = true;
+    docker = {
+      enable = true;
+    };
   };
 
   networking = {

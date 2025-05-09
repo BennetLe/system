@@ -54,6 +54,8 @@
         # Set the directory we want to store zinit and plugins
         # ZINIT_HOME="''${XDG_DATA_HOME:-''${HOME}/.local/share}/zinit/zinit.git"
 
+        export PATH="''${HOME}/go/bin:$PATH"
+
         ZIM_HOME=~/.zim
 
         # Download Zinit, if it's not there yet
@@ -151,7 +153,7 @@
         };
 
         background = {
-          path = "~/Wallpapers/wallhaven/wallhaven-85vm3k.png";
+          path = "/home/bennet/Wallpapers/Gruvbox/wall.png";
           blur_size = 5;
           blur_passes = 1;
           noise = 0.0117;

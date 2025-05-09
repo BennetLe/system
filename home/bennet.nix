@@ -42,9 +42,10 @@
 
       initContent = ''
         export PATH="/home/bennet/.nix-profile/bin:$PATH"
-        export PATH="''${HOME}/go/bin:$PATH"
         # Set the directory we want to store zinit and plugins
         # ZINIT_HOME="''${XDG_DATA_HOME:-''${HOME}/.local/share}/zinit/zinit.git"
+
+        export PATH="''${HOME}/go/bin:$PATH"
 
         ZIM_HOME=~/.zim
 

@@ -56,6 +56,10 @@
 
         diagnostics = {
           enable = true;
+          config = {
+            update_in_insert = true;
+            virtual_lines = true;
+          };
         };
 
         options = {
