@@ -266,6 +266,7 @@ in {
       rustc
       cargo
       gparted
+      synology-drive-client
     ];
   };
 
