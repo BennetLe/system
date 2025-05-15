@@ -7,6 +7,10 @@
         viAlias = true;
         vimAlias = true;
 
+        clipboard = {
+          registers = "unnamedplus";
+        };
+
         treesitter = {
           enable = true;
           grammars = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
@@ -115,7 +119,6 @@
         };
 
         searchCase = "smart";
-        useSystemClipboard = true;
 
         visuals = {
           nvim-web-devicons.enable = true;

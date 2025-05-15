@@ -400,7 +400,7 @@ in {
         # ESP32-S2-DevKitC-1
         ACTION!="add|change", GOTO="esp32-s2-devkitc-1_end"
         SUBSYSTEM=="usb", ATTR{idVendor}=="10c4", ATTR{idProduct}=="ea60", TAG+="uaccess"
-        LABLE="esp32-s2-devkitc-1_end"
+        LABEL="esp32-s2-devkitc-1_end"
 
         # OnePlus
         ACTION!="add|change", GOTO="oneplus_rules_end"
