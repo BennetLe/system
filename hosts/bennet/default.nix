@@ -73,6 +73,7 @@
       protonup-qt
       protontricks
       godot_4
+      motrix
     ];
   };
 
