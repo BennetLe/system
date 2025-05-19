@@ -474,7 +474,7 @@ in {
   system = {
     stateVersion = "24.05";
     # fixed printer
-    nssDatabases.hosts = ["resolve [!UNAVAIL=return]"];
+    # nssDatabases.hosts = ["resolve [!UNAVAIL=return]"];
   };
 
   xdg.portal = {
