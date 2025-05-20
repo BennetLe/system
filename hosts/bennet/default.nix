@@ -97,10 +97,10 @@
       };
       rocmOverrideGfx = "10.3.0";
     };
-    monado = {
-      enable = true;
-      defaultRuntime = true;
-    };
+    # monado = {
+    #   enable = true;
+    #   defaultRuntime = true;
+    # };
   };
   virtualisation = {
     docker = {
