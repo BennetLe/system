@@ -32,7 +32,60 @@
       overwrite.enable = true;
 
       settings = {
-        bar.launcher.autoDetectIcon = true;
+        layout = {
+          "bar.layouts" = {
+            "*" = {
+              left = ["dashboard" "workspaces" "windowtitle"];
+              middle = ["media"];
+              right = ["volume" "network" "systray" "clock" "notifications"];
+            };
+          };
+        };
+
+        bar = {
+          launcher.autoDetectIcon = true;
+          systray.ignore = [
+            "blueman"
+            "nm-applet"
+            "Xwayland Video Bridge_pipewireToXProxy"
+          ];
+          clock = {
+            format = "%a %b %d %H:%M:%S";
+          };
+          workspaces = {
+            show_numbered = true;
+            numbered_active_indicator = "color";
+          };
+          battery = {
+            label = false;
+          };
+          network = {
+            label = false;
+          };
+        };
+
+        theme = {
+          bar = {
+            buttons = {
+              enableBorders = true;
+              workspaces.smartHighlight = true;
+            };
+            opacity = 75;
+          };
+        };
+
+        menus = {
+          clock = {
+            weather.enabled = false;
+            time = {
+              hideSeconds = true;
+              military = true;
+            };
+          };
+          dashboard = {
+            powermenu.avatar.image = "/home/bennet/Pictures/profie pic.jpg";
+          };
+        };
       };
     };
     zsh = {
