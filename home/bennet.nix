@@ -71,6 +71,7 @@
               workspaces.smartHighlight = true;
             };
             opacity = 75;
+            scaling = 75;
           };
         };
 
