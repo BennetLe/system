@@ -7,6 +7,12 @@
         viAlias = true;
         vimAlias = true;
 
+        dashboard = {
+          alpha = {
+            enable = true;
+          };
+        };
+
         clipboard = {
           registers = "unnamedplus";
         };
@@ -180,6 +186,7 @@
           indentscope.enable = true;
           move.enable = true;
           pairs.enable = true;
+          # starter.enable = true;
         };
 
         snippets = {
