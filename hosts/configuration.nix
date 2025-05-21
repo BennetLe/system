@@ -304,8 +304,22 @@ in {
       enable = true;
       enable32Bit = true;
     };
-    bluetooth.enable = true;
-    bluetooth.powerOnBoot = true;
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+      settings = {
+        General = {
+          Name = "Hello";
+          ControllerMode = "dual";
+          FastConnectable = "true";
+          Experimental = "true";
+        };
+        Policy = {
+          AutoEnable = "true";
+        };
+      };
+    };
+    enableAllFirmware = true;
   };
 
   services = {

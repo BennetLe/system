@@ -42,7 +42,6 @@
       cloudflared
       nmap
       sqlite-web
-      bluez
       google-chrome
 
       # VM
