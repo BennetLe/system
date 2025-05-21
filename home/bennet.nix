@@ -50,7 +50,7 @@
             "Xwayland Video Bridge_pipewireToXProxy"
           ];
           clock = {
-            format = "%a %b %d %H:%M:%S";
+            format = "%a %b %d %H:%M";
           };
           workspaces = {
             show_numbered = true;
