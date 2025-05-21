@@ -27,13 +27,18 @@
     };
 
     stylix = {
-      url = "github:danth/stylix";
+      url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+    hyprpanel = {
+      url = "github:Jas-SinghFSU/HyprPanel";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -47,6 +52,7 @@
     stylix,
     spicetify-nix,
     nixos-hardware,
+    hyprpanel,
     ...
   }: let
     vars = {
@@ -77,6 +83,7 @@
           stylix
           spicetify-nix
           nixos-hardware
+          hyprpanel
           ;
       }
     );

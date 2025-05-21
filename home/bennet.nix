@@ -22,7 +22,19 @@
     };
   };
 
+  imports = [inputs.hyprpanel.homeManagerModules.hyprpanel];
+
   programs = {
+    hyprpanel = {
+      enable = true;
+      systemd.enable = true;
+      hyprland.enable = true;
+      overwrite.enable = true;
+
+      settings = {
+        bar.launcher.autoDetectIcon = true;
+      };
+    };
     zsh = {
       enable = true;
 
@@ -367,7 +379,7 @@
 
   services = {
     swaync = {
-      enable = true;
+      enable = false;
       settings = {
         timeout = 5;
         timeout-low = 2;
