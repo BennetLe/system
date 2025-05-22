@@ -62,7 +62,7 @@
           };
           workspaces = {
             show_numbered = true;
-            numbered_active_indicator = "color";
+            numbered_active_indicator = "underline";
           };
           battery = {
             label = false;
