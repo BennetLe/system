@@ -27,7 +27,6 @@
   programs = {
     hyprpanel = {
       enable = true;
-      systemd.enable = true;
       hyprland.enable = true;
       overwrite.enable = true;
 
@@ -50,7 +49,7 @@
             "Xwayland Video Bridge_pipewireToXProxy"
           ];
           clock = {
-            format = "%a %b %d %H:%M";
+            format = "%a %d %b %H:%M";
           };
           workspaces = {
             show_numbered = true;
