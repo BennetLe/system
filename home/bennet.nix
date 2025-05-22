@@ -47,6 +47,7 @@
             "blueman"
             "nm-applet"
             "Xwayland Video Bridge_pipewireToXProxy"
+            "spotify-client"
           ];
           clock = {
             format = "%a %d %b %H:%M";
