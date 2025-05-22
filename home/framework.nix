@@ -31,7 +31,72 @@
     };
   };
 
+  imports = [inputs.hyprpanel.homeManagerModules.hyprpanel];
+
   programs = {
+    hyprpanel = {
+      enable = true;
+      hyprland.enable = true;
+      overwrite.enable = true;
+
+      settings = {
+        layout = {
+          "bar.layouts" = {
+            "*" = {
+              left = ["dashboard" "workspaces" "windowtitle"];
+              middle = ["media"];
+              right = ["volume" "network" "bluetooth" "battery" "systray" "clock" "notifications"];
+            };
+          };
+        };
+
+        bar = {
+          launcher.autoDetectIcon = true;
+          systray.ignore = [
+            "blueman"
+            "nm-applet"
+            "Xwayland Video Bridge_pipewireToXProxy"
+          ];
+          clock = {
+            format = "%a %b %d %H:%M";
+          };
+          workspaces = {
+            show_numbered = true;
+            numbered_active_indicator = "color";
+          };
+          battery = {
+            label = false;
+          };
+          network = {
+            label = false;
+          };
+        };
+
+        theme = {
+          bar = {
+            buttons = {
+              enableBorders = true;
+              workspaces.smartHighlight = true;
+            };
+            opacity = 75;
+            scaling = 100;
+          };
+        };
+
+        menus = {
+          clock = {
+            weather.enabled = false;
+            time = {
+              hideSeconds = true;
+              military = true;
+            };
+          };
+          dashboard = {
+            powermenu.avatar.image = "/home/bennet/Pictures/profie pic.jpg";
+          };
+        };
+      };
+    };
     zsh = {
       enable = true;
 
@@ -377,7 +442,7 @@
       };
     };
     swaync = {
-      enable = true;
+      enable = false;
       settings = {
         timeout = 5;
         timeout-low = 2;
