@@ -13,8 +13,15 @@
           };
         };
 
+        luaConfigPost = ''
+          vim.api.nvim_set_option("clipboard", "unnamedplus")
+        '';
+
         clipboard = {
           registers = "unnamedplus";
+          providers = {
+            wl-copy.enable = true;
+          };
         };
 
         treesitter = {
