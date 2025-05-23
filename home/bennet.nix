@@ -25,6 +25,12 @@
   imports = [inputs.hyprpanel.homeManagerModules.hyprpanel];
 
   programs = {
+    eza = {
+      enable = true;
+      enableNushellIntegration = false;
+      git = true;
+      icons = "auto";
+    };
     zoxide = {
       enable = true;
       enableNushellIntegration = true;
@@ -68,8 +74,10 @@
         # ls = "eza";
         ll = "ls -l";
         cls = "clear";
-        cat = "bat";
         s = "kitten ssh";
+
+        cat = "bat";
+        cd = "z";
 
         update = "nixos-rebuild switch --use-remote-sudo --flake /home/bennet/system#bennet";
         config = "nvim /home/bennet/system/flake.nix";
