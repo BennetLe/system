@@ -268,6 +268,7 @@ in {
       rustc
       cargo
       gparted
+      lazydocker
     ];
   };
 
