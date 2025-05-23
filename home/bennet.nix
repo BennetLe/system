@@ -25,6 +25,11 @@
   imports = [inputs.hyprpanel.homeManagerModules.hyprpanel];
 
   programs = {
+    zoxide = {
+      enable = true;
+      enableNushellIntegration = true;
+      enableZshIntegration = true;
+    };
     nushell = {
       enable = true;
       # configFile.source = ./config.nu;
@@ -53,14 +58,10 @@
         prepend /home/myuser/.apps |
         append /usr/bin/env
         )
-
-        source ~/.zoxide.nu
       '';
       envFile = {
         text = ''
           $env.TRANSIENT_PROMPT_COMMAND = ^starship module character
-
-          zoxide init nushell | save -f ~/.zoxide.nu
         '';
       };
       shellAliases = {
@@ -254,7 +255,7 @@
 
         # Shell integration
         eval "$(fzf --zsh)"
-        eval "$(zoxide init --cmd cd zsh)"
+        # eval "$(zoxide init --cmd cd zsh)"
 
         # remove dulicate PATH Varaibles
         export PATH=$(echo "$PATH" | tr ':' '\n' | awk '!a[$0]++' | tr '\n' ':')
