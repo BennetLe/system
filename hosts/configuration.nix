@@ -35,10 +35,11 @@ in {
       "disk"
       "adbusers"
     ];
-    shell = pkgs.zsh;
+    shell = pkgs.nushell;
+    useDefaultShell = true;
   };
 
-  users.defaultUserShell = pkgs.zsh;
+  users.defaultUserShell = pkgs.nushell;
 
   time.timeZone = "Europe/Berlin";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -112,6 +113,7 @@ in {
       gh
       neovim
       zsh
+      nushell
       kitty
       hyprland
       waybar

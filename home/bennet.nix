@@ -282,7 +282,7 @@
 
     kitty = {
       enable = true;
-      shellIntegration.mode = "zsh";
+      # shellIntegration.mode = "zsh";
       settings = {
         confirm_os_window_close = 0;
         enable_audio_bell = false;
@@ -494,6 +494,7 @@
     direnv = {
       enable = true;
       enableZshIntegration = true;
+      enableNushellIntegration = true;
       nix-direnv.enable = true;
     };
   };
@@ -762,5 +763,7 @@
     };
   };
 
-  programs.home-manager.enable = true;
+  programs.home-manager = {
+    enable = true;
+  };
 }
