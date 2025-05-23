@@ -80,7 +80,7 @@
         cat = "bat";
         s = "kitten ssh";
 
-        update = "nixos-rebuild switch --use-remote-sudo --flake /home/bennet/system#bennet";
+        update = "nixos-rebuild switch --use-remote-sudo --flake /home/bennet/system#framework";
         config = "nvim /home/bennet/system/flake.nix";
         changewp = "swww img";
 
