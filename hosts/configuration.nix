@@ -269,6 +269,17 @@ in {
       cargo
       gparted
       lazydocker
+      xh
+      bacon
+      cargo-info
+      fselect
+      rusty-man
+      delta
+      wiki-tui
+      just
+      mask
+      mprocs
+      presenterm
     ];
   };
 

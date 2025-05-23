@@ -77,8 +77,10 @@
         # ls = "eza";
         ll = "ls -l";
         cls = "clear";
-        cat = "bat";
         s = "kitten ssh";
+
+        cat = "bat";
+        cd = "z";
 
         update = "nixos-rebuild switch --use-remote-sudo --flake /home/bennet/system#framework";
         config = "nvim /home/bennet/system/flake.nix";
