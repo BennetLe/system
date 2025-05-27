@@ -286,6 +286,14 @@
             enable = true;
           };
         };
+        autocmds = [
+          {
+            enable = true;
+            event = ["FileType"];
+            pattern = ["*.rs"];
+            command = ''set keywordprg=rusty-man<CR>'';
+          }
+        ];
       };
     };
   };
