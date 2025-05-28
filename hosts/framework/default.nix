@@ -50,11 +50,6 @@
 
       # Games
       prismlauncher
-
-      # Pentesting
-      nmap
-      wordlists
-      gobuster
     ];
   };
   services = {

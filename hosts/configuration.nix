@@ -280,6 +280,11 @@ in {
       mask
       mprocs
       presenterm
+
+      # Pentesting
+      nmap
+      wordlists
+      gobuster
     ];
   };
 
