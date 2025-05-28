@@ -285,6 +285,7 @@ in {
       nmap
       wordlists
       gobuster
+      mitmproxy
     ];
   };
 
