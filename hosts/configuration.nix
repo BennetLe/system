@@ -280,6 +280,7 @@ in {
       mask
       mprocs
       presenterm
+      wireguard-tools
 
       # Pentesting
       nmap
