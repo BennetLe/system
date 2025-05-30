@@ -34,9 +34,14 @@ in {
       "docker"
       "disk"
       "adbusers"
+      "wireshark"
     ];
     shell = pkgs.nushell;
     useDefaultShell = true;
+  };
+
+  users.groups = {
+    wireshark = {};
   };
 
   users.defaultUserShell = pkgs.nushell;
@@ -291,6 +296,10 @@ in {
   };
 
   programs = {
+    wireshark = {
+      enable = true;
+      package = pkgs.wireshark;
+    };
     hyprland.enable = true;
     virt-manager.enable = true;
     zsh.enable = true;
