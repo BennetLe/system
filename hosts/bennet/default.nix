@@ -18,6 +18,7 @@
     spicetify = {
       enable = true;
     };
+    kdeconnect.enable = true;
   };
 
   boot = {
@@ -120,8 +121,8 @@
   networking = {
     firewall = {
       enable = true;
-      allowedTCPPorts = [42420 53317];
-      allowedUDPPorts = [42420 53317 5353];
+      allowedTCPPorts = [42420 53317 1714 1764];
+      allowedUDPPorts = [42420 53317 5353 1714 1764];
     };
   };
   systemd.user.services.monado.environment = {

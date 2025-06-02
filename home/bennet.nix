@@ -560,6 +560,7 @@
         # "hyprctl setcursors Sweet-cursor 24"
         "~/.local/scripts/hypr/screensharing.sh"
         "~/.local/scripts/hypr/start.sh"
+        "kdeconnect-indicator"
       ];
 
       env = [
