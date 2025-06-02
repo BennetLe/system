@@ -292,6 +292,8 @@ in {
       wordlists
       gobuster
       mitmproxy
+      metasploit
+      nuclei
     ];
   };
 
