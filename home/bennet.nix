@@ -24,6 +24,11 @@
 
   imports = [inputs.hyprpanel.homeManagerModules.hyprpanel];
 
+  stylix = {
+    targets = {
+    };
+  };
+
   programs = {
     eza = {
       enable = true;
