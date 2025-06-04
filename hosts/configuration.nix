@@ -167,7 +167,6 @@ in {
       networkmanager-openvpn
       openresolv
       networkmanager
-      thefuck
       via
       gtypist
       kdotool
