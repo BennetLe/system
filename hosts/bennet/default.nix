@@ -134,6 +134,6 @@
   };
 
   security.pki.certificateFiles = [
-    ./../../modules/certs/mitmproxy-ca-cert.pem
+    ./../../modules/certs/mitmproxy-ca-cert-bennet.pem
   ];
 }
