@@ -1,10 +1,12 @@
 {
   pkgs,
   inputs,
+  config,
   ...
 }: {
   imports = [
     ./hardware-configuration.nix
+    ./secrets.nix
   ];
 
   home-manager = {
@@ -130,4 +132,8 @@
     STEAMVR_LH_ENABLE = "1";
     XRT_COMPOSITOR_COMPUTE = "1";
   };
+
+  security.pki.certificateFiles = [
+    ./../../modules/certs/mitmproxy-ca-cert.pem
+  ];
 }
