@@ -60,6 +60,7 @@
       spice
       spice-vdagent
       virt-viewer
+      agenix-cli
 
       # Games
       vintagestory

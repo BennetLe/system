@@ -39,6 +39,8 @@
       url = "github:Jas-SinghFSU/HyprPanel";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    agenix.url = "github:ryantm/agenix";
   };
 
   outputs = inputs @ {
@@ -53,6 +55,7 @@
     spicetify-nix,
     nixos-hardware,
     hyprpanel,
+    agenix,
     ...
   }: let
     vars = {
@@ -84,6 +87,7 @@
           spicetify-nix
           nixos-hardware
           hyprpanel
+          agenix
           ;
       }
     );

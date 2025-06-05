@@ -27,6 +27,7 @@ in {
 
       inputs.stylix.nixosModules.stylix
       inputs.spicetify-nix.nixosModules.spicetify
+      inputs.agenix.nixosModules.default
 
       home-manager.nixosModules.home-manager
       {
