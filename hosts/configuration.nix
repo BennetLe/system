@@ -285,6 +285,7 @@ in {
       mprocs
       presenterm
       wireguard-tools
+      hoppscotch
 
       # Pentesting
       nmap
