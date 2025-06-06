@@ -294,6 +294,7 @@ in {
       mitmproxy
       metasploit
       nuclei
+      bettercap
     ];
   };
 
