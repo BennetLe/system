@@ -561,6 +561,13 @@
         "DP-2,1920x1080@75,3440x0,1"
       ];
 
+      plugin = {
+        hyprscrolling = {
+          fullscreen_on_one_column = true;
+          focus_fit_method = 1;
+        };
+      };
+
       exec-once = [
         "hyprctl dispatch workspace 1 &"
         "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
@@ -677,6 +684,10 @@
         ",switch:Lid Switch, exec, hyprlock"
         "SUPER_SHIFT, S, exec, hyprshot -m region -o /home/bennet/Pictures/Hyprshot"
         "$mainMod, F, fullscreen"
+
+        "$mainMod Control, left, layoutmsg, move -col"
+        "$mainMod Control, right, layoutmsg, move +col"
+        "$mainMod Control, f, layoutmsg, fit active"
 
         "SUPER_SHIFT, R, exec, pkill waybar && waybar &"
 
