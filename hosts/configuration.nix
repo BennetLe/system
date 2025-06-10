@@ -288,6 +288,7 @@ in {
   };
 
   programs = {
+    chromium.enable = true;
     wireshark = {
       enable = true;
       package = pkgs.wireshark;
@@ -369,16 +370,10 @@ in {
     libinput.enable = true;
 
     displayManager = {
-      defaultSession = "hyprland";
-      sddm = {
-        enable = true; # Enable SDDM.
-        wayland.enable = true;
-        # theme = "sddm-astronaut-theme";
-        settings = {
-          Display = {
-            PrimaryMonitor = "DP-1";
-          };
-        };
+      defaultSession = "hyprland-uwsm";
+      gdm = {
+        enable = true;
+        wayland = true;
       };
     };
 
@@ -509,12 +504,19 @@ in {
     # nssDatabases.hosts = ["resolve [!UNAVAIL=return]"];
   };
 
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-hyprland
-      # xdg-desktop-portal-gtk
-    ];
+  xdg = {
+    mime = {
+      defaultApplications = {
+        "x-scheme-handler/http" = "brave-browser.desktop";
+      };
+    };
+    portal = {
+      enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-hyprland
+        # xdg-desktop-portal-gtk
+      ];
+    };
   };
 
   virtualisation = {
