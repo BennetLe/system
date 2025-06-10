@@ -68,9 +68,6 @@ in {
       services = {
         # kwallet.enableKwallet = true;
         # login.enableKwallet = true;
-        sddm = {
-          # enableKwallet = true;
-        };
         # login.kwallet = {
         # enable = true;
         # };
@@ -236,9 +233,9 @@ in {
       kdePackages.kcalc
       # kdePackages.kwallet-pam
       xwayland
-      (callPackage ./../pkgs/sddm-astronaut-theme.nix {
-        theme = "astronaut";
-      })
+      # (callPackage ./../pkgs/sddm-astronaut-theme.nix {
+      #   theme = "astronaut";
+      # })
       rpi-imager
       hyprpolkitagent
       libreoffice
@@ -383,13 +380,8 @@ in {
       defaultSession = "hyprland";
       sddm = {
         enable = true; # Enable SDDM.
-        extraPackages = with pkgs; [
-          kdePackages.qtsvg
-          kdePackages.qtmultimedia
-          kdePackages.qtvirtualkeyboard
-        ];
         wayland.enable = true;
-        theme = "sddm-astronaut-theme";
+        # theme = "sddm-astronaut-theme";
         settings = {
           Display = {
             PrimaryMonitor = "DP-1";
@@ -398,7 +390,7 @@ in {
       };
     };
 
-    desktopManager.plasma6.enable = true;
+    # desktopManager.plasma6.enable = true;
     xserver = {
       enable = true;
       xkb.layout = "us";

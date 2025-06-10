@@ -34,10 +34,10 @@
       };
     };
     targets = {
-      qt = {
-        enable = true;
-        platform = "kde6";
-      };
+      # qt = {
+      #   enable = true;
+      #   platform = "kde6";
+      # };
     };
   };
 }
