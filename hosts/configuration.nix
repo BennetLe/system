@@ -66,17 +66,9 @@ in {
     rtkit.enable = true;
     pam = {
       services = {
-        # kwallet.enableKwallet = true;
-        # login.enableKwallet = true;
-        # login.kwallet = {
-        # enable = true;
+        # kde = {
+        #   allowNullPassword = true;
         # };
-        kde = {
-          allowNullPassword = true;
-          # kwallet = {
-          #   enable = true;
-          # };
-        };
       };
     };
   };
