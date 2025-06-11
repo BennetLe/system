@@ -288,6 +288,14 @@ in {
   };
 
   programs = {
+    ghidra = {
+      enable = true;
+      gdb = true;
+      package = pkgs.ghidra.withExtensions (p:
+        with p; [
+          ret-sync
+        ]);
+    };
     dconf.enable = true;
     chromium.enable = true;
     wireshark = {
