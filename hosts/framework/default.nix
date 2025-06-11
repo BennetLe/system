@@ -47,6 +47,7 @@
       # Uni
       mongodb-compass
       antlr
+      eclipses.eclipse-sdk
 
       # Games
       prismlauncher
