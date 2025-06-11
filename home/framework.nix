@@ -135,7 +135,7 @@
             numbered_active_indicator = "underline";
           };
           battery = {
-            label = false;
+            label = true;
           };
           network = {
             label = false;
