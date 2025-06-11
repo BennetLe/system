@@ -223,6 +223,7 @@ in {
       nix-ld
       inputs.hyprland-qtutils.packages."${pkgs.system}".default
       kdePackages.kcalc
+      kdePackages.kate
       # kdePackages.kwallet-pam
       xwayland
       # (callPackage ./../pkgs/sddm-astronaut-theme.nix {
