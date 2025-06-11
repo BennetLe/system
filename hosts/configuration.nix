@@ -288,6 +288,7 @@ in {
   };
 
   programs = {
+    dconf.enable = true;
     chromium.enable = true;
     wireshark = {
       enable = true;
