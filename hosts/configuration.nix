@@ -276,6 +276,7 @@ in {
       presenterm
       wireguard-tools
       hoppscotch
+      protonvpn-gui
 
       # Pentesting
       nmap
