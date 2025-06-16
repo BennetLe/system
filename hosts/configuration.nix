@@ -207,7 +207,6 @@ in {
       wl-clipboard
       coreutils
       killall
-      ranger
       zinit
       oh-my-posh
       fzf
