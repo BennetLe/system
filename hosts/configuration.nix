@@ -254,7 +254,6 @@ in {
       kdePackages.qtstyleplugin-kvantum
       nssmdns
       eza
-      yazi-unwrapped
       imagemagick
       ueberzugpp
       ffmpeg-full
@@ -290,6 +289,9 @@ in {
   };
 
   programs = {
+    yazi = {
+      enable = true;
+    };
     ghidra = {
       enable = true;
       gdb = true;
