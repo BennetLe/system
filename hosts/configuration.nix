@@ -256,7 +256,6 @@ in {
       imagemagick
       ueberzugpp
       ffmpeg-full
-      ranger
       rustc
       cargo
       gparted
