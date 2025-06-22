@@ -17,10 +17,14 @@
   };
 
   programs = {
+    streamcontroller.enable = true;
     spicetify = {
       enable = true;
     };
-    kdeconnect.enable = true;
+    kdeconnect = {
+      enable = true;
+      package = pkgs.kdePackages.kdeconnect-kde;
+    };
   };
 
   boot = {
