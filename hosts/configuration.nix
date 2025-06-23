@@ -274,6 +274,7 @@ in {
       wireguard-tools
       hoppscotch
       protonvpn-gui
+      spicetify-cli
 
       # Pentesting
       nmap
