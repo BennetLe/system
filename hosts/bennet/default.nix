@@ -19,6 +19,14 @@
   programs = {
     streamcontroller.enable = true;
     spicetify = {
+      enabledExtensions = [
+        {
+          name = "volume-ws.js";
+          src = builtins.path {
+            path = ./extern/spicetify;
+          };
+        }
+      ];
       enable = true;
     };
     kdeconnect = {
