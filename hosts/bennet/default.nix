@@ -75,6 +75,7 @@
       spice-vdagent
       virt-viewer
       agenix-cli
+      uget
 
       # Games
       vintagestory
@@ -88,7 +89,7 @@
       protonup-qt
       protontricks
       godot_4
-      uget
+      blender-hip
     ];
   };
 
