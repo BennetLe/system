@@ -46,18 +46,12 @@
   };
   environment = {
     systemPackages = with pkgs; [
-      joplin-desktop
-      vdhcoapp
-      vial
-      alpaca
-      rocmPackages.rocminfo
-      tor-browser
-      btop-rocm
-      vivaldi
-      cloudflared
-      nmap
-      sqlite-web
-      google-chrome
+      # Game dev
+      godot
+      blender-hip
+      aseprite
+      pixelorama
+      blockbench
 
       # VM
       qemu_full
@@ -69,13 +63,6 @@
       kvmtool
       libguestfs-with-appliance
       dmg2img
-      tesseract
-      nettools
-      spice
-      spice-vdagent
-      virt-viewer
-      agenix-cli
-      uget
 
       # Games
       vintagestory
@@ -88,8 +75,26 @@
       melonDS
       protonup-qt
       protontricks
-      godot_4
-      blender-hip
+
+      joplin-desktop
+      vdhcoapp
+      vial
+      alpaca
+      rocmPackages.rocminfo
+      tor-browser
+      btop-rocm
+      vivaldi
+      cloudflared
+      nmap
+      sqlite-web
+      google-chrome
+      tesseract
+      nettools
+      spice
+      spice-vdagent
+      virt-viewer
+      agenix-cli
+      uget
     ];
   };
 
