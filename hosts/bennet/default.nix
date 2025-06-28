@@ -153,5 +153,6 @@
 
   security.pki.certificateFiles = [
     ./../../modules/certs/mitmproxy-ca-cert-bennet.pem
+    ./../../modules/certs/burp.pem
   ];
 }
