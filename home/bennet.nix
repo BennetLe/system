@@ -22,8 +22,6 @@
     };
   };
 
-  # imports = [inputs.hyprpanel.homeManagerModules.hyprpanel];
-
   stylix = {
     targets = {
     };
@@ -118,9 +116,6 @@
 
     hyprpanel = {
       enable = true;
-      # hyprland.enable = true;
-      # overwrite.enable = true;
-
       settings = {
         layout = {
           "bar.layouts" = {
