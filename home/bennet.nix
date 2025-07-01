@@ -173,6 +173,7 @@
             powermenu.avatar.image = "/home/bennet/Pictures/profie pic.jpg";
           };
         };
+        wallpaper.enable = false;
       };
     };
     zsh = {
