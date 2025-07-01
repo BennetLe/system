@@ -506,7 +506,6 @@ in {
 
     overlays = [
       inputs.nix-alien.overlays.default
-      inputs.hyprpanel.overlay
     ];
   };
 

@@ -35,11 +35,6 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    hyprpanel = {
-      url = "github:Jas-SinghFSU/HyprPanel";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     agenix.url = "github:ryantm/agenix";
   };
 
@@ -54,7 +49,6 @@
     stylix,
     spicetify-nix,
     nixos-hardware,
-    hyprpanel,
     agenix,
     ...
   }: let
@@ -86,7 +80,6 @@
           stylix
           spicetify-nix
           nixos-hardware
-          hyprpanel
           agenix
           ;
       }

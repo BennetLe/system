@@ -94,7 +94,7 @@
         cat = "bat";
         cd = "z";
 
-        update = "nixos-rebuild switch --use-remote-sudo --flake /home/bennet/system#bennet";
+        update = "nixos-rebuild switch --sudo --flake /home/bennet/system#bennet";
         config = "nvim /home/bennet/system/flake.nix";
         changewp = "swww img";
 
