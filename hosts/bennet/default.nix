@@ -95,6 +95,7 @@
       virt-viewer
       agenix-cli
       uget
+      element-desktop
     ];
   };
 
