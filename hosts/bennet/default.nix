@@ -81,6 +81,7 @@
       vial
       alpaca
       rocmPackages.rocminfo
+      rocmPackages.clr.icd
       tor-browser
       btop-rocm
       vivaldi
@@ -114,10 +115,7 @@
     ollama = {
       enable = true;
       acceleration = "rocm";
-      environmentVariables = {
-        HCC_AMDGPU_TARGET = "gfx1030";
-      };
-      rocmOverrideGfx = "10.3.0";
+      rocmOverrideGfx = "11.0.1";
     };
     # monado = {
     #   enable = true;
@@ -129,17 +127,19 @@
       enable = true;
     };
   };
-  nixpkgs.overlays = [
-    (final: prev: {
-      vintagestory = prev.vintagestory.overrideAttrs (oldAttrs: rec {
-        version = "1.20.3";
-        src = prev.fetchurl {
-          url = "https://cdn.vintagestory.at/gamefiles/stable/vs_client_linux-x64_${version}.tar.gz";
-          hash = "sha256-+nEyFlLfTAOmd8HrngZOD1rReaXCXX/ficE/PCLcewg=";
-        };
-      });
-    })
-  ];
+  nixpkgs = {
+    overlays = [
+      (final: prev: {
+        vintagestory = prev.vintagestory.overrideAttrs (oldAttrs: rec {
+          version = "1.20.3";
+          src = prev.fetchurl {
+            url = "https://cdn.vintagestory.at/gamefiles/stable/vs_client_linux-x64_${version}.tar.gz";
+            hash = "sha256-+nEyFlLfTAOmd8HrngZOD1rReaXCXX/ficE/PCLcewg=";
+          };
+        });
+      })
+    ];
+  };
   networking = {
     firewall = {
       enable = true;
@@ -156,4 +156,12 @@
     ./../../modules/certs/mitmproxy-ca-cert-bennet.pem
     ./../../modules/certs/burp.pem
   ];
+
+  hardware = {
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+      extraPackages = [pkgs.rocmPackages.clr.icd];
+    };
+  };
 }
