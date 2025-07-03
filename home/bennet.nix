@@ -28,6 +28,10 @@
   };
 
   programs = {
+    zellij = {
+      enable = true;
+      attachExistingSession = true;
+    };
     eza = {
       enable = true;
       enableNushellIntegration = false;
