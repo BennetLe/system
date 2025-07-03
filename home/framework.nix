@@ -681,7 +681,7 @@
         "SUPER_SHIFT, S, exec, hyprshot -m region -o /home/bennet/Pictures/Hyprshot"
         "$mainMod, F, fullscreen"
 
-        "SUPER_SHIFT, R, exec, pkill waybar && waybar &"
+        "SUPER_SHIFT, R, exec, pkill hyprpanel && hyprpanel &"
 
         "SUPER_SHIFT, C, forcekillactive"
 

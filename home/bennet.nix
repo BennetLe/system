@@ -699,7 +699,7 @@
         "$mainMod Control, right, layoutmsg, move +col"
         "$mainMod Control, f, layoutmsg, fit active"
 
-        "SUPER_SHIFT, R, exec, pkill waybar && waybar &"
+        "SUPER_SHIFT, R, exec, pkill hyprpanel && hyprpanel &"
 
         "SUPER_SHIFT, C, forcekillactive"
 
