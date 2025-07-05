@@ -314,6 +314,9 @@ in {
     };
     gamescope = {
       enable = true;
+      args = [
+        "--backend sdl"
+      ];
       package = pkgs.gamescope.overrideAttrs (_: {
         NIX_CFLAGS_COMPILE = ["-fno-fast-math"];
       });
