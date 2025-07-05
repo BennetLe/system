@@ -30,7 +30,18 @@
   programs = {
     zellij = {
       enable = true;
-      attachExistingSession = true;
+      settings = {
+        pane_frames = false;
+        tab_bar = false;
+        keybinds = {
+          unbind = [
+            "Ctrl p" # interferes with nvim binding
+            "Ctrl n" # interferes with nvim binding
+            "Ctrl o" # interferes with opencode binding
+            "Ctrl t" # interferes with opencode binding
+          ];
+        };
+      };
     };
     eza = {
       enable = true;
