@@ -120,18 +120,16 @@
 
     hyprpanel = {
       enable = true;
+
       settings = {
-        layout = {
-          "bar.layouts" = {
+        bar = {
+          layout = {
             "*" = {
               left = ["dashboard" "workspaces" "windowtitle"];
               middle = ["media"];
               right = ["volume" "network" "systray" "clock" "notifications"];
             };
           };
-        };
-
-        bar = {
           launcher.autoDetectIcon = true;
           systray.ignore = [
             "blueman"
