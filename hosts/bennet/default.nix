@@ -97,6 +97,7 @@
       agenix-cli
       uget
       element-desktop
+      hyprpanel
     ];
   };
 

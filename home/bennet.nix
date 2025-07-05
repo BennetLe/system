@@ -118,66 +118,6 @@
       };
     };
 
-    hyprpanel = {
-      enable = true;
-
-      settings = {
-        bar = {
-          layout = {
-            "*" = {
-              left = ["dashboard" "workspaces" "windowtitle"];
-              middle = ["media"];
-              right = ["volume" "network" "systray" "clock" "notifications"];
-            };
-          };
-          launcher.autoDetectIcon = true;
-          systray.ignore = [
-            "blueman"
-            "nm-applet"
-            "Xwayland Video Bridge_pipewireToXProxy"
-            "spotify-client"
-          ];
-          clock = {
-            format = "%a %d %b %H:%M";
-          };
-          workspaces = {
-            show_numbered = true;
-            numbered_active_indicator = "color";
-          };
-          battery = {
-            label = false;
-          };
-          network = {
-            label = false;
-          };
-        };
-
-        theme = {
-          bar = {
-            buttons = {
-              enableBorders = true;
-              workspaces.smartHighlight = true;
-            };
-            opacity = 75;
-            scaling = 75;
-          };
-        };
-
-        menus = {
-          clock = {
-            weather.enabled = false;
-            time = {
-              hideSeconds = true;
-              military = true;
-            };
-          };
-          dashboard = {
-            powermenu.avatar.image = "/home/bennet/Pictures/profie pic.jpg";
-          };
-        };
-        wallpaper.enable = false;
-      };
-    };
     zsh = {
       enable = true;
 
@@ -584,6 +524,7 @@
         "~/.local/scripts/hypr/screensharing.sh"
         "~/.local/scripts/hypr/start.sh"
         "kdeconnect-indicator"
+        "hyprpanel"
       ];
 
       env = [
@@ -697,7 +638,7 @@
         "$mainMod Control, right, layoutmsg, move +col"
         "$mainMod Control, f, layoutmsg, fit active"
 
-        "SUPER_SHIFT, R, exec, pkill hyprpanel && hyprpanel &"
+        "SUPER_SHIFT, R, exec, bash ~/.local/scripts/hypr/restart_bar.sh"
 
         "SUPER_SHIFT, C, forcekillactive"
 
