@@ -275,6 +275,7 @@ in {
       hoppscotch
       protonvpn-gui
       spicetify-cli
+      pulseaudio
 
       # Pentesting
       nmap
