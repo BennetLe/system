@@ -98,6 +98,7 @@
       uget
       element-desktop
       hyprpanel
+      kid3-qt
     ];
   };
 
