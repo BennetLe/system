@@ -614,7 +614,7 @@
         kb_layout = "us, de";
         kb_variant = [];
         kb_model = [];
-        kb_options = ["compose:caps"];
+        kb_options = ["caps:escape"];
         numlock_by_default = true;
         kb_rules = [];
         follow_mouse = 1;
@@ -650,6 +650,7 @@
         "$mainMod Control, f, layoutmsg, fit active"
 
         "SUPER_SHIFT, R, exec, bash ~/.local/scripts/hypr/restart_bar.sh"
+        "$mainMod, S, exec, bash ~/.local/scripts/rofi/chars.sh"
 
         "SUPER_SHIFT, C, forcekillactive"
 
