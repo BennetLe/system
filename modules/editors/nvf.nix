@@ -91,6 +91,12 @@
             silent = true;
             action = "\"_d";
           }
+          {
+            key = "c";
+            mode = ["n" "v"];
+            silent = true;
+            action = "\"_c";
+          }
           # disable arrow keys
           {
             key = "<Left>";
