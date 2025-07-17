@@ -100,6 +100,15 @@ in {
       STEAM_EXTRA_COMPAT_TOOLS_PATH = "/home/bennet/.steam/root/compatibilitytools.d";
     };
     systemPackages = with pkgs; [
+      # Pentesting
+      nmap
+      wordlists
+      gobuster
+      mitmproxy
+      metasploit
+      nuclei
+      bettercap
+
       vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
       wget
       keepassxc
@@ -276,15 +285,7 @@ in {
       protonvpn-gui
       spicetify-cli
       pulseaudio
-
-      # Pentesting
-      nmap
-      wordlists
-      gobuster
-      mitmproxy
-      metasploit
-      nuclei
-      bettercap
+      nix-index
     ];
   };
 
