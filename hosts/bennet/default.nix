@@ -92,7 +92,6 @@
       tesseract
       nettools
       spice
-      spice-vdagent
       virt-viewer
       agenix-cli
       uget
@@ -103,6 +102,7 @@
   };
 
   services = {
+    spice-vdagentd.enable = true;
     openssh = {
       enable = true;
       ports = [22];
