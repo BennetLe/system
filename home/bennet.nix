@@ -92,6 +92,35 @@
           }
           rm -fp $tmp
         }
+
+        def web2app [
+          app_name: string,
+          app_url: string,
+          icon_url: string
+        ] {
+          let icon_dir = $"($nu.home-path)/.local/share/applications/icons"
+          let desktop_file = $"($nu.home-path)/.local/share/applications/($app_name).desktop"
+          let icon_path = $"($icon_dir)/($app_name).png"
+
+          mkdir $icon_dir
+
+          let curl_result = (curl -sL $icon_url -o $icon_path)
+
+          let desktop_content = [
+            "[Desktop Entry]"
+            "Version=1.0"
+            $"Name=($app_name)"
+            $"Comment=($app_name)"
+            $"Exec=brave --new-window --ozone-platform=wayland --app=\"($app_url)\" --name=\"($app_name)\" --class=\"($app_name)\""
+            "Terminal=false"
+            "Type=Application"
+            $"Icon=($icon_path)"
+            "StartupNotify=true"
+          ] | str join "\n"
+
+          $desktop_content | save --force $desktop_file
+          chmod +x $desktop_file
+        }
       '';
       envFile = {
         text = ''
