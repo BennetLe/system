@@ -28,6 +28,10 @@
   };
 
   programs = {
+    quickshell = {
+      enable = true;
+      systemd.enable = true;
+    };
     zellij = {
       enable = true;
       settings = {
