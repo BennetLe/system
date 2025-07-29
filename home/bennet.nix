@@ -23,14 +23,13 @@
   };
 
   stylix = {
-    targets = {
-    };
+    enable = true;
   };
 
   programs = {
     quickshell = {
       enable = true;
-      systemd.enable = true;
+      systemd.enable = false;
     };
     zellij = {
       enable = true;
@@ -544,7 +543,7 @@
     settings = {
       "$terminal" = "kitty";
       "$fileManager" = "nemo";
-      "$menu" = "rofi -show drun -show-icons";
+      "$menu" = "walker";
       # "$menu" = "wofi";
       "$mainMod" = "SUPER";
 

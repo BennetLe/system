@@ -99,6 +99,8 @@
       hyprpanel
       kid3-qt
       kdePackages.qt5compat
+      walker
+      libqalculate
     ];
   };
 

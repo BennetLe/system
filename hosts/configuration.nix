@@ -286,6 +286,7 @@ in {
       spicetify-cli
       pulseaudio
       nix-index
+      papirus-icon-theme
     ];
   };
 
