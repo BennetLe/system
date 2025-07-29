@@ -98,6 +98,7 @@
       element-desktop
       hyprpanel
       kid3-qt
+      kdePackages.qt5compat
     ];
   };
 
