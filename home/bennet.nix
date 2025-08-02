@@ -24,6 +24,9 @@
 
   stylix = {
     enable = true;
+    targets = {
+      spicetify.enable = false;
+    };
   };
 
   programs = {

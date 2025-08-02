@@ -16,9 +16,20 @@
     };
   };
 
+  stylix = {
+    targets = {
+      spicetify.enable = false;
+    };
+  };
+
   programs = {
     streamcontroller.enable = true;
-    spicetify = {
+    spicetify = let
+      spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+    in {
+      enable = true;
+      theme = spicePkgs.themes.text;
+      colorScheme = "CatppuccinMocha";
       enabledExtensions = [
         {
           name = "volume-ws.js";
@@ -27,7 +38,6 @@
           };
         }
       ];
-      enable = true;
     };
     kdeconnect = {
       enable = true;
