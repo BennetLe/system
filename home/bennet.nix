@@ -756,6 +756,7 @@
         "suppressevent maximize, class:.*"
         "opacity 1.0, fullscreen:(1)"
         "opacity 0.9, class:(kitty)"
+        "opacity 0.9, class:(Spotify)"
         "float, title:(Friends List)"
 
         "workspace 6 silent, class:(Spotify)"
