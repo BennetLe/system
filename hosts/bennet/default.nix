@@ -108,6 +108,7 @@
       element-desktop
       hyprpanel
       kid3-qt
+      picard
       kdePackages.qt5compat
       walker
       libqalculate
