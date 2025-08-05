@@ -112,6 +112,7 @@
       kdePackages.qt5compat
       walker
       libqalculate
+      monero-gui
     ];
   };
 
