@@ -56,6 +56,9 @@
   };
   environment = {
     systemPackages = with pkgs; [
+      # Hacking
+      gobuster
+
       # Game dev
       godot
       blender-hip
@@ -113,6 +116,7 @@
       walker
       libqalculate
       monero-gui
+      distrobox
     ];
   };
 
@@ -162,6 +166,9 @@
       enable = true;
       allowedTCPPorts = [42420 53317 1714 1764];
       allowedUDPPorts = [42420 53317 5353 1714 1764];
+    };
+    hosts = {
+      # "10.129.251.69" = ["editor.htb"];
     };
   };
   systemd.user.services.monado.environment = {
