@@ -237,7 +237,6 @@ in {
       # (callPackage ./../pkgs/sddm-astronaut-theme.nix {
       #   theme = "astronaut";
       # })
-      rpi-imager
       hyprpolkitagent
       libreoffice
       hyphenDicts.de_DE
