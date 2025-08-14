@@ -287,6 +287,7 @@ in {
       pulseaudio
       nix-index
       papirus-icon-theme
+      inetutils
     ];
   };
 
