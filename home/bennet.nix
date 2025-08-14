@@ -462,6 +462,9 @@
         {
           plugin = tmuxPlugins.vim-tmux-navigator;
         }
+        {
+          plugin = tmuxPlugins.logging;
+        }
       ];
     };
 
