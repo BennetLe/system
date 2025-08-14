@@ -117,6 +117,7 @@
       libqalculate
       monero-gui
       distrobox
+      tigervnc
     ];
   };
 
