@@ -118,10 +118,22 @@
       monero-gui
       distrobox
       tigervnc
+      rmpc
     ];
   };
 
   services = {
+    mpd = {
+      enable = true;
+      musicDirectory = /home/bennet/Music/music;
+      user = "bennet";
+      extraConfig = ''
+        audio_output {
+          type "pulse"
+          name "My PulseAudio" # this can be whatever you want
+        }
+      '';
+    };
     spice-vdagentd.enable = true;
     openssh = {
       enable = true;
@@ -172,9 +184,20 @@
       # "10.129.251.69" = ["editor.htb"];
     };
   };
-  systemd.user.services.monado.environment = {
-    STEAMVR_LH_ENABLE = "1";
-    XRT_COMPOSITOR_COMPUTE = "1";
+
+  systemd = {
+    services = {
+      mpd.environment = {
+        # https://gitlab.freedesktop.org/pipewire/pipewire/-/issues/609
+        XDG_RUNTIME_DIR = "/run/user/1000";
+      };
+    };
+    user = {
+      services.monado.environment = {
+        STEAMVR_LH_ENABLE = "1";
+        XRT_COMPOSITOR_COMPUTE = "1";
+      };
+    };
   };
 
   security.pki.certificateFiles = [
