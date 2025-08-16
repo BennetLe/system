@@ -119,6 +119,8 @@
       distrobox
       tigervnc
       rmpc
+      freetube
+      mpv
     ];
   };
 
