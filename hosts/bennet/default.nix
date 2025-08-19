@@ -56,9 +56,6 @@
   };
   environment = {
     systemPackages = with pkgs; [
-      # Hacking
-      gobuster
-
       # Game dev
       godot
       blender-hip

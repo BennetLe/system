@@ -103,6 +103,7 @@ in {
       # Pentesting
       nmap
       wordlists
+      seclists
       gobuster
       mitmproxy
       metasploit
