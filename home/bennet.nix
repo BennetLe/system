@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  lib,
   ...
 }: {
   home = {
@@ -156,10 +157,147 @@
       enable = true;
       enableTransience = true;
       settings = {
-        add_newline = true;
+        format = lib.concatStrings [
+          "[](orange)"
+          "$os"
+          "$username"
+          "[](bg:yellow fg:orange)"
+          "$directory"
+          "[](fg:yellow bg:base15)"
+          "$git_branch"
+          "$git_status"
+          "[](fg:base15 bg:blue)"
+          "$c"
+          "$cpp"
+          "$rust"
+          "$golang"
+          "$nodejs"
+          "$php"
+          "$java"
+          "$kotlin"
+          "$haskell"
+          "$python"
+          "[](fg:blue bg:base03)"
+          "$nix_shell"
+          "$docker_context"
+          "$conda"
+          "$pixi"
+          "[](fg:base03 bg:base01)"
+          "$time"
+          "[ ](fg:base01)"
+          "$line_break$character"
+        ];
+        os = {
+          disabled = false;
+          style = "bg:orange fg:base01";
+          symbols = {
+            NixOS = "󱄅";
+          };
+        };
+        username = {
+          show_always = true;
+          style_user = "bg:orange fg:base01";
+          style_root = "bg:orange fg:base01";
+          format = "[ $user ]($style)";
+        };
+        directory = {
+          style = "fg:bright-white bg:yellow";
+          format = "[ $path ]($style)";
+          substitutions = {
+            "Documents" = "󰈙 ";
+            "Downloads" = " ";
+            "Music" = "󰝚 ";
+            "Pictures" = " ";
+            "Developer" = "󰲋 ";
+          };
+        };
+        git_branch = {
+          symbol = "";
+          style = "bg:base15";
+          format = "[[ $symbol $branch ](fg:bright-white bg:base15)]($style)";
+        };
+        git_status = {
+          style = "bg:base15";
+          format = "[[($all_status$ahead_behind )](fg:bright-white bg:base15)]($style)";
+        };
+        nodejs = {
+          symbol = "";
+          style = "bg:blue";
+          format = "[[ $symbol( $version) ](fg:bright-white bg:blue)]($style)";
+        };
+        cpp = {
+          symbol = " ";
+          style = "bg:blue";
+          format = "[[ $symbol( $version) ](fg:bright-white bg:blue)]($style)";
+        };
+        rust = {
+          symbol = "";
+          style = "bg:blue";
+          format = "[[ $symbol( $version) ](fg:bright-white bg:blue)]($style)";
+        };
+        golang = {
+          symbol = "";
+          style = "bg:blue";
+          format = "[[ $symbol( $version) ](fg:bright-white bg:blue)]($style)";
+        };
+        php = {
+          symbol = "";
+          style = "bg:blue";
+          format = "[[ $symbol( $version) ](fg:bright-white bg:blue)]($style)";
+        };
+        java = {
+          symbol = "";
+          style = "bg:blue";
+          format = "[[ $symbol( $version) ](fg:bright-white bg:blue)]($style)";
+        };
+        kotlin = {
+          symbol = "";
+          style = "bg:blue";
+          format = "[[ $symbol( $version) ](fg:bright-white bg:blue)]($style)";
+        };
+        haskell = {
+          symbol = "";
+          style = "bg:blue";
+          format = "[[ $symbol( $version) ](fg:bright-white bg:blue)]($style)";
+        };
+        python = {
+          symbol = "";
+          style = "bg:blue";
+          format = "[[ $symbol( $version) ](fg:bright-white bg:blue)]($style)";
+        };
+        docker_context = {
+          symbol = "";
+          style = "bg:base03";
+          format = "[[ $symbol( $context) ](fg:#83a598 bg:base03)]($style)";
+        };
+        nix_shell = {
+          symbol = "󱄅";
+          style = "bg:base03";
+          format = "[via $symbol$state(($name))]($style)";
+        };
+        conda = {
+          style = "bg:base03";
+          format = "[[ $symbol( $environment) ](fg:#83a598 bg:base03)]($style)";
+        };
+        pixi = {
+          style = "bg:base03";
+          format = "[[ $symbol( $version)( $environment) ](fg:bright-white bg:base03)]($style)";
+        };
+        time = {
+          disabled = false;
+          time_format = "%R";
+          style = "bg:base01";
+          format = "[[  $time ](fg:bright-white bg:base01)]($style)";
+        };
+        line_break = false;
         character = {
-          success_symbol = "[➜](bold green)";
-          error_symbol = "[➜](bold red)";
+          disabled = false;
+          success_symbol = "[](bold fg:green)";
+          error_symbol = "[](bold fg:red)";
+          vimcmd_symbol = "[](bold fg:green)";
+          vimcmd_replace_one_symbol = "[](bold fg:purple)";
+          vimcmd_replace_symbol = "[](bold fg:purple)";
+          vimcmd_visual_symbol = "[](bold fg:yellow)";
         };
       };
     };
@@ -449,10 +587,10 @@
         #   plugin = tmuxPlugins.gruvbox;
         #   extraConfig = "set -g @tmux-gruvbox 'dark'";
         # }
-        {
-          plugin = tmuxPlugins.catppuccin;
-          extraConfig = "set -g @catppuccin_flavor 'mocha'"; # latte, frappe, macchiato or mocha
-        }
+        # {
+        #   plugin = tmuxPlugins.catppuccin;
+        #   extraConfig = "set -g @catppuccin_flavor 'mocha'"; # latte, frappe, macchiato or mocha
+        # }
         {
           plugin = tmuxPlugins.sensible;
         }
