@@ -35,6 +35,7 @@ in {
       "disk"
       "adbusers"
       "wireshark"
+      "podman"
     ];
     shell = pkgs.nushell;
     useDefaultShell = true;
