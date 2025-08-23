@@ -162,8 +162,8 @@
   };
   nixpkgs = {
     overlays = [
-      (final: prev: {
-        vintagestory = prev.vintagestory.overrideAttrs (oldAttrs: rec {
+      (_final: prev: {
+        vintagestory = prev.vintagestory.overrideAttrs (_oldAttrs: rec {
           version = "1.20.12";
           src = prev.fetchurl {
             url = "https://cdn.vintagestory.at/gamefiles/stable/vs_client_linux-x64_${version}.tar.gz";
@@ -174,6 +174,16 @@
     ];
   };
   networking = {
+    interfaces = {
+      enp12s0u2 = {
+        ipv4.addresses = [
+          {
+            address = "192.168.1.1";
+            prefixLength = 24;
+          }
+        ];
+      };
+    };
     firewall = {
       enable = true;
       allowedTCPPorts = [42420 53317 1714 1764];
