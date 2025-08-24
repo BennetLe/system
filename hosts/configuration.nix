@@ -91,6 +91,9 @@ in {
   ];
 
   environment = {
+    pathsToLink = [
+      "/share"
+    ];
     variables = {
       TERMINAL = "${vars.terminal}";
       EDITOR = "${vars.editor}";
