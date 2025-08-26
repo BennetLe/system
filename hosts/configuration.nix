@@ -109,7 +109,7 @@ in {
       wordlists
       seclists
       gobuster
-      mitmproxy
+      # mitmproxy
       metasploit
       nuclei
       bettercap
@@ -190,7 +190,7 @@ in {
       jdt-language-server
       waydroid
       burpsuite
-      anki
+      anki-bin
       nextcloud-client
       mangohud
       quickemu
@@ -248,7 +248,7 @@ in {
       libreoffice
       hyphenDicts.de_DE
       gimp-with-plugins
-      darktable
+      # darktable
       numlockx
       lsof
       appimage-run

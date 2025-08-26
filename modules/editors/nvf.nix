@@ -173,7 +173,7 @@
                 }
               ];
             };
-            "nvzone-typr" = {
+            "typr" = {
               package = pkgs.vimPlugins.nvzone-typr;
             };
           };
