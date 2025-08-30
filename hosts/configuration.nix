@@ -442,6 +442,7 @@ in {
       enable = true;
       packages = with pkgs; [
         via
+        vial
         android-udev-rules
         qmk-udev-rules
         nitrokey-udev-rules
