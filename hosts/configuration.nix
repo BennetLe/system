@@ -348,6 +348,10 @@ in {
   };
 
   hardware = {
+    keyboard = {
+      zsa.enable = true;
+      qmk.enable = true;
+    };
     flipperzero.enable = true;
     graphics = {
       enable = true;
@@ -443,6 +447,7 @@ in {
         nitrokey-udev-rules
         logitech-udev-rules
         game-devices-udev-rules
+        zsa-udev-rules
       ];
       extraRules = ''
         # CMSIS-DAP for microbit
