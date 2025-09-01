@@ -184,14 +184,14 @@
   };
   networking = {
     interfaces = {
-      enp12s0u2 = {
-        ipv4.addresses = [
-          {
-            address = "192.168.1.1";
-            prefixLength = 24;
-          }
-        ];
-      };
+      # enp12s0u2 = {
+      #   ipv4.addresses = [
+      #     {
+      #       address = "192.168.1.1";
+      #       prefixLength = 24;
+      #     }
+      #   ];
+      # };
     };
     firewall = {
       enable = true;
