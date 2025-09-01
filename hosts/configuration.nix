@@ -294,6 +294,7 @@ in {
       nix-index
       papirus-icon-theme
       inetutils
+      rpi-imager
     ];
   };
 
