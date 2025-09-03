@@ -295,6 +295,7 @@ in {
       papirus-icon-theme
       inetutils
       rpi-imager
+      gnome-disk-utility
     ];
   };
 
