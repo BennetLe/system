@@ -569,7 +569,12 @@ in {
 
   networking = {
     hostName = "nixos";
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+      plugins = [
+        pkgs.networkmanager-openvpn
+      ];
+    };
   };
 
   # home-manager.users.${vars.user} = {
