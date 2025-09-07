@@ -273,7 +273,7 @@
         nix_shell = {
           symbol = "󱄅";
           style = "bg:base03";
-          format = "[via $symbol$state(($name))]($style)";
+          format = "[via $symbol $state (($name))]($style)";
         };
         conda = {
           style = "bg:base03";
