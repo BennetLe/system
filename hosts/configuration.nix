@@ -296,6 +296,7 @@ in {
       inetutils
       rpi-imager
       gnome-disk-utility
+      keymapp
     ];
   };
 
