@@ -11,11 +11,17 @@
       "$menu" = "walker";
       # "$menu" = "wofi";
       "$mainMod" = "SUPER";
+      "$browser" = "~/.local/scripts/hypr/launch-browser.sh";
+      "$launch-or-focus" = "~/.local/scripts/hypr/launch-or-focus.sh";
 
       bind = [
+        "$mainMod, M, exec, $launch-or-focus spotify"
+        "$mainMod, O, exec, $launch-or-focus obsidian 'uwsm app -- obsidian -disable-gpu --enable-wayland-ime'"
+        "$mainMod, slash, exec, $launch-or-focus keepassxc"
+        "$mainMod, G, exec, $launch-or-focus signal 'uwsm app -- signal-desktop'"
+
         "$mainMod, Q, exec, $terminal"
         "$mainMod, C, killactive"
-        "$mainMod, M, exit"
         "$mainMod, E, exec, $fileManager"
         "$mainMod, V, togglefloating"
         # "$mainMod, R, exec, ~/.config/rofi/launchers/type-1/launcher.sh"
@@ -24,21 +30,22 @@
         "$mainMod, J, togglesplit"
         "$mainMod, L, exec, hyprlock"
         ",switch:Lid Switch, exec, hyprlock"
-        "SUPER_SHIFT, S, exec, hyprshot -m region -o /home/bennet/Pictures/Hyprshot"
+        "$mainMod SHIFT, S, exec, hyprshot -m region -o /home/bennet/Pictures/Hyprshot"
         "$mainMod, F, fullscreen"
 
         "$mainMod Control, left, layoutmsg, move -col"
         "$mainMod Control, right, layoutmsg, move +col"
         "$mainMod Control, f, layoutmsg, fit active"
 
-        "SUPER_SHIFT, R, exec, bash ~/.local/scripts/hypr/restart_bar.sh"
+        "$mainMod SHIFT, R, exec, bash ~/.local/scripts/hypr/restart_bar.sh"
         "$mainMod, S, exec, bash ~/.local/scripts/rofi/chars.sh"
 
-        "SUPER_SHIFT, C, forcekillactive"
+        "$mainMod SHIFT, C, forcekillactive"
 
         "CTRL_ALT, delete, exec, bash ~/.config/rofi/powermenu/type-6/powermenu.sh"
 
-        "$mainMod, B, exec, brave --password-store=gnome"
+        "$mainMod, B, exec, $browser"
+        "$mainMod SHIFT, B, exec, $browser --private"
 
         "$mainMod, left, movefocus, l"
         "$mainMod, right, movefocus, r"
@@ -71,6 +78,11 @@
         "$mainMod SHIFT, 8, movetoworkspace, 8"
         "$mainMod SHIFT, 9, movetoworkspace, 9"
         "$mainMod SHIFT, 0, movetoworkspace, 10"
+
+        "$mainMod, code:20, resizeactive, -100 0" # - key
+        "$mainMod, code:21, resizeactive, 100 0" # = key
+        "$mainMod SHIFT, code:20, resizeactive, 0 -100" # - key
+        "$mainMod SHIFT, code:21, resizeactive, 0 100" # = key
 
         ", XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +1%"
         ", XF86AudioLowerVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -1%"

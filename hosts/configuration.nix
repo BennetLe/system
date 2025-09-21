@@ -297,6 +297,7 @@ in {
       rpi-imager
       gnome-disk-utility
       keymapp
+      signal-desktop
     ];
   };
 
