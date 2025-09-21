@@ -215,7 +215,6 @@ in {
       ferdium
       switcheroo
       onlyoffice-desktopeditors
-      localsend
       python313
       lzip
       moonlight-qt
@@ -302,6 +301,9 @@ in {
   };
 
   programs = {
+    localsend = {
+      enable = true;
+    };
     yazi = {
       enable = true;
     };
