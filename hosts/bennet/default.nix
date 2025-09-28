@@ -56,6 +56,8 @@
   };
   environment = {
     systemPackages = with pkgs; [
+      # package overlays
+      (import ./pkgs/idea-community.nix {inherit pkgs;})
       # Game dev
       godot
       blender-hip
@@ -121,6 +123,7 @@
       dive
       podman-tui
       podman-compose
+      jdk
     ];
   };
 

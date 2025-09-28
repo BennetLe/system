@@ -297,6 +297,7 @@ in {
       gnome-disk-utility
       keymapp
       signal-desktop
+      anytype
     ];
   };
 
