@@ -124,6 +124,7 @@
       podman-tui
       podman-compose
       jdk
+      handbrake
     ];
   };
 
