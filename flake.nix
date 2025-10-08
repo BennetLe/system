@@ -30,12 +30,10 @@
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
-
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-
     agenix.url = "github:ryantm/agenix";
+    winboat.url = "github:TibixDev/winboat";
   };
 
   outputs = inputs @ {
@@ -50,6 +48,7 @@
     spicetify-nix,
     nixos-hardware,
     agenix,
+    winboat,
     ...
   }: let
     vars = {
@@ -81,6 +80,7 @@
           spicetify-nix
           nixos-hardware
           agenix
+          winboat
           ;
       }
     );

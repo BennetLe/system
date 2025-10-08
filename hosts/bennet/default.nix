@@ -56,6 +56,7 @@
   };
   environment = {
     systemPackages = with pkgs; [
+      inputs.winboat.packages.x86_64-linux.winboat
       # package overlays
       (import ./pkgs/idea-community.nix {inherit pkgs;})
       # Game dev
