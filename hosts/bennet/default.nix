@@ -125,6 +125,7 @@
       podman-compose
       jdk
       handbrake
+      freerdp
     ];
   };
 
