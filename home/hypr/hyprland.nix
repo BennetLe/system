@@ -99,6 +99,8 @@
         "workspace 9 silent, class:(org.keepassxc.KeePassXC)"
         "workspace 7 silent, title:(Steam)"
 
+        "noscreenshare, class:(org.keepassxc.KeePassXC)"
+
         # xwayland_bridge fix
         "opacity 0.0 override, class:^(xwaylandvideobridge)$"
         "noanim, class:^(xwaylandvideobridge)$"
