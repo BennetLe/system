@@ -132,7 +132,7 @@ in {
       }))
       libnotify
       swww
-      rofi-wayland
+      rofi
       networkmanagerapplet
       pavucontrol
       playerctl
@@ -563,8 +563,7 @@ in {
     libvirtd = {
       enable = true;
       qemu = {
-        package = pkgs.qemu_full;
-        ovmf.enable = true;
+        package = pkgs.qemu;
         swtpm.enable = true;
       };
     };

@@ -62,13 +62,10 @@
       # Game dev
       godot
       blender-hip
-      aseprite
       pixelorama
       blockbench
 
       # VM
-      qemu_full
-      qemu
       libvirt
       virt-manager
       looking-glass-client
@@ -92,7 +89,6 @@
       joplin-desktop
       vdhcoapp
       vial
-      alpaca
       rocmPackages.rocminfo
       rocmPackages.clr.icd
       tor-browser
@@ -154,11 +150,11 @@
         PermitRootLogin = "prohibit-password";
       };
     };
-    ollama = {
-      enable = true;
-      acceleration = "rocm";
-      rocmOverrideGfx = "11.0.1";
-    };
+    # ollama = {
+    #   enable = true;
+    #   acceleration = "rocm";
+    #   rocmOverrideGfx = "11.0.1";
+    # };
     # monado = {
     #   enable = true;
     #   defaultRuntime = true;
