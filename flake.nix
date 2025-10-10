@@ -34,6 +34,11 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     agenix.url = "github:ryantm/agenix";
     winboat.url = "github:TibixDev/winboat";
+    elephant.url = "github:abenz1267/elephant";
+    walker = {
+      url = "github:abenz1267/walker";
+      inputs.elephant.follows = "elephant";
+    };
   };
 
   outputs = inputs @ {
@@ -49,6 +54,8 @@
     nixos-hardware,
     agenix,
     winboat,
+    elephant,
+    walker,
     ...
   }: let
     vars = {
@@ -81,6 +88,8 @@
           nixos-hardware
           agenix
           winboat
+          elephant
+          walker
           ;
       }
     );

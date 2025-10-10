@@ -86,10 +86,6 @@
         };
       };
 
-      gestures = {
-        workspace_swipe = false;
-      };
-
       windowrulev2 = [
         "suppressevent maximize, class:.*"
         "opacity 1.0, fullscreen:(1)"

@@ -36,6 +36,7 @@ in {
       "adbusers"
       "wireshark"
       "podman"
+      "elephant"
     ];
     shell = pkgs.nushell;
     useDefaultShell = true;
@@ -43,6 +44,7 @@ in {
 
   users.groups = {
     wireshark = {};
+    elephant = {};
   };
 
   users.defaultUserShell = pkgs.nushell;

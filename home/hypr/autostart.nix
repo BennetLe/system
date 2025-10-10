@@ -15,6 +15,7 @@
         "~/.local/scripts/hypr/start.sh"
         "kdeconnect-indicator"
         "hyprpanel"
+        "uwsm app -- elephant"
       ];
     };
   };

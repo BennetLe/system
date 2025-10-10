@@ -7,6 +7,7 @@
   imports = [
     ./hardware-configuration.nix
     ./secrets.nix
+    inputs.walker.nixosModules.default
   ];
 
   home-manager = {
@@ -23,6 +24,21 @@
   };
 
   programs = {
+    walker = {
+      enable = true;
+      runAsService = true;
+      elephant = {
+        config = {
+          entries = [
+            {
+              default = true;
+              name = "Brave";
+              url = "ttps://search.brave.com/search?q=%TERM%";
+            }
+          ];
+        };
+      };
+    };
     streamcontroller.enable = true;
     spicetify = let
       spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
@@ -109,7 +125,6 @@
       kid3-qt
       picard
       kdePackages.qt5compat
-      walker
       libqalculate
       monero-gui
       distrobox
@@ -121,6 +136,7 @@
       podman-tui
       podman-compose
       jdk
+      jdk25
       handbrake
       freerdp
     ];
