@@ -139,6 +139,7 @@
       jdk25
       handbrake
       freerdp
+      gnome-multi-writer
     ];
   };
 
