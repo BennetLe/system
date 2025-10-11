@@ -214,8 +214,8 @@
     };
     firewall = {
       enable = true;
-      allowedTCPPorts = [42420 1714 1764];
-      allowedUDPPorts = [42420 5353 1714 1764];
+      allowedTCPPorts = [42420 1714 1764 4444];
+      allowedUDPPorts = [42420 5353 1714 1764 4444];
     };
     hosts = {
       # "10.129.251.69" = ["editor.htb"];
