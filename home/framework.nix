@@ -23,6 +23,8 @@
     };
   };
 
+  imports = import ./hypr;
+
   gtk = {
     enable = true;
     iconTheme = {
@@ -30,8 +32,6 @@
       package = pkgs.tela-icon-theme;
     };
   };
-
-  imports = [inputs.hyprpanel.homeManagerModules.hyprpanel];
 
   programs = {
     zoxide = {
@@ -92,7 +92,7 @@
         cat = "bat";
         cd = "z";
 
-        update = "nixos-rebuild switch --use-remote-sudo --flake /home/bennet/system#framework";
+        update = "nixos-rebuild switch --sudo --flake /home/bennet/system#framework";
         config = "nvim /home/bennet/system/flake.nix";
         changewp = "swww img";
 
@@ -114,69 +114,6 @@
       };
     };
 
-    hyprpanel = {
-      enable = true;
-      hyprland.enable = true;
-      overwrite.enable = true;
-
-      settings = {
-        layout = {
-          "bar.layouts" = {
-            "*" = {
-              left = ["dashboard" "workspaces" "windowtitle"];
-              middle = ["media"];
-              right = ["volume" "network" "bluetooth" "battery" "systray" "clock" "notifications"];
-            };
-          };
-        };
-
-        bar = {
-          launcher.autoDetectIcon = true;
-          systray.ignore = [
-            "blueman"
-            "nm-applet"
-            "Xwayland Video Bridge_pipewireToXProxy"
-          ];
-          clock = {
-            format = "%a %d %b %H:%M";
-          };
-          workspaces = {
-            show_numbered = true;
-            numbered_active_indicator = "underline";
-          };
-          battery = {
-            label = true;
-          };
-          network = {
-            label = false;
-          };
-        };
-
-        theme = {
-          bar = {
-            buttons = {
-              enableBorders = true;
-              workspaces.smartHighlight = true;
-            };
-            opacity = 75;
-            scaling = 100;
-          };
-        };
-
-        menus = {
-          clock = {
-            weather.enabled = false;
-            time = {
-              hideSeconds = true;
-              military = true;
-            };
-          };
-          dashboard = {
-            powermenu.avatar.image = "/home/bennet/Pictures/profie pic.jpg";
-          };
-        };
-      };
-    };
     zsh = {
       enable = true;
 
@@ -288,126 +225,6 @@
         confirm_os_window_close = 0;
         enable_audio_bell = false;
         dynamic_background_opacity = true;
-      };
-    };
-    hyprlock = {
-      enable = true;
-      settings = {
-        general = {
-          grace = 1;
-        };
-
-        background = {
-          path = "/home/bennet/Wallpapers/Gruvbox/wall.png";
-          blur_size = 5;
-          blur_passes = 1;
-          noise = 0.0117;
-          contrast = 1.3;
-          brightness = 0.5;
-          vibrancy = 0.21;
-          vibrancy_darkness = 0.5;
-        };
-
-        input-field = {
-          size = "250, 50";
-          outline_thickness = 0;
-          dots_size = 0.2;
-          dots_spacing = 0.15;
-          dots_center = true;
-          fade_on_empty = true;
-          placeholder_text = "<i>Password...</i>";
-          hide_input = false;
-          position = "0, 100";
-          halign = "center";
-          valign = "bottom";
-        };
-
-        label = [
-          # Date
-          {
-            monitor = "";
-            text = ''cmd[update:18000000] echo "<b> "$(date +'%A, %-d %B %Y')" </b>"'';
-            color = "rgba(184, 212, 224, 0.6)";
-            font_size = 28;
-            font_family = "JetBrains Mono Nerd Font Mono ExtraBold";
-            position = "0, -420";
-            halign = "center";
-            valign = "top";
-          }
-          # Time
-          {
-            monitor = "";
-            text = ''cmd[update:1000] echo -e "$(date +"%H":"%M")"'';
-            color = "rgba(184, 212, 224, 0.6)";
-            font_size = 130;
-            font_family = "JetBrains Mono Nerd Font Mono ExtraBold";
-            position = "0, -220";
-            halign = "center";
-            valign = "top";
-          }
-          # User
-          {
-            monitor = "";
-            text = ''$USER'';
-            color = "rgb(126, 247, 138)";
-            font_size = 16;
-            font_family = "Inter Display Medium";
-            position = "0, 70";
-            halign = "center";
-            valign = "bottom";
-          }
-          # Uptime
-          {
-            monitor = "";
-            text = ''cmd[update:60000] echo "<b> "$(uptime -p || $Scripts/UptimeNixOS.sh)" </b>"'';
-            color = "rgba(184, 212, 224, 0.4)";
-            font_size = 12;
-            font_family = "JetBrains Mono Nerd Font Mono ExtraBold";
-            position = "5, 5";
-            halign = "right";
-            valign = "bottom";
-          }
-          # # Music Player Info # #
-          # PLAYER TITLE
-          {
-            monitor = "DP-1";
-            text = ''cmd[update:1000] echo "$(playerctl metadata --format "{{ xesam:title }}" 2>/dev/null | cut -c1-50'';
-            color = "rgba(184, 212, 224, 0.8)";
-            font_size = 14;
-            font_family = "Inter Display Medium";
-            position = "180, 120";
-            halign = "left";
-            valign = "bottom";
-          }
-          # PLAYER ARTIST
-          {
-            monitor = "DP-1";
-            text = ''cmd[update:1000] echo "$(playerctl metadata --format "{{ xesam:artist }}" 2>/dev/null | cut -c1-50)"'';
-            color = "rgba(184, 212, 224, 0.8)";
-            font_size = 14;
-            font_family = "Inter Display Medium";
-            position = "180, 80";
-            halign = "left";
-            valign = "bottom";
-          }
-          # PLAYER ALBUM
-          {
-            monitor = "DP-1";
-            text = ''cmd[update:1000] echo "$(playerctl metadata --format "{{ xesam:album }}" 2>/dev/null | cut -c1-50)"'';
-            color = "rgba(184, 212, 224, 0.8)";
-            font_size = 14;
-            font_family = "Inter Display Medium";
-            position = "180, 40";
-            halign = "left";
-            valign = "bottom";
-          }
-        ];
-
-        auth = {
-          fingerprint = {
-            enabled = true;
-          };
-        };
       };
     };
     tmux = {
@@ -551,224 +368,10 @@
   };
 
   wayland.windowManager.hyprland = {
-    enable = true;
     settings = {
-      "$terminal" = "kitty";
-      "$fileManager" = "nemo";
-      "$menu" = "rofi -show drun -show-icons";
-      # "$menu" = "wofi";
-      "$mainMod" = "SUPER";
-
       monitor = [
         "eDP-1,2256x1504@60,0x0,1"
         ", preferred, auto, 1, mirror, eDP-1"
-      ];
-
-      exec-once = [
-        "hyprctl dispatch workspace 1 &"
-        "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-        "systemctl --user start hyprpolkitagent"
-        # "hyprctl setcursors Sweet-cursor 24"
-        "~/.local/scripts/hypr/screensharing.sh"
-        "~/.local/scripts/hypr/start.sh"
-      ];
-
-      env = [
-        # "XCURSOR_SIZE,24"
-        # "HYPRCURSOR_SIZE,24"
-        # "HYPRCURSOR_THEME,Sweet-cursors"
-        "XDG_SESSION_TYPE,wayland"
-        "XDG_CURRENT_DESKTOP,Hyprland"
-        "MOZ_ENABLE_WAYLAND,1"
-        "ANKI_WAYLAND,1"
-        "QT_AUTO_SCREEN_SCALE_FACTOR,1"
-        "QT_QPA_PLATFORM=wayland,xcb"
-        "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
-        "ELECTRON_OZONE_PLATFORM_HINT,auto"
-        "SDL_VIDEODRIVER,wayland"
-        "CLUTTER_BACKEND,wayland"
-      ];
-
-      general = {
-        gaps_in = 5;
-        gaps_out = 20;
-        border_size = 1;
-        resize_on_border = false;
-        allow_tearing = false;
-        layout = "dwindle";
-      };
-
-      decoration = {
-        rounding = 10;
-        active_opacity = 1;
-        inactive_opacity = 1;
-        fullscreen_opacity = 1;
-
-        shadow = {
-          enabled = true;
-          range = 4;
-          render_power = 3;
-        };
-
-        blur = {
-          enabled = true;
-          size = 2;
-          passes = 1;
-          vibrancy = 0.1696;
-        };
-      };
-
-      animations = {
-        enabled = true;
-        bezier = ["myBezier, 0.05, 0.9, 0.1, 1.05"];
-        animation = [
-          "windows, 1, 7, myBezier"
-          "windowsOut, 1, 7, default, popin 80%"
-          "border, 1, 10, default"
-          "borderangle, 1, 8, default"
-          "fade, 1, 7, default"
-          "workspaces, 1, 6, default"
-        ];
-      };
-
-      dwindle = {
-        pseudotile = true;
-        preserve_split = true;
-      };
-
-      master = {
-        new_status = "master";
-      };
-
-      misc = {
-        force_default_wallpaper = -1;
-        disable_hyprland_logo = true;
-      };
-
-      input = {
-        kb_layout = "us, de";
-        kb_variant = [];
-        kb_model = [];
-        kb_options = ["compose:caps"];
-        numlock_by_default = true;
-        kb_rules = [];
-        follow_mouse = 1;
-        sensitivity = 0.5;
-        accel_profile = "flat";
-
-        touchpad = {
-          natural_scroll = true;
-          scroll_factor = 0.5;
-        };
-      };
-
-      gestures = {
-        workspace_swipe = false;
-      };
-
-      bind = [
-        "$mainMod, Q, exec, $terminal"
-        "$mainMod, C, killactive"
-        "$mainMod, M, exit"
-        "$mainMod, E, exec, $fileManager"
-        "$mainMod, V, togglefloating"
-        # "$mainMod, R, exec, ~/.config/rofi/launchers/type-1/launcher.sh"
-        "$mainMod, R, exec, $menu"
-        "$mainMod, P, pseudo"
-        "$mainMod, J, togglesplit"
-        "$mainMod, L, exec, hyprlock"
-        ",switch:Lid Switch, exec, hyprlock && systemctl suspend-then-hibernate"
-        "SUPER_SHIFT, S, exec, hyprshot -m region -o /home/bennet/Pictures/Hyprshot"
-        "$mainMod, F, fullscreen"
-
-        "SUPER_SHIFT, R, exec, pkill hyprpanel && hyprpanel &"
-
-        "SUPER_SHIFT, C, forcekillactive"
-
-        "CTRL_ALT, delete, exec, bash ~/.config/rofi/powermenu/type-6/powermenu.sh"
-
-        "$mainMod, B, exec, brave --password-store=gnome"
-
-        "$mainMod, left, movefocus, l"
-        "$mainMod, right, movefocus, r"
-        "$mainMod, up, movefocus, u"
-        "$mainMod, down, movefocus, d"
-
-        "$mainMod SHIFT, left, swapwindow, l"
-        "$mainMod SHIFT, right, swapwindow, r"
-        "$mainMod SHIFT, up, swapwindow, u"
-        "$mainMod SHIFT, down, swapwindow, d"
-
-        "$mainMod, 1, workspace, 1"
-        "$mainMod, 2, workspace, 2"
-        "$mainMod, 3, workspace, 3"
-        "$mainMod, 4, workspace, 4"
-        "$mainMod, 5, workspace, 5"
-        "$mainMod, 6, workspace, 6"
-        "$mainMod, 7, workspace, 7"
-        "$mainMod, 8, workspace, 8"
-        "$mainMod, 9, workspace, 9"
-        "$mainMod, 0, workspace, 10"
-
-        "$mainMod SHIFT, 1, movetoworkspace, 1"
-        "$mainMod SHIFT, 2, movetoworkspace, 2"
-        "$mainMod SHIFT, 3, movetoworkspace, 3"
-        "$mainMod SHIFT, 4, movetoworkspace, 4"
-        "$mainMod SHIFT, 5, movetoworkspace, 5"
-        "$mainMod SHIFT, 6, movetoworkspace, 6"
-        "$mainMod SHIFT, 7, movetoworkspace, 7"
-        "$mainMod SHIFT, 8, movetoworkspace, 8"
-        "$mainMod SHIFT, 9, movetoworkspace, 9"
-        "$mainMod SHIFT, 0, movetoworkspace, 10"
-
-        ", XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +1%"
-        ", XF86AudioLowerVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -1%"
-        ", XF86MonBrightnessUp, exec, brightnessctl set +5%"
-        ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
-
-        "$mainMod, K, exec, rofi -show calc -modi calc -no-show-match -no-sort -no-persist-history"
-        "$mainMod, period, exec, rofi -modi emoji -show emoji"
-      ];
-
-      bindm = [
-        "$mainMod, mouse:272, movewindow"
-        "$mainMod, mouse:273, resizewindow"
-      ];
-
-      bindl = [
-        ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle" # Toggle Mute
-        ",XF86AudioPlay, exec, ${pkgs.playerctl}/bin/playerctl play-pause" # Play/Pause Song
-        ",XF86AudioNext, exec, ${pkgs.playerctl}/bin/playerctl next" # Next Song
-        ",XF86AudioPrev, exec, ${pkgs.playerctl}/bin/playerctl previous" # Previous Song
-        ",switch:Lid Switch, exec, ${pkgs.hyprlock}/bin/hyprlock" # Lock when closing Lid
-      ];
-
-      bindle = [
-        ",XF86AudioRaiseVolume, exec, sound-up" # Sound Up
-        ",XF86AudioLowerVolume, exec, sound-down" # Sound Down
-        ",XF86MonBrightnessUp, exec, brightness-up" # Brightness Up
-        ",XF86MonBrightnessDown, exec, brightness-down" # Brightness Down
-      ];
-
-      windowrulev2 = [
-        "suppressevent maximize, class:.*"
-        "opacity 1.0, fullscreen:(1)"
-        "opacity 0.9, class:(kitty)"
-        "float, title:(Friends List)"
-
-        "workspace 6 silent, class:(Spotify)"
-        "workspace 10 silent, class:(discord)"
-        "workspace 10 silent, class:(vesktop)"
-        "workspace 9 silent, class:(org.keepassxc.KeePassXC)"
-        "workspace 7 silent, title:(Steam)"
-
-        # xwayland_bridge fix
-        "opacity 0.0 override, class:^(xwaylandvideobridge)$"
-        "noanim, class:^(xwaylandvideobridge)$"
-        "noinitialfocus, class:^(xwaylandvideobridge)$"
-        "maxsize 1 1, class:^(xwaylandvideobridge)$"
-        "noblur, class:^(xwaylandvideobridge)$"
-        "nofocus, class:^(xwaylandvideobridge)$"
       ];
 
       workspace = [

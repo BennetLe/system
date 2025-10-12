@@ -5,6 +5,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
+    inputs.walker.nixosModules.default
   ];
 
   home-manager = {
@@ -15,6 +16,10 @@
   };
 
   programs = {
+    walker = {
+      enable = true;
+      runAsService = true;
+    };
     spicetify = {
       enable = true;
     };
@@ -32,6 +37,13 @@
 
   environment = {
     systemPackages = with pkgs; [
+      # Uni
+      mongodb-compass
+      antlr
+
+      # Games
+      prismlauncher
+
       fwupd
       brightnessctl
       fprintd
@@ -43,13 +55,7 @@
       protontricks
       protonup
       godot
-
-      # Uni
-      mongodb-compass
-      antlr
-
-      # Games
-      prismlauncher
+      hyprpanel
     ];
   };
   services = {
