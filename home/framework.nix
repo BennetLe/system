@@ -34,6 +34,15 @@
   };
 
   programs = {
+    hyprlock = {
+      settings = {
+        auth = {
+          fingerprint = {
+            enable = true;
+          };
+        };
+      };
+    };
     zoxide = {
       enable = true;
       enableNushellIntegration = true;
