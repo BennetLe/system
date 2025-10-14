@@ -172,10 +172,10 @@
     #   acceleration = "rocm";
     #   rocmOverrideGfx = "11.0.1";
     # };
-    # monado = {
-    #   enable = true;
-    #   defaultRuntime = true;
-    # };
+    monado = {
+      enable = true;
+      defaultRuntime = true;
+    };
   };
   virtualisation = {
     podman = {
