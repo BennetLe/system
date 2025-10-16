@@ -38,6 +38,7 @@
         "$mainMod Control, f, layoutmsg, fit active"
 
         "$mainMod SHIFT, R, exec, bash ~/.local/scripts/hypr/restart_bar.sh"
+        "$mainMod SHIFT, W, exec, bash ~/.local/scripts/hypr/restart_walker.sh"
         "$mainMod, S, exec, bash ~/.local/scripts/rofi/chars.sh"
 
         "$mainMod SHIFT, C, forcekillactive"

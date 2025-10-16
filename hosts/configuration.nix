@@ -302,10 +302,17 @@ in {
       keymapp
       signal-desktop
       anytype
+      kdePackages.kleopatra
+      nitrokey-app2
     ];
   };
 
   programs = {
+    ssh.startAgent = false;
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
     localsend = {
       enable = true;
     };
@@ -461,6 +468,7 @@ in {
         logitech-udev-rules
         game-devices-udev-rules
         zsa-udev-rules
+        nitrokey-udev-rules
       ];
       extraRules = ''
         # CMSIS-DAP for microbit
