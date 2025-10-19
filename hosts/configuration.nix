@@ -417,6 +417,9 @@ in {
         userServices = true;
       };
     };
+    resolved = {
+      enable = true;
+    };
     libinput.enable = true;
 
     displayManager = {
