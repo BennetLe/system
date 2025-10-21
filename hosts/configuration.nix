@@ -304,6 +304,7 @@ in {
       anytype
       kdePackages.kleopatra
       nitrokey-app2
+      qimgv
     ];
   };
 
