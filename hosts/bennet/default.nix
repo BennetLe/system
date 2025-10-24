@@ -144,6 +144,10 @@
   };
 
   services = {
+    tailscale = {
+      enable = true;
+      openFirewall = true;
+    };
     mpd = {
       enable = true;
       musicDirectory = /home/bennet/Music/music;
