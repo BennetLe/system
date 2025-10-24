@@ -206,6 +206,14 @@
     ];
   };
   networking = {
+    nameservers = [
+      "100.100.100.100"
+      "192.168.178.150"
+      "1.1.1.1"
+    ];
+    search = [
+      "tailcd4427.ts.net"
+    ];
     interfaces = {
       # enp12s0u2 = {
       #   ipv4.addresses = [
