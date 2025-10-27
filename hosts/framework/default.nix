@@ -59,6 +59,10 @@
     ];
   };
   services = {
+    tailscale = {
+      enable = true;
+      openFirewall = true;
+    };
     fprintd = {
       enable = true;
     };
@@ -90,10 +94,18 @@
   };
 
   networking = {
+    nameservers = [
+      "100.100.100.100"
+      "192.168.178.150"
+      "1.1.1.1"
+    ];
+    search = [
+      "tailcd4427.ts.net"
+    ];
     firewall = {
       enable = true;
-      allowedTCPPorts = [42420];
-      allowedUDPPorts = [42420 5353];
+      allowedTCPPorts = [42420 1714 1764 4444 1337 8080];
+      allowedUDPPorts = [42420 5353 1714 1764 4444 1337 8080];
     };
   };
 
