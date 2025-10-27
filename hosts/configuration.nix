@@ -308,6 +308,7 @@ in {
       kdePackages.kleopatra
       nitrokey-app2
       qimgv
+      freetype
     ];
   };
 
@@ -342,6 +343,7 @@ in {
     zsh.enable = true;
     steam = {
       enable = true;
+      protontricks.enable = true;
       remotePlay.openFirewall = true;
       gamescopeSession.enable = true;
     };

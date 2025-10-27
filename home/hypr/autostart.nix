@@ -16,6 +16,7 @@
         "kdeconnect-indicator"
         "hyprpanel"
         "uwsm app -- elephant"
+        "uwsm app -- tailscale systray"
       ];
     };
   };

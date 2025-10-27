@@ -100,7 +100,6 @@
       r2modman
       melonDS
       protonup-qt
-      protontricks
 
       joplin-desktop
       vdhcoapp
