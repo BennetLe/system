@@ -119,6 +119,9 @@ in {
       exploitdb
       whatweb
       cewl
+      wifite2
+      aircrack-ng
+      airgorah
 
       vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
       wget
