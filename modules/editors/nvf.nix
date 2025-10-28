@@ -33,6 +33,8 @@
             json5
             json
             jsonc
+            qmldir
+            qmljs
           ];
           context = {
             enable = true;
