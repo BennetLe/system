@@ -20,6 +20,10 @@
     };
 
     hyprland-qtutils.url = "github:hyprwm/hyprland-qtutils";
+    hyprlauncher = {
+      url = "github:hyprwm/hyprlauncher";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nvf = {
       url = "github:notashelf/nvf";
@@ -56,6 +60,7 @@
     winboat,
     elephant,
     walker,
+    hyprlauncher,
     ...
   }: let
     vars = {
@@ -90,6 +95,7 @@
           winboat
           elephant
           walker
+          hyprlauncher
           ;
       }
     );
