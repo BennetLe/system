@@ -268,7 +268,7 @@ in {
       nixd
       patchelf
       gcc
-      protonmail-bridge-gui
+      # protonmail-bridge-gui
       seahorse
       libsForQt5.qtstyleplugin-kvantum
       kdePackages.qtstyleplugin-kvantum
@@ -300,7 +300,7 @@ in {
       nix-index
       papirus-icon-theme
       inetutils
-      rpi-imager
+      # rpi-imager
       gnome-disk-utility
       keymapp
       signal-desktop
@@ -471,7 +471,6 @@ in {
       packages = with pkgs; [
         via
         vial
-        android-udev-rules
         qmk-udev-rules
         nitrokey-udev-rules
         logitech-udev-rules

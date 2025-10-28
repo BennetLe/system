@@ -18,7 +18,6 @@
   programs = {
     walker = {
       enable = true;
-      runAsService = true;
     };
     spicetify = {
       enable = true;

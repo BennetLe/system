@@ -26,18 +26,6 @@
   programs = {
     walker = {
       enable = true;
-      runAsService = true;
-      elephant = {
-        config = {
-          entries = [
-            {
-              default = true;
-              name = "Brave";
-              url = "ttps://search.brave.com/search?q=%TERM%";
-            }
-          ];
-        };
-      };
     };
     streamcontroller.enable = true;
     spicetify = let
