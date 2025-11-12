@@ -155,11 +155,12 @@ in {
       jdk17
       obsidian
       cascadia-code
-      wineWowPackages.stable
+      freetype
       winetricks
       wineWowPackages.waylandFull
-      wineWow64Packages.stable
+      wineWowPackages.full
       wineWow64Packages.waylandFull
+      wineWow64Packages.full
       wofi
       hyprlock
       hypridle
@@ -309,7 +310,6 @@ in {
       kdePackages.kleopatra
       nitrokey-app2
       qimgv
-      freetype
     ];
   };
 
