@@ -250,6 +250,9 @@
           html = {
             enable = true;
           };
+          tailwind = {
+            enable = true;
+          };
           nix = {
             enable = true;
             extraDiagnostics = {
