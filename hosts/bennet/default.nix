@@ -180,15 +180,15 @@
   };
   nixpkgs = {
     overlays = [
-      (_final: prev: {
-        vintagestory = prev.vintagestory.overrideAttrs (_oldAttrs: rec {
-          version = "1.20.12";
-          src = prev.fetchurl {
-            url = "https://cdn.vintagestory.at/gamefiles/stable/vs_client_linux-x64_${version}.tar.gz";
-            hash = "sha256-h6YXEZoVVV9IuKkgtK9Z3NTvJogVNHmXdAcKxwfvqcE=";
-          };
-        });
-      })
+      # (_final: prev: {
+      #   vintagestory = prev.vintagestory.overrideAttrs (_oldAttrs: rec {
+      #     version = "1.20.12";
+      #     src = prev.fetchurl {
+      #       url = "https://cdn.vintagestory.at/gamefiles/stable/vs_client_linux-x64_${version}.tar.gz";
+      #       hash = "sha256-h6YXEZoVVV9IuKkgtK9Z3NTvJogVNHmXdAcKxwfvqcE=";
+      #     };
+      #   });
+      # })
     ];
   };
   networking = {
