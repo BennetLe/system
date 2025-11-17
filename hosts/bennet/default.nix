@@ -60,7 +60,6 @@
   };
   environment = {
     systemPackages = with pkgs; [
-      inputs.winboat.packages.x86_64-linux.winboat
       inputs.hyprlauncher.packages.x86_64-linux.hyprlauncher
       # package overlays
       (import ./pkgs/idea-community.nix {inherit pkgs;})
@@ -81,14 +80,13 @@
 
       # Games
       vintagestory
-      protonup
+      protonup-ng
       atlauncher
       prismlauncher
       heroic
       lutris-unwrapped
       r2modman
       melonDS
-      protonup-qt
 
       joplin-desktop
       vdhcoapp

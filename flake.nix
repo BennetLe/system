@@ -37,7 +37,6 @@
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     agenix.url = "github:ryantm/agenix";
-    winboat.url = "github:TibixDev/winboat";
     elephant.url = "github:abenz1267/elephant";
     walker = {
       url = "github:abenz1267/walker";
@@ -57,7 +56,6 @@
     spicetify-nix,
     nixos-hardware,
     agenix,
-    winboat,
     elephant,
     walker,
     hyprlauncher,
@@ -92,7 +90,6 @@
           spicetify-nix
           nixos-hardware
           agenix
-          winboat
           elephant
           walker
           hyprlauncher
