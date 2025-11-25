@@ -244,7 +244,6 @@ in {
       htop
       nix-alien
       icu76
-      nix-ld
       inputs.hyprland-qtutils.packages."${pkgs.system}".default
       kdePackages.kcalc
       kdePackages.kate
@@ -315,6 +314,10 @@ in {
   };
 
   programs = {
+    nix-ld = {
+      enable = true;
+      libraries = [];
+    };
     ssh.startAgent = false;
     gnupg.agent = {
       enable = true;
@@ -360,7 +363,6 @@ in {
     };
     gamemode.enable = true;
     # neovim.defaultEditor = true;
-    nix-ld.enable = true;
     uwsm = {
       enable = true;
       waylandCompositors = {

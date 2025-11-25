@@ -130,6 +130,9 @@
   };
 
   services = {
+    monero = {
+      enable = true;
+    };
     tailscale = {
       enable = true;
       openFirewall = true;
