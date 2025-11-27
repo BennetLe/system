@@ -50,9 +50,8 @@
       mysql-workbench
       btop-rocm
       omnisharp-roslyn
-      protonup-qt
       protontricks
-      protonup
+      protonup-qt
       godot
       hyprpanel
     ];
