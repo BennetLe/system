@@ -310,6 +310,7 @@ in {
       kdePackages.kleopatra
       nitrokey-app2
       qimgv
+      saleae-logic-2
     ];
   };
 
@@ -377,6 +378,7 @@ in {
   };
 
   hardware = {
+    saleae-logic.enable = true;
     keyboard = {
       zsa.enable = true;
       qmk.enable = true;

@@ -126,6 +126,7 @@
       handbrake
       freerdp
       gnome-multi-writer
+      cartridges
     ];
   };
 
