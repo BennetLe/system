@@ -290,6 +290,10 @@
             enable = true;
             lsp.server = "omnisharp";
           };
+          clang = {
+            enable = true;
+            dap.enable = true;
+          };
         };
 
         binds = {
