@@ -311,6 +311,7 @@ in {
       nitrokey-app2
       qimgv
       saleae-logic-2
+      opencode
     ];
   };
 
