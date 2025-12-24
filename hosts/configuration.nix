@@ -408,6 +408,9 @@ in {
   };
 
   services = {
+    pcscd = {
+      enable = true;
+    };
     gnome.gnome-keyring.enable = true;
     xserver.videoDrivers = ["amdgpu"];
     printing = {
