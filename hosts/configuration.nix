@@ -482,7 +482,6 @@ in {
         via
         vial
         qmk-udev-rules
-        nitrokey-udev-rules
         logitech-udev-rules
         game-devices-udev-rules
         zsa-udev-rules
