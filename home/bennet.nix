@@ -499,10 +499,18 @@
       yoffset = 0;
       xoffset = 0;
       location = "center";
+      modes = [
+        "drun"
+        "emoji"
+        "window"
+        "ssh"
+        "calc"
+      ];
       extraConfig = {
         modi = "drun,emoji,window,ssh";
         drun-display-format = "{name}";
         window-format = "{w} · {c} · {t}";
+        show-icons = true;
       };
       plugins = with pkgs; [
         rofi-emoji

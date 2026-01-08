@@ -20,11 +20,6 @@
     };
 
     hyprland-qtutils.url = "github:hyprwm/hyprland-qtutils";
-    hyprlauncher = {
-      url = "github:hyprwm/hyprlauncher";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nvf = {
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -37,11 +32,6 @@
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     agenix.url = "github:ryantm/agenix";
-    elephant.url = "github:abenz1267/elephant";
-    walker = {
-      url = "github:abenz1267/walker";
-      inputs.elephant.follows = "elephant";
-    };
   };
 
   outputs = inputs @ {
@@ -56,9 +46,6 @@
     spicetify-nix,
     nixos-hardware,
     agenix,
-    elephant,
-    walker,
-    hyprlauncher,
     ...
   }: let
     vars = {
@@ -90,9 +77,6 @@
           spicetify-nix
           nixos-hardware
           agenix
-          elephant
-          walker
-          hyprlauncher
           ;
       }
     );

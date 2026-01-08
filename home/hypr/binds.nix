@@ -8,7 +8,7 @@
     settings = {
       "$terminal" = "kitty";
       "$fileManager" = "nemo";
-      "$menu" = "walker";
+      "$menu" = "rofi -show drun";
       # "$menu" = "wofi";
       "$mainMod" = "SUPER";
       "$browser" = "~/.local/scripts/hypr/launch-browser.sh";

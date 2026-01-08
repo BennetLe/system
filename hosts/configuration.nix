@@ -172,7 +172,6 @@ in {
       rust-analyzer
       tree
       xsettingsd
-      minicom
       usbutils
       discord
       vesktop
@@ -287,7 +286,6 @@ in {
       bacon
       cargo-info
       fselect
-      rusty-man
       delta
       wiki-tui
       just
@@ -306,12 +304,13 @@ in {
       gnome-disk-utility
       keymapp
       signal-desktop
-      anytype
+      # anytype
       kdePackages.kleopatra
       nitrokey-app2
       qimgv
       saleae-logic-2
       opencode
+      hyprlauncher
     ];
   };
 

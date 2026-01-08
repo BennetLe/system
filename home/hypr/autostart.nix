@@ -15,7 +15,7 @@
         "~/.local/scripts/hypr/start.sh"
         "kdeconnect-indicator"
         "hyprpanel"
-        "uwsm app -- elephant"
+        "hyprlauncher -d"
         "uwsm app -- tailscale systray"
       ];
     };

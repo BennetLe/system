@@ -32,7 +32,6 @@
             toml
             json5
             json
-            jsonc
             qmldir
             qmljs
           ];

@@ -7,7 +7,6 @@
   imports = [
     ./hardware-configuration.nix
     ./secrets.nix
-    inputs.walker.nixosModules.default
   ];
 
   home-manager = {
@@ -24,9 +23,6 @@
   };
 
   programs = {
-    walker = {
-      enable = true;
-    };
     streamcontroller.enable = true;
     spicetify = let
       spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
@@ -59,75 +55,77 @@
     };
   };
   environment = {
-    systemPackages = with pkgs; [
-      inputs.hyprlauncher.packages.x86_64-linux.hyprlauncher
-      # package overlays
-      (import ./pkgs/idea-community.nix {inherit pkgs;})
-      # Game dev
-      godot
-      blender-hip
-      pixelorama
-      blockbench
+    systemPackages = with pkgs;
+      [
+        # package overlays
+        # (import ./pkgs/idea-community.nix {inherit pkgs;})
+        # Game dev
+        godot
+        pixelorama
+        blockbench
 
-      # VM
-      libvirt
-      virt-manager
-      looking-glass-client
-      virtio-win
-      kvmtool
-      libguestfs-with-appliance
-      dmg2img
+        # VM
+        libvirt
+        virt-manager
+        looking-glass-client
+        virtio-win
+        kvmtool
+        libguestfs-with-appliance
+        dmg2img
 
-      # Games
-      vintagestory
-      protonup-ng
-      atlauncher
-      prismlauncher
-      heroic
-      lutris-unwrapped
-      r2modman
-      melonDS
+        # Games
+        vintagestory
+        protonup-ng
+        atlauncher
+        prismlauncher
+        heroic
+        lutris-unwrapped
+        r2modman
+        melonDS
 
-      joplin-desktop
-      vdhcoapp
-      vial
-      rocmPackages.rocminfo
-      rocmPackages.clr.icd
-      tor-browser
-      btop-rocm
-      vivaldi
-      cloudflared
-      nmap
-      sqlite-web
-      google-chrome
-      tesseract
-      nettools
-      spice
-      virt-viewer
-      agenix-cli
-      uget
-      element-desktop
-      hyprpanel
-      kid3-qt
-      picard
-      kdePackages.qt5compat
-      libqalculate
-      monero-gui
-      distrobox
-      tigervnc
-      rmpc
-      freetube
-      mpv
-      dive
-      podman-tui
-      podman-compose
-      jdk
-      jdk25
-      handbrake
-      freerdp
-      gnome-multi-writer
-      cartridges
-    ];
+        joplin-desktop
+        vdhcoapp
+        vial
+        rocmPackages.rocminfo
+        rocmPackages.clr.icd
+        tor-browser
+        btop-rocm
+        vivaldi
+        cloudflared
+        nmap
+        sqlite-web
+        google-chrome
+        tesseract
+        nettools
+        spice
+        virt-viewer
+        agenix-cli
+        element-desktop
+        hyprpanel
+        kid3-qt
+        picard
+        kdePackages.qt5compat
+        libqalculate
+        monero-gui
+        distrobox
+        tigervnc
+        rmpc
+        freetube
+        mpv
+        dive
+        podman-tui
+        podman-compose
+        jdk
+        jdk25
+        handbrake
+        freerdp
+        gnome-multi-writer
+        cartridges
+        jetbrains.idea
+      ]
+      ++ [
+        pkgsRocm.blender
+      ];
   };
 
   services = {
@@ -140,14 +138,16 @@
     };
     mpd = {
       enable = true;
-      musicDirectory = /home/bennet/Music/music;
       user = "bennet";
-      extraConfig = ''
-        audio_output {
-          type "pulse"
-          name "My PulseAudio" # this can be whatever you want
-        }
-      '';
+      settings = {
+        music_directory = /home/bennet/Music/music;
+        audio_output = [
+          {
+            type = "pulse";
+            name = "My PulseAudio";
+          }
+        ];
+      };
     };
     spice-vdagentd.enable = true;
     openssh = {
