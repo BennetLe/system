@@ -87,28 +87,23 @@
         };
       };
 
-      windowrulev2 = [
-        "suppressevent maximize, class:.*"
-        "opacity 1.0, fullscreen:(1)"
-        "opacity 0.9, class:(kitty)"
-        "opacity 0.9, class:(Spotify)"
-        "float, title:(Friends List)"
+      windowrule = [
+        "match:class .*, suppress_event maximize"
+        "match:fullscreen true, opacity 1.0"
+        "match:class ^(kitty)$, opacity 0.9"
+        "match:class ^(Spotify)$, opacity 0.9"
+        "match:title ^(Friends List)$, float on, persistent_size on"
 
-        "workspace 6 silent, class:(Spotify)"
-        "workspace 10 silent, class:(discord)"
-        "workspace 10 silent, class:(vesktop)"
-        "workspace 9 silent, class:(org.keepassxc.KeePassXC)"
-        "workspace 7 silent, title:(Steam)"
+        "match:class ^(Spotify)$, workspace 6 silent"
+        "match:class ^(Steam)$, workspace 7 silent"
+        "match:class ^(org.keepassxc.KeePassXC)$, workspace 9 silent"
+        "match:class ^(discord)$, workspace 10 silent"
+        "match:class ^(vesktop)$, workspace 10 silent"
 
-        "noscreenshare, class:(org.keepassxc.KeePassXC)"
+        "match:class ^(org.keepassxc.KeePassXC)$, no_screen_share on"
 
         # xwayland_bridge fix
-        "opacity 0.0 override, class:^(xwaylandvideobridge)$"
-        "noanim, class:^(xwaylandvideobridge)$"
-        "noinitialfocus, class:^(xwaylandvideobridge)$"
-        "maxsize 1 1, class:^(xwaylandvideobridge)$"
-        "noblur, class:^(xwaylandvideobridge)$"
-        "nofocus, class:^(xwaylandvideobridge)$"
+        "match:class ^(xwaylandvideobridge)$, opacity 0.0 override, no_anim on, no_initial_focus on, max_size 1 1, no_blur on, no_focus on"
       ];
     };
   };
