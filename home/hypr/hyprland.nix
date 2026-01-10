@@ -95,7 +95,7 @@
         "match:title ^(Friends List)$, float on, persistent_size on"
 
         "match:class ^(Spotify)$, workspace 6 silent"
-        "match:class ^(Steam)$, workspace 7 silent"
+        "match:class ^(steam)$, workspace 7 silent"
         "match:class ^(org.keepassxc.KeePassXC)$, workspace 9 silent"
         "match:class ^(discord)$, workspace 10 silent"
         "match:class ^(vesktop)$, workspace 10 silent"
