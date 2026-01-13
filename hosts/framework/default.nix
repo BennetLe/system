@@ -5,7 +5,6 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    inputs.walker.nixosModules.default
   ];
 
   home-manager = {
@@ -16,9 +15,6 @@
   };
 
   programs = {
-    walker = {
-      enable = true;
-    };
     spicetify = {
       enable = true;
     };
