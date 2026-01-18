@@ -311,6 +311,8 @@ in {
       saleae-logic-2
       opencode
       hyprlauncher
+      darktable
+      siril
     ];
   };
 
