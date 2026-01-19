@@ -24,13 +24,33 @@
           };
         };
 
+        debugger = {
+          nvim-dap = {
+            enable = true;
+            mappings = {
+              continue = "<leader>Dc";
+              goDown = "<leader>Dvi";
+              goUp = "<leader>Dvo";
+              hover = "<leader>Dh";
+              restart = "<leader>DR";
+              runLast = "<leader>D.";
+              runToCursor = "<leader>Dgc";
+              stepBack = "<leader><Up>";
+              stepInto = "<leader><Right>";
+              stepOut = "<leader><Left>";
+              stepOver = "<leader><Down>";
+              terminate = "<leader>Dq";
+              toggleBreakpoint = "<leader>Db";
+              toggleDapUI = "<leader>Du";
+              toggleRepl = "<leader>Dr";
+            };
+          };
+        };
+
         utility = {
           motion = {
             flash-nvim = {
               enable = true;
-              mappings = {
-                jump = "/";
-              };
             };
           };
         };
