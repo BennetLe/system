@@ -259,7 +259,9 @@
             };
             lsp = {
               enable = true;
-              server = "nixd";
+              servers = [
+                "nixd"
+              ];
             };
           };
           ts = {
@@ -267,8 +269,10 @@
           };
           rust = {
             enable = true;
-            crates.enable = true;
             dap.enable = true;
+            extensions = {
+              crates-nvim.enable = true;
+            };
           };
           zig = {
             enable = true;
@@ -287,7 +291,9 @@
           };
           csharp = {
             enable = true;
-            lsp.server = "omnisharp";
+            lsp.servers = [
+              "omnisharp"
+            ];
           };
           clang = {
             enable = true;

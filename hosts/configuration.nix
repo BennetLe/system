@@ -195,7 +195,7 @@ in {
       spice-vdagent
       spice
       desmume
-      jetbrains.idea-ultimate
+      jetbrains.idea
       jdt-language-server
       waydroid
       burpsuite
@@ -239,7 +239,7 @@ in {
       uv
       zimfw
       fd
-      nixfmt-rfc-style
+      nixfmt
       htop
       nix-alien
       icu76
