@@ -24,6 +24,17 @@
           };
         };
 
+        utility = {
+          motion = {
+            flash-nvim = {
+              enable = true;
+              mappings = {
+                jump = "/";
+              };
+            };
+          };
+        };
+
         treesitter = {
           enable = true;
           grammars = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
