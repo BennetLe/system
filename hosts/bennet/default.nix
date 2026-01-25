@@ -129,6 +129,11 @@
   };
 
   services = {
+    jellyfin = {
+      enable = true;
+      openFirewall = true;
+      user = "bennet";
+    };
     monero = {
       enable = true;
     };
