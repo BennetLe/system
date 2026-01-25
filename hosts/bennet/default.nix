@@ -216,7 +216,7 @@
     };
     firewall = {
       enable = true;
-      allowedTCPPorts = [42420 1714 1764 4444 1337 8080];
+      allowedTCPPorts = [3240 42420 1714 1764 4444 1337 8080];
       allowedUDPPorts = [42420 5353 1714 1764 4444 1337 8080];
     };
     hosts = {
@@ -239,10 +239,29 @@
     };
   };
 
-  security.pki.certificateFiles = [
-    ./../../modules/certs/mitmproxy-ca-cert-bennet.pem
-    ./../../modules/certs/burp.pem
-  ];
+  security = {
+    sudo = {
+      extraRules = [
+        {
+          users = ["bennet"];
+          commands = [
+            {
+              command = "${pkgs.linuxPackages.usbip}/bin/usbip";
+              options = ["NOPASSWD"];
+            }
+            {
+              command = "/run/current-system/sw/bin/usbip";
+              options = ["NOPASSWD"];
+            }
+          ];
+        }
+      ];
+    };
+    pki.certificateFiles = [
+      ./../../modules/certs/mitmproxy-ca-cert-bennet.pem
+      ./../../modules/certs/burp.pem
+    ];
+  };
 
   hardware = {
     graphics = {

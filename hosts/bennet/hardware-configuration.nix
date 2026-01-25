@@ -22,6 +22,8 @@
   boot.kernelModules = [
     "kvm-amd"
     "btusb"
+    "usbip_core"
+    "usbip_host"
   ];
   boot.extraModulePackages = [];
 

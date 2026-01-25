@@ -313,6 +313,7 @@ in {
       hyprlauncher
       darktable
       siril
+      linuxPackages.usbip
     ];
   };
 
