@@ -84,7 +84,6 @@
         melonDS
 
         joplin-desktop
-        vdhcoapp
         vial
         rocmPackages.rocminfo
         rocmPackages.clr.icd
@@ -117,7 +116,7 @@
         podman-compose
         jdk
         jdk25
-        handbrake
+        # handbrake
         freerdp
         gnome-multi-writer
         cartridges

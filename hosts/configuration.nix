@@ -183,7 +183,6 @@ in {
       networkmanager
       via
       gtypist
-      kdotool
       dotool
       jq
       bat
@@ -243,7 +242,7 @@ in {
       htop
       nix-alien
       icu76
-      inputs.hyprland-qtutils.packages."${pkgs.system}".default
+      inputs.hyprland-qtutils.packages."${pkgs.stdenv.hostPlatform.system}".default
       kdePackages.kcalc
       kdePackages.kate
       # kdePackages.kwallet-pam
