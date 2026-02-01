@@ -64,7 +64,6 @@
             json5
             json
             qmldir
-            qmljs
           ];
           context = {
             enable = true;
@@ -273,16 +272,11 @@
         languages = {
           enableTreesitter = true;
           enableFormat = true;
+          enableDAP = true;
 
-          css = {
-            enable = true;
-          };
-          html = {
-            enable = true;
-          };
-          tailwind = {
-            enable = true;
-          };
+          css.enable = true;
+          html.enable = true;
+          tailwind.enable = true;
           nix = {
             enable = true;
             extraDiagnostics = {
@@ -295,41 +289,25 @@
               ];
             };
           };
-          ts = {
-            enable = true;
-          };
+          ts.enable = true;
           rust = {
             enable = true;
-            dap.enable = true;
             extensions = {
               crates-nvim.enable = true;
             };
           };
-          zig = {
-            enable = true;
-            dap.enable = true;
-          };
-          java = {
-            enable = true;
-          };
-          python = {
-            enable = true;
-            dap.enable = true;
-          };
-          go = {
-            enable = true;
-            dap.enable = true;
-          };
+          zig.enable = true;
+          java.enable = true;
+          python.enable = true;
+          go.enable = true;
           csharp = {
             enable = true;
             lsp.servers = [
               "omnisharp"
             ];
           };
-          clang = {
-            enable = true;
-            dap.enable = true;
-          };
+          clang.enable = true;
+          qml.enable = true;
         };
 
         binds = {
