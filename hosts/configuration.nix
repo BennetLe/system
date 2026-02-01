@@ -313,6 +313,7 @@ in {
       darktable
       siril
       linuxPackages.usbip
+      inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
   };
 
@@ -410,6 +411,8 @@ in {
   };
 
   services = {
+    tuned.enable = true;
+    upower.enable = true;
     pcscd = {
       enable = true;
     };

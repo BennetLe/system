@@ -60,7 +60,6 @@
     fprintd = {
       enable = true;
     };
-    upower.enable = true;
     fwupd.enable = true;
     mysql = {
       enable = true;
