@@ -25,6 +25,7 @@
         "$mainMod, R, exec, $ipc launcher toggle"
         "$mainMod, S, exec, $ipc controlCenter toggle"
         "$mainMod, comma, exec, $ipc settings toggle"
+        "$mainMod, L, exec, $ipc lockScreen lock"
 
         "$mainMod, Q, exec, $terminal"
         "$mainMod, C, killactive"
@@ -34,7 +35,7 @@
         # "$mainMod, R, exec, $menu"
         "$mainMod, P, pseudo"
         "$mainMod, J, togglesplit"
-        "$mainMod, L, exec, hyprlock"
+        # "$mainMod, L, exec, hyprlock"
         ",switch:Lid Switch, exec, hyprlock"
         "$mainMod SHIFT, S, exec, hyprshot -m region -o /home/bennet/Pictures/Hyprshot"
         "$mainMod, F, fullscreen"
