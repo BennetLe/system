@@ -106,6 +106,10 @@
         # xwayland_bridge fix
         "match:class ^(xwaylandvideobridge)$, opacity 0.0 override, no_anim on, no_initial_focus on, max_size 1 1, no_blur on, no_focus on"
       ];
+
+      layerrule = [
+        "match:namespace noctalia-background-.*$, ignore_alpha 0.5, blur true, blur_popups true"
+      ];
     };
   };
 }
