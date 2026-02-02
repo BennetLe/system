@@ -14,7 +14,9 @@
         "~/.local/scripts/hypr/screensharing.sh"
         "~/.local/scripts/hypr/start.sh"
         "kdeconnect-indicator"
-        "hyprpanel"
+        # "hyprpanel"
+        "noctalia-shell"
+        "hyprsunset"
         "hyprlauncher -d"
         "uwsm app -- tailscale systray"
       ];

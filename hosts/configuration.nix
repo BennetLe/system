@@ -314,6 +314,8 @@ in {
       siril
       linuxPackages.usbip
       inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+      hyprsunset
+      xclicker
     ];
   };
 
