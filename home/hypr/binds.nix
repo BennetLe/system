@@ -13,6 +13,7 @@
       "$mainMod" = "SUPER";
       "$browser" = "~/.local/scripts/hypr/launch-browser.sh";
       "$launch-or-focus" = "~/.local/scripts/hypr/launch-or-focus.sh";
+      "$ipc" = "noctalia-shell ipc call";
 
       bind = [
         "$mainMod, M, exec, $launch-or-focus spotify"
@@ -20,12 +21,17 @@
         "$mainMod, slash, exec, $launch-or-focus keepassxc"
         "$mainMod, G, exec, $launch-or-focus signal 'uwsm app -- signal-desktop'"
 
+        # noctalia-shell
+        "$mainMod, R, exec, $ipc launcher toggle"
+        "$mainMod, S, exec, $ipc controlCenter toggle"
+        "$mainMod, comma, exec, $ipc settings toggle"
+
         "$mainMod, Q, exec, $terminal"
         "$mainMod, C, killactive"
         "$mainMod, E, exec, $fileManager"
         "$mainMod, V, togglefloating"
         # "$mainMod, R, exec, ~/.config/rofi/launchers/type-1/launcher.sh"
-        "$mainMod, R, exec, $menu"
+        # "$mainMod, R, exec, $menu"
         "$mainMod, P, pseudo"
         "$mainMod, J, togglesplit"
         "$mainMod, L, exec, hyprlock"
@@ -39,7 +45,7 @@
 
         "$mainMod SHIFT, R, exec, bash ~/.local/scripts/hypr/restart_bar.sh"
         "$mainMod SHIFT, W, exec, bash ~/.local/scripts/hypr/restart_walker.sh"
-        "$mainMod, S, exec, bash ~/.local/scripts/rofi/chars.sh"
+        # "$mainMod, S, exec, bash ~/.local/scripts/rofi/chars.sh"
 
         "$mainMod SHIFT, C, forcekillactive"
 
