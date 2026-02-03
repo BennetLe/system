@@ -17,10 +17,13 @@
     sessionVariables = {
       EDITOR = "vim";
       XDG_DATA_DIRS = "$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
-      PATH = "/home/bennet/.cargo/bin:$PATH";
       TERMINAL = "kitty";
       HYPRSHOT_DIR = "/home/bennet/Pictures/Hyprshot";
     };
+
+    sessionPath = [
+      "/home/bennet/.cargo/bin"
+    ];
   };
 
   imports =
@@ -131,6 +134,10 @@
           $desktop_content | save --force $desktop_file
           chmod +x $desktop_file
         }
+      '';
+      extraEnv = ''
+        $env.PATH = ($env.PATH | split row (char esep) | append ($env.HOME | path join '.local/bin'));
+        $env.PATH = ($env.PATH | split row (char esep) | append ($env.HOME | path join '.cargo/bin'));
       '';
       envFile = {
         text = ''
