@@ -128,6 +128,17 @@
   };
 
   services = {
+    i2pd = {
+      enable = true;
+      dataDir = "/var/lib/i2pd";
+      enableIPv4 = true;
+      enableIPv6 = true;
+
+      proto = {
+        httpProxy.enable = true;
+        socksProxy.enable = true;
+      };
+    };
     jellyfin = {
       enable = true;
       openFirewall = true;
