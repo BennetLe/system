@@ -317,6 +317,7 @@ in {
       inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
       hyprsunset
       xclicker
+      floorp-bin
     ];
   };
 
