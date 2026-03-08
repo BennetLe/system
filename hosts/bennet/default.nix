@@ -81,7 +81,7 @@
         heroic
         lutris-unwrapped
         r2modman
-        melonDS
+        melonds
 
         joplin-desktop
         vial

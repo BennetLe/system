@@ -107,9 +107,10 @@ in {
     };
     systemPackages = with pkgs; [
       # Pentesting
+      # wordlists
       nmap
-      wordlists
       seclists
+      rockyou
       gobuster
       mitmproxy
       metasploit
@@ -159,8 +160,6 @@ in {
       cascadia-code
       freetype
       winetricks
-      wineWowPackages.waylandFull
-      wineWowPackages.full
       wineWow64Packages.waylandFull
       wineWow64Packages.full
       wofi
