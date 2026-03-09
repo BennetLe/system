@@ -560,11 +560,11 @@ in {
     settings = {
       auto-optimise-store = true;
     };
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 14d";
-    };
+    # gc = {
+    #   automatic = true;
+    #   dates = "weekly";
+    #   options = "--delete-older-than 14d";
+    # };
     registry.nixpkgs.flake = inputs.nixpkgs;
     extraOptions = ''
       experimental-features = nix-command flakes
@@ -607,13 +607,13 @@ in {
   };
 
   virtualisation = {
-    libvirtd = {
-      enable = true;
-      qemu = {
-        package = pkgs.qemu;
-        swtpm.enable = true;
-      };
-    };
+    # libvirtd = {
+    #   enable = true;
+    #   qemu = {
+    #     package = pkgs.qemu;
+    #     swtpm.enable = true;
+    #   };
+    # };
     waydroid.enable = true;
     docker = {
       enable = true;
