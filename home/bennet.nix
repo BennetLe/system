@@ -450,7 +450,7 @@
       enable = true;
       prefix = "C-Space";
 
-      # shell = "\${pkgs.zsh}/bin/zsh";
+      shell = "/etc/profiles/per-user/bennet/bin/nu";
       mouse = true;
       clock24 = true;
       keyMode = "vi";
