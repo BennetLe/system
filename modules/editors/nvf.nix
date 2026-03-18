@@ -7,6 +7,20 @@
         viAlias = true;
         vimAlias = true;
 
+        hideSearchHighlight = true;
+
+        notes = {
+          neorg = {
+            enable = true;
+            setupOpts = {
+              load = {
+                "core.defaults".enable = true;
+                "core.concealer".enable = true;
+              };
+            };
+          };
+        };
+
         dashboard = {
           alpha = {
             enable = true;
@@ -113,6 +127,8 @@
         options = {
           tabstop = 4;
           shiftwidth = 4;
+          concealcursor = "n";
+          conceallevel = 2;
         };
 
         keymaps = [
@@ -162,6 +178,8 @@
         ];
 
         spellcheck = {
+          enable = true;
+          programmingWordlist.enable = true;
           languages = [
             "en"
             "de"
@@ -211,7 +229,7 @@
         };
 
         mini = {
-          animate.enable = true;
+          # animate.enable = true;
           basics.enable = true;
           comment = {
             enable = true;
@@ -230,6 +248,8 @@
           indentscope.enable = true;
           move.enable = true;
           pairs.enable = true;
+          surround.enable = true;
+          files.enable = true;
           # starter.enable = true;
         };
 
@@ -267,6 +287,7 @@
           formatOnSave = true;
           mappings = {
           };
+          harper-ls.enable = true;
         };
 
         languages = {
@@ -308,9 +329,19 @@
           };
           clang.enable = true;
           qml.enable = true;
+          bash.enable = true;
+          json.enable = true;
+          yaml.enable = true;
+          lua.enable = true;
+          markdown.enable = true;
+          nu.enable = true;
+          ocaml.enable = true;
+          sql.enable = true;
         };
 
         binds = {
+          cheatsheet.enable = true;
+          hardtime-nvim.enable = true;
           whichKey = {
             enable = true;
           };
