@@ -92,12 +92,13 @@
         "match:class .*, suppress_event maximize"
         "match:fullscreen true, opacity 1.0"
         "match:class ^(kitty)$, opacity 0.9"
-        "match:class ^(Spotify)$, opacity 0.9"
+        "match:class ^(spotify)$, opacity 0.9"
         "match:title ^(Friends List)$, float on, persistent_size on"
 
-        "match:class ^(Spotify)$, workspace 6 silent"
+        "match:class ^(spotify)$, workspace 6 silent"
         "match:class ^(steam)$, workspace 7 silent"
         "match:class ^(org.keepassxc.KeePassXC)$, workspace 9 silent"
+        "match:initial_title ^(Unlock Database - KeePassXC)$, workspace unset"
         "match:class ^(discord)$, workspace 10 silent"
         "match:class ^(vesktop)$, workspace 10 silent"
 
