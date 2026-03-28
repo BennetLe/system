@@ -133,10 +133,22 @@
       dataDir = "/var/lib/i2pd";
       enableIPv4 = true;
       enableIPv6 = true;
+      port = 30777;
+
+      ntcp2.port = 30776;
+
+      floodfill = true;
 
       proto = {
         httpProxy.enable = true;
+        http = {
+          enable = true;
+        };
         socksProxy.enable = true;
+        i2pControl.enable = true;
+        i2cp.enable = true;
+        bob.enable = true;
+        sam.enable = true;
       };
     };
     jellyfin = {
@@ -231,8 +243,8 @@
     };
     firewall = {
       enable = true;
-      allowedTCPPorts = [3240 42420 1714 1764 4444 1337 8080];
-      allowedUDPPorts = [42420 5353 1714 1764 4444 1337 8080];
+      allowedTCPPorts = [3240 42420 1714 1764 4444 1337 8080 30777 30776];
+      allowedUDPPorts = [42420 5353 1714 1764 4444 1337 8080 30777];
     };
     hosts = {
       # "10.129.251.69" = ["editor.htb"];
