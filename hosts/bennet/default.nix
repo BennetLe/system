@@ -66,7 +66,6 @@
 
         # VM
         libvirt
-        virt-manager
         looking-glass-client
         virtio-win
         kvmtool

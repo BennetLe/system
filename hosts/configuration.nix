@@ -327,6 +327,7 @@ in {
       hyprsunset
       xclicker
       floorp-bin
+      dnsmasq
     ];
   };
 
@@ -607,13 +608,14 @@ in {
   };
 
   virtualisation = {
-    # libvirtd = {
-    #   enable = true;
-    #   qemu = {
-    #     package = pkgs.qemu;
-    #     swtpm.enable = true;
-    #   };
-    # };
+    libvirtd = {
+      enable = true;
+      qemu = {
+        package = pkgs.qemu;
+        vhostUserPackages = [pkgs.virtiofsd];
+        swtpm.enable = true;
+      };
+    };
     waydroid.enable = true;
     docker = {
       enable = true;
