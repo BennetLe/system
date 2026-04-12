@@ -23,6 +23,7 @@
   };
 
   programs = {
+    haguichi.enable = true;
     streamcontroller.enable = true;
     spicetify = let
       spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
@@ -127,6 +128,7 @@
   };
 
   services = {
+    logmein-hamachi.enable = true;
     i2pd = {
       enable = true;
       dataDir = "/var/lib/i2pd";

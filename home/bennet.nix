@@ -59,6 +59,7 @@
     eza = {
       enable = true;
       enableNushellIntegration = false;
+      enableFishIntegration = true;
       git = true;
       icons = "auto";
     };
@@ -66,6 +67,38 @@
       enable = true;
       enableNushellIntegration = true;
       enableZshIntegration = true;
+      enableFishIntegration = true;
+    };
+    yazi = {
+      enable = true;
+      shellWrapperName = "y";
+      enableFishIntegration = true;
+      enableNushellIntegration = true;
+    };
+    fish = {
+      enable = true;
+      generateCompletions = true;
+      plugins = [
+        {
+          name = "plugin-git";
+          src = pkgs.fishPlugins.plugin-git.src;
+        }
+      ];
+      shellAliases = {
+        # ls = "eza";
+        ll = "ls -l";
+        cls = "clear";
+        s = "kitten ssh";
+
+        cat = "bat";
+        cd = "z";
+
+        update = "nixos-rebuild switch --sudo --flake /home/bennet/system#bennet";
+        config = "nvim /home/bennet/system/flake.nix";
+        changewp = "swww img";
+
+        brave = "brave --password-store=gnome";
+      };
     };
     nushell = {
       enable = true;
@@ -95,16 +128,6 @@
         prepend /home/myuser/.apps |
         append /usr/bin/env
         )
-
-        def --env y [...args] {
-          let tmp = (mktemp -t "yazi-cwd.XXXXXX")
-          yazi ...$args --cwd-file $tmp
-          let cwd = (open $tmp)
-          if $cwd != "" and $cwd != $env.PWD {
-            cd $cwd
-          }
-          rm -fp $tmp
-        }
 
         def web2app [
           app_name: string,
@@ -160,8 +183,11 @@
         brave = "brave --password-store=gnome";
       };
     };
-    carapace.enable = true;
-    carapace.enableNushellIntegration = true;
+    carapace = {
+      enable = true;
+      enableNushellIntegration = true;
+      # enableFishIntegration = true;
+    };
 
     starship = {
       enable = true;

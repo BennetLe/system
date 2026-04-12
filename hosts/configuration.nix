@@ -38,7 +38,7 @@ in {
       "podman"
       "elephant"
     ];
-    shell = pkgs.nushell;
+    shell = pkgs.fish;
     useDefaultShell = true;
   };
 
@@ -47,7 +47,7 @@ in {
     elephant = {};
   };
 
-  users.defaultUserShell = pkgs.nushell;
+  users.defaultUserShell = pkgs.fish;
 
   time.timeZone = "Europe/Berlin";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -332,6 +332,9 @@ in {
   };
 
   programs = {
+    fish = {
+      enable = true;
+    };
     nix-ld = {
       enable = true;
       libraries = [];

@@ -9,6 +9,12 @@
 
         hideSearchHighlight = true;
 
+        session = {
+          nvim-session-manager = {
+            enable = true;
+          };
+        };
+
         notes = {
           neorg = {
             enable = true;
