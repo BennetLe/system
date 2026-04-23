@@ -121,6 +121,7 @@
         gnome-multi-writer
         cartridges
         jetbrains.idea
+        lmstudio
       ]
       ++ [
         pkgsRocm.blender
