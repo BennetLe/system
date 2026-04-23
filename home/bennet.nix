@@ -23,6 +23,7 @@
 
     sessionPath = [
       "/home/bennet/.cargo/bin"
+      "/home/bennet/.npm-global/bin"
     ];
   };
 
