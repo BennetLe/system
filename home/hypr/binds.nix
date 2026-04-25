@@ -34,7 +34,7 @@
         # "$mainMod, R, exec, ~/.config/rofi/launchers/type-1/launcher.sh"
         # "$mainMod, R, exec, $menu"
         "$mainMod, P, pseudo"
-        "$mainMod, J, togglesplit"
+        "$mainMod, J, layoutmsg, togglesplit"
         # "$mainMod, L, exec, hyprlock"
         ",switch:Lid Switch, exec, hyprlock"
         "$mainMod SHIFT, S, exec, hyprshot -m region -o /home/bennet/Pictures/Hyprshot"
