@@ -100,6 +100,9 @@
 
         brave = "brave --password-store=gnome";
       };
+      shellInit = ''
+        abbr --erase gsd
+      '';
     };
     nushell = {
       enable = true;
