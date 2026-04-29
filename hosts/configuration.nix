@@ -328,6 +328,7 @@ in {
       xclicker
       floorp-bin
       dnsmasq
+      claude-code
     ];
   };
 
