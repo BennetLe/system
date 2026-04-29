@@ -488,6 +488,7 @@
         set -g base-index 1
         set -g pane-base-index 1
         set -g extended-keys on
+        set -g extended-keys-format csi-u
         set-window-option -g pane-base-index 1
         set-option -g renumber-windows on
 
