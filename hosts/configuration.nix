@@ -13,6 +13,9 @@ in {
     ++ (import ../modules/themes);
 
   boot = {
+    extraModprobeConfig = ''
+      install algif_aead /bin/false
+    '';
   };
 
   users.users.${vars.user} = {
