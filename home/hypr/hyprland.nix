@@ -72,7 +72,7 @@
       };
 
       input = {
-        kb_layout = "us, de";
+        kb_layout = "eu, us, de";
         kb_variant = [];
         kb_model = [];
         kb_options = ["caps:escape"];

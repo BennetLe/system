@@ -96,6 +96,7 @@ in {
   ];
 
   environment = {
+    etc = {};
     pathsToLink = [
       "/share"
     ];
