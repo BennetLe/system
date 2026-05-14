@@ -129,6 +129,7 @@
   };
 
   services = {
+    jackett.enable = true;
     logmein-hamachi.enable = true;
     i2pd = {
       enable = true;
