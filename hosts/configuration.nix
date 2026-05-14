@@ -221,7 +221,6 @@ in {
       jmtpfs
       go-mtpfs
       android-file-transfer
-      obs-studio
       vlc
       qbittorrent
       scrcpy
