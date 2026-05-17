@@ -491,7 +491,7 @@
       enable = true;
       prefix = "C-Space";
 
-      shell = "/etc/profiles/per-user/bennet/bin/nu";
+      shell = "/etc/profiles/per-user/bennet/bin/fish";
       mouse = true;
       clock24 = true;
       keyMode = "vi";
