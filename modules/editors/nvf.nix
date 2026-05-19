@@ -294,6 +294,9 @@
           mappings = {
           };
           harper-ls.enable = true;
+          presets = {
+            tailwindcss-language-server.enable = true;
+          };
         };
 
         languages = {
@@ -303,7 +306,6 @@
 
           css.enable = true;
           html.enable = true;
-          tailwind.enable = true;
           nix = {
             enable = true;
             extraDiagnostics = {
@@ -316,7 +318,7 @@
               ];
             };
           };
-          ts.enable = true;
+          typescript.enable = true;
           rust = {
             enable = true;
             extensions = {

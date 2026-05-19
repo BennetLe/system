@@ -111,7 +111,7 @@ in {
     };
     systemPackages = with pkgs; [
       # Pentesting
-      # wordlists
+      wordlists
       nmap
       seclists
       rockyou
@@ -124,7 +124,7 @@ in {
       exploitdb
       whatweb
       cewl
-      wifite2
+      # wifite2
       aircrack-ng
       airgorah
       hashcat
@@ -156,7 +156,7 @@ in {
         mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
       }))
       libnotify
-      swww
+      awww
       rofi
       networkmanagerapplet
       pavucontrol
@@ -306,7 +306,7 @@ in {
       presenterm
       wireguard-tools
       hoppscotch
-      protonvpn-gui
+      proton-vpn
       spicetify-cli
       pulseaudio
       nix-index

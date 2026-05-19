@@ -107,7 +107,7 @@
 
         update = "nixos-rebuild switch --sudo --flake /home/bennet/system#bennet";
         config = "nvim /home/bennet/system/flake.nix";
-        changewp = "swww img";
+        changewp = "awww img";
 
         brave = "brave --password-store=gnome";
       };
@@ -193,7 +193,7 @@
 
         update = "nixos-rebuild switch --sudo --flake /home/bennet/system#bennet";
         config = "nvim /home/bennet/system/flake.nix";
-        changewp = "swww img";
+        changewp = "awww img";
 
         brave = "brave --password-store=gnome";
       };
@@ -365,7 +365,7 @@
 
         update = "nixos-rebuild switch --use-remote-sudo --flake /home/bennet/system#bennet";
         config = "nvim /home/bennet/system/flake.nix";
-        changewp = "swww img";
+        changewp = "awww img";
 
         brave = "brave --password-store=gnome";
       };
