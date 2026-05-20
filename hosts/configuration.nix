@@ -208,7 +208,7 @@ in {
       spice-vdagent
       spice
       desmume
-      jetbrains.idea
+      jetbrains.idea-oss
       jdt-language-server
       waydroid
       burpsuite

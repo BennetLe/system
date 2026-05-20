@@ -120,7 +120,6 @@
         freerdp
         gnome-multi-writer
         cartridges
-        jetbrains.idea
         lmstudio
       ]
       ++ [
