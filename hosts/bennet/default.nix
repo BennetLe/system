@@ -82,6 +82,7 @@
         lutris-unwrapped
         r2modman
         melonds
+        inputs.nix-citizen.packages.${system}.rsi-launcher-git
 
         joplin-desktop
         vial
