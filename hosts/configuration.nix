@@ -332,6 +332,7 @@ in {
       floorp-bin
       dnsmasq
       claude-code
+      zed-editor
     ];
   };
 
