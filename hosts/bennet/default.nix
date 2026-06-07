@@ -130,6 +130,7 @@
 
   services = {
     jackett.enable = true;
+    flaresolverr.enable = true;
     logmein-hamachi.enable = true;
     i2pd = {
       enable = true;
