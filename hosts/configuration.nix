@@ -147,7 +147,8 @@ in {
       ffuf
       feroxbuster
       wfuzz
-      # john
+      john
+      johnny
       medusa
       crunch
       tcpdump
@@ -631,6 +632,16 @@ in {
 
     overlays = [
       inputs.nix-alien.overlays.default
+      (final: prev: {
+        john = prev.john.overrideAttrs (old: {
+          src = prev.fetchFromGitHub {
+            owner = "openwall";
+            repo = "john";
+            rev = "f514ece8ec4ae5e38ad75aaa322eac86d73dcd76";
+            hash = "sha256-zO1/KUJe3LvYCGlwVpNg5uDwPRD0ql/7anErb7tywC0=";
+          };
+        });
+      })
     ];
   };
 
