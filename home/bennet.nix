@@ -114,6 +114,10 @@
 
         nmap = "grc nmap";
         findvm = "grc nmap -sn -sV 192.168.1.0/24 | grep -E -o '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)' | sort";
+        cdb = "echo /run/current-system/sw/share/wordlists/seclists/Discovery/Web-Content/DirBuster-2007_directory-list-2.3-medium.txt | wl-copy";
+        ss = "searchsploit";
+        webup = "python -m SimpleHTTPServer 80";
+        busyport = "lsof -t -i";
       };
       shellInit = ''
         abbr --erase gsd
