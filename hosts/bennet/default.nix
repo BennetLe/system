@@ -82,7 +82,9 @@
         lutris-unwrapped
         r2modman
         melonds
-        inputs.nix-citizen.packages.${system}.rsi-launcher-git
+
+        # Pentesting
+        htb-toolkit
 
         joplin-desktop
         vial

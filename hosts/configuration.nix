@@ -333,6 +333,7 @@ in {
       dnsmasq
       claude-code
       zed-editor
+      exfatprogs
     ];
   };
 
