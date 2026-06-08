@@ -168,12 +168,15 @@ in {
       steghide
       stegseek
       proxychains
+      proxychains-ng
       tor
       openssl
       sslscan
       testssl
       httpx
       maltego
+      sshuttle
+      sherlock
 
       vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
       wget
