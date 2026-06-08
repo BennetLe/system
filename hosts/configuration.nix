@@ -368,6 +368,7 @@ in {
       claude-code
       zed-editor
       exfatprogs
+      grc
     ];
   };
 

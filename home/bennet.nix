@@ -111,6 +111,9 @@
         changewp = "awww img";
 
         brave = "brave --password-store=gnome";
+
+        nmap = "grc nmap";
+        findvm = "grc nmap -sn -sV 192.168.1.0/24 | grep -E -o '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)' | sort";
       };
       shellInit = ''
         abbr --erase gsd
