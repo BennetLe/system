@@ -39,10 +39,6 @@
     };
 
     nix-gaming.url = "github:fufexan/nix-gaming";
-    nix-citizen = {
-      url = "github:LovingMelody/nix-citizen";
-      inputs.nix-gaming.follows = "nix-gaming";
-    };
   };
 
   outputs = inputs @ {
@@ -58,7 +54,6 @@
     nixos-hardware,
     agenix,
     noctalia,
-    nix-citizen,
     ...
   }: let
     vars = {
@@ -91,7 +86,6 @@
           nixos-hardware
           agenix
           noctalia
-          nix-citizen
           ;
       }
     );

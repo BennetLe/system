@@ -177,6 +177,7 @@ in {
       maltego
       sshuttle
       sherlock
+      wpscan
 
       vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
       wget
@@ -367,7 +368,6 @@ in {
       hyprsunset
       xclicker
       floorp-bin
-      dnsmasq
       claude-code
       zed-editor
       exfatprogs
@@ -472,6 +472,16 @@ in {
   };
 
   services = {
+    dnsmasq = {
+      enable = true;
+      settings = {
+        addn-hosts = "/var/lib/dnsmasq/htb-hosts";
+        server = ["192.168.178.150" "1.1.1.1" "8.8.8.8"];
+        no-resolv = true;
+        bind-dynamic = true;
+        except-interface = "virbr0";
+      };
+    };
     tuned.enable = true;
     upower.enable = true;
     pcscd = {
@@ -500,7 +510,7 @@ in {
       };
     };
     resolved = {
-      enable = true;
+      enable = false;
     };
     libinput.enable = true;
 
@@ -608,10 +618,8 @@ in {
     settings = {
       auto-optimise-store = true;
       substituters = [
-        "https://nix-citizen.cachix.org"
       ];
       trusted-public-keys = [
-        "nix-citizen.cachix.org-1:lPMkWc2X8XD4/7YPEEwXKKBg+SVbYTVrAaLA2wQTKCo="
       ];
     };
     # gc = {
@@ -687,8 +695,10 @@ in {
 
   networking = {
     hostName = "nixos";
+    nameservers = ["127.0.0.1"];
     networkmanager = {
       enable = true;
+      dns = "none";
       plugins = [
         pkgs.networkmanager-openvpn
       ];

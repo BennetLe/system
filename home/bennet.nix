@@ -97,6 +97,20 @@
           src = pkgs.fishPlugins.plugin-git.src;
         }
       ];
+      functions = {
+        htb-add = {
+          body = ''
+            echo "$argv[2] $argv[1]" | sudo tee -a /var/lib/dnsmasq/htb-hosts
+            sudo systemctl reload dnsmasq
+          '';
+        };
+        htb-rm = {
+          body = ''
+            sudo sed -i "/$argv[1]/d" /var/lib/dnsmasq/htb-hosts
+            sudo systemctl reload dnsmasq
+          '';
+        };
+      };
       shellAliases = {
         # ls = "eza";
         ll = "ls -l";
