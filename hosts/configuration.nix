@@ -128,7 +128,6 @@ in {
       aircrack-ng
       airgorah
       hashcat
-      nuclei
       masscan
       routersploit
       social-engineer-toolkit
@@ -138,8 +137,42 @@ in {
       # yersinia
       arp-scan
       cherrytree
-      bettercap
       responder
+      rustscan
+      amass
+      subfinder
+      # theHarvester
+      # zaproxy
+      nikto
+      ffuf
+      feroxbuster
+      wfuzz
+      # john
+      medusa
+      crunch
+      tcpdump
+      ncrack
+      kismet
+      radare2
+      # pwndbg
+      binutils
+      checksec
+      pwntools
+      ropgadget
+      volatility3
+      binwalk
+      foremost
+      exiftool
+      yara
+      steghide
+      stegseek
+      proxychains
+      tor
+      openssl
+      sslscan
+      testssl
+      httpx
+      maltego
 
       vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
       wget
