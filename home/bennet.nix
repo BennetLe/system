@@ -520,6 +520,7 @@
       shortcut = "Space";
       extraConfig = ''
         set-option -sa terminal-overrides ",xterm*:Tc"
+        set -g history-limit 50000
 
         set -g base-index 1
         set -g pane-base-index 1

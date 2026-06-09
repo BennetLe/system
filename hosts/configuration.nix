@@ -374,6 +374,7 @@ in {
       zed-editor
       exfatprogs
       grc
+      ansifilter
     ];
   };
 
