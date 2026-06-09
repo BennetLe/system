@@ -296,6 +296,7 @@
           harper-ls.enable = true;
           presets = {
             tailwindcss-language-server.enable = true;
+            ols.enable = true;
           };
         };
 
@@ -345,6 +346,7 @@
           nu.enable = true;
           ocaml.enable = true;
           sql.enable = true;
+          odin.enable = true;
         };
 
         binds = {
