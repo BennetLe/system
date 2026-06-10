@@ -379,6 +379,7 @@ in {
       grc
       ansifilter
       dig
+      firefox
     ];
   };
 
