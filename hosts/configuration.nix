@@ -368,7 +368,8 @@ in {
       darktable
       siril
       linuxPackages.usbip
-      inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+      # inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+      noctalia-shell
       hyprsunset
       xclicker
       floorp-bin
@@ -524,7 +525,6 @@ in {
       defaultSession = "hyprland-uwsm";
       gdm = {
         enable = true;
-        wayland = true;
       };
     };
 
