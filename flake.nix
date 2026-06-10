@@ -62,21 +62,19 @@
       terminal = "kitty";
       editor = "vim";
     };
-    system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      inherit system;
-      config.allowUnfree = true;
-    };
+    overlays = import ./overlays;
+
     lib = nixpkgs.lib;
   in {
     nixosConfigurations = (
       import ./hosts {
-        inherit (nixpkgs) lib;
         inherit
+          lib
           inputs
           nixpkgs
           home-manager
           vars
+          overlays
           nixvim
           nix-alien
           hyprland-qtutils

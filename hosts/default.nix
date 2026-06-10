@@ -6,10 +6,14 @@
   nixvim,
   nvf,
   nixos-hardware,
+  overlays,
   ...
 }: let
   system = "x86_64-linux";
   lib = nixpkgs.lib;
+  overlayModules = {
+    nixpkgs.overlays = overlays;
+  };
 in {
   bennet = lib.nixosSystem {
     inherit system;
@@ -20,6 +24,7 @@ in {
       };
     };
     modules = [
+      overlayModules
       nixvim.nixosModules.nixvim
       nvf.nixosModules.default
       ./bennet
@@ -48,6 +53,7 @@ in {
       };
     };
     modules = [
+      overlayModules
       nixvim.nixosModules.nixvim
       nvf.nixosModules.default
       ./framework
