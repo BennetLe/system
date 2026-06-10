@@ -293,6 +293,7 @@
     pki.certificateFiles = [
       ./../../modules/certs/mitmproxy-ca-cert-bennet.pem
       ./../../modules/certs/burp.pem
+      ./../../modules/certs/zap_root_ca.cer
     ];
   };
 

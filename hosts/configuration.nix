@@ -167,8 +167,6 @@ in {
       yara
       steghide
       stegseek
-      proxychains
-      proxychains-ng
       tor
       openssl
       sslscan
@@ -384,6 +382,17 @@ in {
   };
 
   programs = {
+    proxychains = {
+      enable = true;
+      proxies = {
+        zap = {
+          enable = true;
+          type = "http";
+          host = "127.0.0.1";
+          port = 8080;
+        };
+      };
+    };
     fish = {
       enable = true;
     };
