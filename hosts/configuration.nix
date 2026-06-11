@@ -380,6 +380,7 @@ in {
       dig
       firefox
       libxslt
+      odin
     ];
   };
 
