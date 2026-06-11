@@ -131,6 +131,10 @@
   };
 
   services = {
+    postgresql = {
+      enable = true;
+      package = pkgs.postgresql_15;
+    };
     jackett.enable = true;
     flaresolverr.enable = true;
     logmein-hamachi.enable = true;
