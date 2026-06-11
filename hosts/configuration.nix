@@ -378,6 +378,7 @@ in {
       ansifilter
       dig
       firefox
+      libxslt
     ];
   };
 
