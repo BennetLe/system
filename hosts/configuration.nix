@@ -180,6 +180,7 @@ in {
       bloodhound
       villain
       zap
+      username-anarchy
 
       vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
       wget
