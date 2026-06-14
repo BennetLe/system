@@ -382,6 +382,7 @@ in {
       libxslt
       odin
       gajim
+      grayjay
     ];
   };
 
