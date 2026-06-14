@@ -381,6 +381,7 @@ in {
       firefox
       libxslt
       odin
+      gajim
     ];
   };
 
