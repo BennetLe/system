@@ -38,6 +38,9 @@
     };
   };
 
+  xdg.configFile = {
+  };
+
   programs = {
     obs-studio = {
       enable = true;
@@ -502,10 +505,12 @@
     kitty = {
       enable = true;
       # shellIntegration.mode = "zsh";
+      shellIntegration.enableFishIntegration = true;
       settings = {
         confirm_os_window_close = 0;
         enable_audio_bell = false;
         dynamic_background_opacity = true;
+        auto_reload_config = -1;
       };
     };
 
