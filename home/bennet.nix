@@ -19,6 +19,7 @@
       XDG_DATA_DIRS = "$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
       TERMINAL = "kitty";
       HYPRSHOT_DIR = "/home/bennet/Pictures/Hyprshot";
+      OLS_BUILTIN_FOLDER = "${pkgs.ols.src}/builtin";
     };
 
     sessionPath = [
