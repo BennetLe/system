@@ -280,10 +280,13 @@
             enable = true;
             mappings = {
               close = "<C-e>";
-              complete = "<C-Space>";
+              complete = "<A-Space>";
               confirm = "<C-y>";
               next = "<C-n>";
               previous = "<C-p>";
+            };
+            setupOpts = {
+              signature.enabled = true;
             };
           };
         };
