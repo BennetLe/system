@@ -383,7 +383,6 @@ in {
       odin
       ols
       gajim
-      grayjay
     ];
   };
 
@@ -505,7 +504,6 @@ in {
         except-interface = "virbr0";
       };
     };
-    tuned.enable = true;
     upower.enable = true;
     pcscd = {
       enable = true;

@@ -101,10 +101,4 @@
       allowedUDPPorts = [42420 5353 1714 1764 4444 1337 8080];
     };
   };
-
-  # suspend-then-hibernate
-  systemd.sleep.extraConfig = ''
-    HibernateDelaySec=30m
-    SuspendState=mem
-  '';
 }

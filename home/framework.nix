@@ -20,10 +20,21 @@
       PATH = "/home/bennet/.cargo/bin:$PATH";
       TERMINAL = "kitty";
       HYPRSHOT_DIR = "/home/bennet/Pictures/Hyprshot";
+      OLS_BUILTIN_FOLDER = "${pkgs.ols.src}/builtin";
     };
+
+    sessionPath = [
+      "/home/bennet/.cargo/bin"
+      "/home/bennet/.npm-global/bin"
+    ];
   };
 
   imports = import ./hypr;
+
+  stylix = {
+    enable = true;
+    autoEnable = true;
+  };
 
   gtk = {
     enable = true;
@@ -43,10 +54,73 @@
         };
       };
     };
+    eza = {
+      enable = true;
+      enableNushellIntegration = false;
+      enableFishIntegration = true;
+      git = true;
+      icons = "auto";
+    };
     zoxide = {
       enable = true;
       enableNushellIntegration = true;
       enableZshIntegration = true;
+      enableFishIntegration = true;
+    };
+    yazi = {
+      enable = true;
+      shellWrapperName = "y";
+      enableFishIntegration = true;
+      enableNushellIntegration = true;
+    };
+    fish = {
+      enable = true;
+      generateCompletions = true;
+      plugins = [
+        {
+          name = "plugin-git";
+          src = pkgs.fishPlugins.plugin-git.src;
+        }
+      ];
+      functions = {
+        htb-add = {
+          body = ''
+            echo "$argv[2] $argv[1]" | sudo tee -a /var/lib/dnsmasq/htb-hosts
+            sudo systemctl reload dnsmasq
+          '';
+        };
+        htb-rm = {
+          body = ''
+            sudo sed -i "/$argv[1]/d" /var/lib/dnsmasq/htb-hosts
+            sudo systemctl reload dnsmasq
+          '';
+        };
+      };
+      shellAliases = {
+        # ls = "eza";
+        ll = "ls -l";
+        cls = "clear";
+        s = "kitten ssh";
+
+        cat = "bat";
+        cd = "z";
+
+        update = "nixos-rebuild switch --sudo --flake /home/bennet/system#bennet";
+        config = "nvim /home/bennet/system/flake.nix";
+        changewp = "awww img";
+
+        brave = "brave --password-store=gnome";
+
+        nmap = "grc nmap";
+        findvm = "grc nmap -sn -sV 192.168.1.0/24 | grep -E -o '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)' | sort";
+        cdb = "echo /run/current-system/sw/share/wordlists/seclists/Discovery/Web-Content/DirBuster-2007_directory-list-2.3-medium.txt | wl-copy";
+        ss = "searchsploit";
+        webup = "python -m SimpleHTTPServer 80";
+        busyport = "lsof -t -i";
+      };
+      shellInit = ''
+        abbr --erase gsd
+      '';
     };
     nushell = {
       enable = true;
@@ -108,17 +182,157 @@
         brave = "brave --password-store=gnome";
       };
     };
-    carapace.enable = true;
-    carapace.enableNushellIntegration = true;
+    carapace = {
+      enable = true;
+      enableNushellIntegration = true;
+      # enableFishIntegration = true;
+    };
 
     starship = {
       enable = true;
       enableTransience = true;
       settings = {
-        add_newline = true;
+        format = lib.concatStrings [
+          "[](orange)"
+          "$os"
+          "$username"
+          "[](bg:yellow fg:orange)"
+          "$directory"
+          "[](fg:yellow bg:base15)"
+          "$git_branch"
+          "$git_status"
+          "[](fg:base15 bg:blue)"
+          "$c"
+          "$cpp"
+          "$rust"
+          "$golang"
+          "$nodejs"
+          "$php"
+          "$java"
+          "$kotlin"
+          "$haskell"
+          "$python"
+          "[](fg:blue bg:base03)"
+          "$nix_shell"
+          "$docker_context"
+          "$conda"
+          "$pixi"
+          "[](fg:base03 bg:base01)"
+          "$time"
+          "[ ](fg:base01)"
+          "$line_break$character"
+        ];
+        os = {
+          disabled = false;
+          style = "bg:orange fg:base01";
+          symbols = {
+            NixOS = "󱄅";
+          };
+        };
+        username = {
+          show_always = true;
+          style_user = "bg:orange fg:base01";
+          style_root = "bg:orange fg:base01";
+          format = "[ $user ]($style)";
+        };
+        directory = {
+          style = "fg:bright-white bg:yellow";
+          format = "[ $path ]($style)";
+          substitutions = {
+            "Documents" = "󰈙 ";
+            "Downloads" = " ";
+            "Music" = "󰝚 ";
+            "Pictures" = " ";
+            "Developer" = "󰲋 ";
+          };
+        };
+        git_branch = {
+          symbol = "";
+          style = "bg:base15";
+          format = "[[ $symbol $branch ](fg:bright-white bg:base15)]($style)";
+        };
+        git_status = {
+          style = "bg:base15";
+          format = "[[($all_status$ahead_behind )](fg:bright-white bg:base15)]($style)";
+        };
+        nodejs = {
+          symbol = "";
+          style = "bg:blue";
+          format = "[[ $symbol( $version) ](fg:bright-white bg:blue)]($style)";
+        };
+        cpp = {
+          symbol = " ";
+          style = "bg:blue";
+          format = "[[ $symbol( $version) ](fg:bright-white bg:blue)]($style)";
+        };
+        rust = {
+          symbol = "";
+          style = "bg:blue";
+          format = "[[ $symbol( $version) ](fg:bright-white bg:blue)]($style)";
+        };
+        golang = {
+          symbol = "";
+          style = "bg:blue";
+          format = "[[ $symbol( $version) ](fg:bright-white bg:blue)]($style)";
+        };
+        php = {
+          symbol = "";
+          style = "bg:blue";
+          format = "[[ $symbol( $version) ](fg:bright-white bg:blue)]($style)";
+        };
+        java = {
+          symbol = "";
+          style = "bg:blue";
+          format = "[[ $symbol( $version) ](fg:bright-white bg:blue)]($style)";
+        };
+        kotlin = {
+          symbol = "";
+          style = "bg:blue";
+          format = "[[ $symbol( $version) ](fg:bright-white bg:blue)]($style)";
+        };
+        haskell = {
+          symbol = "";
+          style = "bg:blue";
+          format = "[[ $symbol( $version) ](fg:bright-white bg:blue)]($style)";
+        };
+        python = {
+          symbol = "";
+          style = "bg:blue";
+          format = "[[ $symbol( $version) ](fg:bright-white bg:blue)]($style)";
+        };
+        docker_context = {
+          symbol = "";
+          style = "bg:base03";
+          format = "[[ $symbol( $context) ](fg:#83a598 bg:base03)]($style)";
+        };
+        nix_shell = {
+          symbol = "󱄅";
+          style = "bg:base03";
+          format = "[via $symbol $state (($name))]($style)";
+        };
+        conda = {
+          style = "bg:base03";
+          format = "[[ $symbol( $environment) ](fg:#83a598 bg:base03)]($style)";
+        };
+        pixi = {
+          style = "bg:base03";
+          format = "[[ $symbol( $version)( $environment) ](fg:bright-white bg:base03)]($style)";
+        };
+        time = {
+          disabled = false;
+          time_format = "%R";
+          style = "bg:base01";
+          format = "[[  $time ](fg:bright-white bg:base01)]($style)";
+        };
+        line_break = false;
         character = {
-          success_symbol = "[➜](bold green)";
-          error_symbol = "[➜](bold red)";
+          disabled = false;
+          success_symbol = "[](bold fg:green)";
+          error_symbol = "[](bold fg:red)";
+          vimcmd_symbol = "[](bold fg:green)";
+          vimcmd_replace_one_symbol = "[](bold fg:purple)";
+          vimcmd_replace_symbol = "[](bold fg:purple)";
+          vimcmd_visual_symbol = "[](bold fg:yellow)";
         };
       };
     };
@@ -221,21 +435,44 @@
 
         # Shell integration
         eval "$(fzf --zsh)"
-        eval "$(zoxide init --cmd cd zsh)"
+        # eval "$(zoxide init --cmd cd zsh)"
 
         # remove dulicate PATH Varaibles
         export PATH=$(echo "$PATH" | tr ':' '\n' | awk '!a[$0]++' | tr '\n' ':')
+
+        function y() {
+         local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+         yazi "$@" --cwd-file="$tmp"
+         if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+          builtin cd -- "$cwd"
+         fi
+         rm -f -- "$tmp"
+        }
+
+        function rg() {
+          tmp="$(mktemp)"
+          ranger --choosedir="$tmp" "$@"
+          if [ -f "$tmp" ]; then
+            dir="$(cat "$tmp")"
+            rm -f "$tmp"
+            [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+          fi
+        }
       '';
     };
+
     kitty = {
       enable = true;
-      shellIntegration.mode = "zsh";
+      # shellIntegration.mode = "zsh";
+      shellIntegration.enableFishIntegration = true;
       settings = {
         confirm_os_window_close = 0;
         enable_audio_bell = false;
         dynamic_background_opacity = true;
+        auto_reload_config = -1;
       };
     };
+
     tmux = {
       enable = true;
       prefix = "C-Space";
@@ -247,9 +484,12 @@
       shortcut = "Space";
       extraConfig = ''
         set-option -sa terminal-overrides ",xterm*:Tc"
+        set -g history-limit 50000
 
         set -g base-index 1
         set -g pane-base-index 1
+        set -g extended-keys on
+        set -g extended-keys-format csi-u
         set-window-option -g pane-base-index 1
         set-option -g renumber-windows on
 
@@ -282,19 +522,37 @@
         {
           plugin = tmuxPlugins.vim-tmux-navigator;
         }
+        {
+          plugin = tmuxPlugins.logging;
+        }
       ];
     };
+
     rofi = {
       enable = true;
       font = lib.mkForce "JetBrainsMono Nerd Font Mono 16";
       yoffset = 0;
       xoffset = 0;
       location = "center";
+      modes = [
+        "drun"
+        "emoji"
+        "window"
+        "ssh"
+        "calc"
+      ];
+      extraConfig = {
+        modi = "drun,emoji,window,ssh";
+        drun-display-format = "{name}";
+        window-format = "{w} · {c} · {t}";
+        show-icons = true;
+      };
       plugins = with pkgs; [
         rofi-emoji
         rofi-calc
       ];
     };
+
     wofi = {
       enable = true;
       settings = {
@@ -316,6 +574,8 @@
     direnv = {
       enable = true;
       enableZshIntegration = true;
+      enableNushellIntegration = true;
+      enableFishIntegration = true;
       nix-direnv.enable = true;
     };
   };

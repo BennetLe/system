@@ -28,8 +28,7 @@
     ];
   };
 
-  imports =
-    import ./hypr;
+  imports = import ./hypr;
 
   stylix = {
     enable = true;
