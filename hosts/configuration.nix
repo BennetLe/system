@@ -383,6 +383,8 @@ in {
       odin
       ols
       gajim
+      mariadb.client
+      mysql-shell
     ];
   };
 
