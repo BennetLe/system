@@ -50,6 +50,7 @@
       protonup-qt
       godot
       hyprpanel
+      jetbrains.idea
     ];
   };
   services = {
