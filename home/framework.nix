@@ -105,7 +105,7 @@
         cat = "bat";
         cd = "z";
 
-        update = "nixos-rebuild switch --sudo --flake /home/bennet/system#bennet";
+        update = "nixos-rebuild switch --sudo --flake /home/bennet/system#framework";
         config = "nvim /home/bennet/system/flake.nix";
         changewp = "awww img";
 
@@ -639,7 +639,7 @@
   wayland.windowManager.hyprland = {
     settings = {
       monitor = [
-        "eDP-1,2256x1504@60,0x0,1"
+        "eDP-1,2256x1504@60,0x0,1.25"
         ", preferred, auto, 1, mirror, eDP-1"
       ];
 
