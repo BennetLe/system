@@ -20,6 +20,7 @@
       TERMINAL = "kitty";
       HYPRSHOT_DIR = "/home/bennet/Pictures/Hyprshot";
       OLS_BUILTIN_FOLDER = "${pkgs.ols.src}/builtin";
+      MSF_DATABASE_CONFIG = "$HOME/.msf4/database.yml";
     };
 
     sessionPath = [

@@ -135,6 +135,13 @@
     postgresql = {
       enable = true;
       package = pkgs.postgresql_15;
+      ensureDatabases = ["msf"];
+      ensureUsers = [
+        {
+          name = "msf";
+          ensureDBOwnership = true;
+        }
+      ];
     };
     jackett.enable = true;
     flaresolverr.enable = true;
