@@ -82,6 +82,7 @@
         lutris-unwrapped
         r2modman
         melonds
+        tome4
 
         # Pentesting
         htb-toolkit
