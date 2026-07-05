@@ -97,6 +97,8 @@
 
         "$mainMod, K, exec, rofi -show calc -modi calc -no-show-match -no-sort -no-persist-history"
         "$mainMod, period, exec, rofi -modi emoji -show emoji"
+
+        ", PAUSE, exec, wl-freeze -a"
       ];
 
       bindm = [

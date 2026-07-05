@@ -386,6 +386,8 @@ in {
       gajim
       mariadb.client
       mysql-shell
+      jujutsu
+      wl-freeze
     ];
   };
 
