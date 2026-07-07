@@ -504,6 +504,7 @@ in {
       settings = {
         addn-hosts = "/var/lib/dnsmasq/htb-hosts";
         server = ["192.168.178.150" "1.1.1.1" "8.8.8.8"];
+        strict-order = true;
         no-resolv = true;
         bind-dynamic = true;
         except-interface = "virbr0";
