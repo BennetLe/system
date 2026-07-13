@@ -7,12 +7,13 @@
   nvf,
   nixos-hardware,
   overlays,
+  affinity-nix,
   ...
 }: let
   system = "x86_64-linux";
   lib = nixpkgs.lib;
   overlayModules = {
-    nixpkgs.overlays = overlays;
+    nixpkgs.overlays = overlays ++ [affinity-nix.overlays.default];
   };
 in {
   bennet = lib.nixosSystem {

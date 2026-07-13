@@ -32,13 +32,8 @@
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     agenix.url = "github:ryantm/agenix";
-
-    # noctalia = {
-    #   url = "github:noctalia-dev/noctalia/legacy-v4";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
     nix-gaming.url = "github:fufexan/nix-gaming";
+    affinity-nix.url = "github:mrshmllow/affinity-nix";
   };
 
   outputs = inputs @ {
@@ -53,6 +48,7 @@
     spicetify-nix,
     nixos-hardware,
     agenix,
+    affinity-nix,
     ...
   }: let
     vars = {
@@ -82,6 +78,7 @@
           spicetify-nix
           nixos-hardware
           agenix
+          affinity-nix
           ;
       }
     );
