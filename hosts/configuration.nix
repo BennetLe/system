@@ -391,6 +391,7 @@ in {
       mysql-shell
       jujutsu
       wl-freeze
+      libxml2
     ];
   };
 
