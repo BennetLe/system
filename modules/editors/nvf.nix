@@ -133,8 +133,8 @@
         options = {
           tabstop = 4;
           shiftwidth = 4;
-          concealcursor = "n";
-          conceallevel = 2;
+          # concealcursor = "n";
+          # conceallevel = 2;
         };
 
         keymaps = [
