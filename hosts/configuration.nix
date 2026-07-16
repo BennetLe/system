@@ -384,6 +384,7 @@ in {
       xclicker
       floorp-bin
       claude-code
+      docker-sbx
       zed-editor
       exfatprogs
       grc
