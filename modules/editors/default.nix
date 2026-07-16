@@ -1,5 +1,5 @@
 [
-  ./nvim.nix
+  # ./nvim.nix
   ./nvf.nix
   ./helix.nix
 ]

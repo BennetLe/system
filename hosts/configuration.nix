@@ -111,7 +111,14 @@ in {
     };
     systemPackages = with pkgs; [
       # Pentesting
-      wordlists
+      (wordlists.override {
+        lists = with pkgs; [
+          nmap
+          rockyou
+          seclists
+          # wfuzz — broken on python 3.14 (pkg_resources removed)
+        ];
+      })
       nmap
       seclists
       rockyou
@@ -129,7 +136,7 @@ in {
       airgorah
       hashcat
       masscan
-      routersploit
+      # routersploit # broken
       social-engineer-toolkit
       sqlmap
       thc-hydra
@@ -146,7 +153,7 @@ in {
       nikto
       ffuf
       feroxbuster
-      wfuzz
+      # wfuzz # currently broken
       john
       johnny
       medusa
@@ -319,7 +326,7 @@ in {
       texliveFull
       brave
       gnupg
-      encfs
+      gocryptfs
       unzip
       gnumake
       solaar
@@ -669,6 +676,7 @@ in {
       allowUnfree = true;
       permittedInsecurePackages = [
         "dotnet-runtime-7.0.20"
+        "electron-40.10.5" # TODO: remove once vesktop releases with electron 43
       ];
     };
 
