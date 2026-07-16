@@ -447,7 +447,10 @@ in {
       enable = true;
       package = pkgs.wireshark;
     };
-    hyprland.enable = true;
+    hyprland = {
+      enable = true;
+      withUWSM = true;
+    };
     virt-manager.enable = true;
     zsh.enable = true;
     steam = {
@@ -468,16 +471,15 @@ in {
     };
     gamemode.enable = true;
     # neovim.defaultEditor = true;
-    uwsm = {
-      enable = true;
-      waylandCompositors = {
-        hyprland = {
-          prettyName = "Hyprland";
-          comment = "Hyprland compositor manager by UWSM";
-          binPath = "/run/current-system/sw/bin/Hyprland";
-        };
-      };
-    };
+    # uwsm = {
+    #   enable = true;
+    #   waylandCompositors = {
+    #     hyprland = {
+    #       prettyName = "Hyprland";
+    #       comment = "Hyprland compositor manager by UWSM";
+    #     };
+    #   };
+    # };
     direnv.enable = true;
   };
 
