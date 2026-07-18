@@ -29,6 +29,12 @@
     ];
   };
 
+  xdg.configFile = {
+    "fish/completions/htb-rm.fish".text = ''
+      complete -c htb-rm -f -a "(awk '{print \$2\"\t\"\$1}' /var/lib/dnsmasq/htb-hosts 2>/dev/null)"
+    '';
+  };
+
   imports = import ./hypr;
 
   stylix = {
@@ -92,7 +98,7 @@
         };
         htb-rm = {
           body = ''
-            sudo sed -i "/$argv[1]/d" /var/lib/dnsmasq/htb-hosts
+            sudo sed -i "/[[:space:]]$argv[1]\$/d" /var/lib/dnsmasq/htb-hosts
             sudo systemctl reload dnsmasq
             sudo resolvectl flush-caches
           '';
