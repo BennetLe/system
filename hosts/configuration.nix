@@ -515,13 +515,16 @@ in {
   services = {
     dnsmasq = {
       enable = true;
+      resolveLocalQueries = false;
       settings = {
-        addn-hosts = "/var/lib/dnsmasq/htb-hosts";
-        server = ["192.168.178.150" "100.84.167.89" "1.1.1.1" "8.8.8.8"];
-        strict-order = true;
+        port = 5335;
+        listen-address = "127.0.0.1";
+        bind-interfaces = true;
         no-resolv = true;
-        bind-dynamic = true;
-        except-interface = "virbr0";
+        no-hosts = true; # don't also serve /etc/hosts
+        addn-hosts = "/var/lib/dnsmasq/htb-hosts";
+        local = "/htb/"; # authoritative for .htb; never forward
+        # no `server=` lines at all, no strict-order
       };
     };
     upower.enable = true;
@@ -551,7 +554,12 @@ in {
       };
     };
     resolved = {
-      enable = false;
+      enable = true;
+      dnssec = "false";
+      settings.Resolve = {
+        DNS = ["127.0.0.1:5335"];
+        Domains = ["~htb"];
+      };
     };
     libinput.enable = true;
 
@@ -729,7 +737,7 @@ in {
     nameservers = ["127.0.0.1"];
     networkmanager = {
       enable = true;
-      dns = "none";
+      dns = "systemd-resolved";
       plugins = [
         pkgs.networkmanager-openvpn
       ];

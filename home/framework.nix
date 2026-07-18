@@ -87,12 +87,14 @@
           body = ''
             echo "$argv[2] $argv[1]" | sudo tee -a /var/lib/dnsmasq/htb-hosts
             sudo systemctl reload dnsmasq
+            sudo resolvectl flush-caches
           '';
         };
         htb-rm = {
           body = ''
             sudo sed -i "/$argv[1]/d" /var/lib/dnsmasq/htb-hosts
             sudo systemctl reload dnsmasq
+            sudo resolvectl flush-caches
           '';
         };
       };
