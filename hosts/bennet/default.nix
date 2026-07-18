@@ -126,6 +126,7 @@
         cartridges
         lmstudio
         affinity-v3
+        bs-manager
       ]
       ++ [
         pkgsRocm.blender
