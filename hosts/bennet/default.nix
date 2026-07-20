@@ -178,6 +178,7 @@
     };
     monero = {
       enable = true;
+      dataDir = "/media/IronWolf/monero";
     };
     tailscale = {
       enable = true;
@@ -268,6 +269,9 @@
       mpd.environment = {
         # https://gitlab.freedesktop.org/pipewire/pipewire/-/issues/609
         XDG_RUNTIME_DIR = "/run/user/1000";
+      };
+      monero.unitConfig = {
+        RequiresMountsFor = "/media/IronWolf";
       };
     };
     user = {
