@@ -400,6 +400,7 @@ in {
       jujutsu
       wl-freeze
       libxml2
+      nodejs_22
     ];
   };
 
