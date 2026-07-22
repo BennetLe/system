@@ -127,6 +127,7 @@
         lmstudio
         affinity-v3
         httptoolkit
+        frida-tools
       ]
       ++ [
         pkgsRocm.blender
