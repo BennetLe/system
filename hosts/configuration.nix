@@ -685,6 +685,7 @@ in {
   };
   nixpkgs = {
     config = {
+      android_sdk.accept_license = true;
       allowUnfree = true;
       permittedInsecurePackages = [
         "dotnet-runtime-7.0.20"

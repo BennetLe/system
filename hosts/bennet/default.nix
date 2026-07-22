@@ -128,6 +128,7 @@
         affinity-v3
         httptoolkit
         frida-tools
+        objection
       ]
       ++ [
         pkgsRocm.blender
@@ -258,7 +259,7 @@
     firewall = {
       enable = true;
       allowedTCPPorts = [3240 42420 1714 1764 1234 4567 4004 1337 8080 30777 30776];
-      allowedUDPPorts = [42420 5353 1714 1764 1234 4567 4004 1337 8080 30777];
+      allowedUDPPorts = [42420 5353 1714 1764 1234 4567 4004 1337 8080 30777 51820];
       trustedInterfaces = ["tun0"];
     };
     hosts = {
