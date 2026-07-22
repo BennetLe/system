@@ -126,6 +126,7 @@
         cartridges
         lmstudio
         affinity-v3
+        httptoolkit
       ]
       ++ [
         pkgsRocm.blender
