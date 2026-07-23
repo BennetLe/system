@@ -46,6 +46,12 @@
   };
 
   programs = {
+    devenv = {
+      enable = true;
+      enableFishIntegration = true;
+      enableZshIntegration = true;
+      enableBashIntegration = true;
+    };
     obs-studio = {
       enable = true;
       plugins = with pkgs.obs-studio-plugins; [
