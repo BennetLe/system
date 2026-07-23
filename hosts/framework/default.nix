@@ -33,7 +33,6 @@
   environment = {
     systemPackages = with pkgs; [
       # Uni
-      mongodb-compass
       antlr
 
       # Games
@@ -65,10 +64,6 @@
     mysql = {
       enable = true;
       package = pkgs.mariadb;
-    };
-    mongodb = {
-      enable = true;
-      package = pkgs.mongodb-ce;
     };
   };
 
