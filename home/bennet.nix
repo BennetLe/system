@@ -91,6 +91,7 @@
     };
     zoxide = {
       enable = true;
+      options = ["--cmd" "cd"];
       enableNushellIntegration = true;
       enableZshIntegration = true;
       enableFishIntegration = true;
@@ -133,7 +134,6 @@
         s = "kitten ssh";
 
         cat = "bat";
-        cd = "z";
 
         update = "nixos-rebuild switch --sudo --flake /home/bennet/system#bennet";
         config = "nvim /home/bennet/system/flake.nix";
