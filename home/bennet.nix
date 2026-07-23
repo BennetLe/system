@@ -91,7 +91,6 @@
     };
     zoxide = {
       enable = true;
-      options = ["--cmd" "cd"];
       enableNushellIntegration = true;
       enableZshIntegration = true;
       enableFishIntegration = true;
