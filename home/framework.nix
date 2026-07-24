@@ -51,6 +51,12 @@
   };
 
   programs = {
+    devenv = {
+      enable = true;
+      enableFishIntegration = true;
+      enableZshIntegration = true;
+      enableBashIntegration = true;
+    };
     hyprlock = {
       settings = {
         auth = {
@@ -111,7 +117,6 @@
         s = "kitten ssh";
 
         cat = "bat";
-        cd = "z";
 
         update = "nixos-rebuild switch --sudo --flake /home/bennet/system#framework";
         config = "nvim /home/bennet/system/flake.nix";
@@ -647,8 +652,8 @@
   wayland.windowManager.hyprland = {
     settings = {
       monitor = [
-        "eDP-1,2256x1504@60, 0x0, 1.5"
-        ", preferred, auto, 1, mirror, eDP-1"
+        "eDP-1,2256x1504@60, 0x0, 1.175"
+        # ", preferred, auto, 1, mirror, eDP-1"
       ];
 
       workspace = [
