@@ -707,7 +707,7 @@ in {
   xdg = {
     mime = {
       defaultApplications = {
-        "x-scheme-handler/http" = "brave-browser.desktop";
+        "x-scheme-handler/http" = "floorp.desktop";
       };
     };
     portal = {
