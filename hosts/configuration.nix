@@ -430,6 +430,7 @@ in {
     };
     localsend = {
       enable = true;
+      openFirewall = true;
     };
     yazi = {
       enable = true;
