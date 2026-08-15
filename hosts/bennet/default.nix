@@ -136,6 +136,13 @@
   };
 
   services = {
+    sabnzbd = {
+      enable = true;
+      allowConfigWrite = true;
+      settings = {
+        misc.port = 12345;
+      };
+    };
     tuned.enable = true;
     postgresql = {
       enable = true;
