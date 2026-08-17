@@ -405,6 +405,7 @@ in {
   };
 
   programs = {
+    thunar.enable = true;
     proxychains = {
       enable = true;
       proxies = {
