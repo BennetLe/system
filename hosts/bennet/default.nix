@@ -79,7 +79,9 @@
         atlauncher
         prismlauncher
         heroic
-        lutris
+        (lutris.override {
+          extraPkgs = pkgs: [pkgs.vulkan-tools];
+        })
         r2modman
         melonds
         tome4
