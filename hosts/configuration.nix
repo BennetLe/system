@@ -401,6 +401,7 @@ in {
       wl-freeze
       libxml2
       nodejs_22
+      vulkan-tools
     ];
   };
 

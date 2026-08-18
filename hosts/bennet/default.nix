@@ -79,7 +79,7 @@
         atlauncher
         prismlauncher
         heroic
-        lutris-unwrapped
+        lutris
         r2modman
         melonds
         tome4
