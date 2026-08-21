@@ -7,8 +7,8 @@
   wayland.windowManager.hyprland = {
     settings = {
       "$terminal" = "kitty";
-      # "$fileManager" = "nemo";
-      "$fileManager" = "thunar";
+      "$fileManager" = "nemo";
+      # "$fileManager" = "thunar";
       "$menu" = "rofi -show drun";
       # "$menu" = "wofi";
       "$mainMod" = "SUPER";
