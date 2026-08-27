@@ -402,6 +402,7 @@ in {
       libxml2
       nodejs_22
       vulkan-tools
+      meld
     ];
   };
 
