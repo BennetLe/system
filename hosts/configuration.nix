@@ -96,7 +96,9 @@ in {
   ];
 
   environment = {
-    etc = {};
+    etc = {
+      "resolv.conf".text = lib.mkForce "nameserver 127.0.0.1\n";
+    };
     pathsToLink = [
       "/share"
     ];
@@ -520,16 +522,18 @@ in {
   services = {
     dnsmasq = {
       enable = true;
-      resolveLocalQueries = false;
+      resolveLocalQueries = false; # keep: we manage resolv.conf ourselves
       settings = {
-        port = 5335;
+        port = 53;
         listen-address = "127.0.0.1";
         bind-interfaces = true;
         no-resolv = true;
-        no-hosts = true; # don't also serve /etc/hosts
-        addn-hosts = "/var/lib/dnsmasq/htb-hosts";
-        local = "/htb/"; # authoritative for .htb; never forward
-        # no `server=` lines at all, no strict-order
+        no-hosts = true;
+        addn-hosts = "/var/lib/dnsmasq/htb-hosts"; # unchanged, runtime-editable
+        local = "/htb/";
+        server = [
+          "127.0.0.53" # resolved stub → VPN-aware routing (Proton/AdGuard)
+        ];
       };
     };
     upower.enable = true;
@@ -560,10 +564,9 @@ in {
     };
     resolved = {
       enable = true;
-      dnssec = "false";
       settings.Resolve = {
-        DNS = ["127.0.0.1:5335"];
-        Domains = ["~htb"];
+        DNSSEC = "false"; # was services.resolved.dnssec
+        FallbackDNS = []; # was services.resolved.fallbackDns
       };
     };
     libinput.enable = true;
@@ -740,10 +743,9 @@ in {
 
   networking = {
     hostName = "nixos";
-    nameservers = ["127.0.0.1"];
     networkmanager = {
       enable = true;
-      dns = "systemd-resolved";
+      dns = lib.mkForce "none";
       plugins = [
         pkgs.networkmanager-openvpn
       ];
