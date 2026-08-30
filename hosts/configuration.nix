@@ -672,6 +672,10 @@ in {
 
   nix = {
     settings = {
+      trusted-users = [
+        "root"
+        "bennet"
+      ];
       auto-optimise-store = true;
       substituters = [
       ];
