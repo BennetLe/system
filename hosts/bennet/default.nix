@@ -86,9 +86,6 @@
         melonds
         tome4
 
-        # Pentesting
-        htb-toolkit
-
         joplin-desktop
         vial
         rocmPackages.rocminfo
@@ -106,7 +103,6 @@
         virt-viewer
         agenix-cli
         element-desktop
-        hyprpanel
         kid3-qt
         picard
         kdePackages.qt5compat
@@ -162,25 +158,20 @@
     logmein-hamachi.enable = true;
     i2pd = {
       enable = true;
-      dataDir = "/var/lib/i2pd";
-      enableIPv4 = true;
-      enableIPv6 = true;
-      port = 30777;
+      settings = {
+        ipv4 = true;
+        ipv6 = true;
+        port = 30777;
 
-      ntcp2.port = 30776;
+        ntcp2.port = 30776;
 
-      floodfill = true;
-
-      proto = {
-        httpProxy.enable = true;
-        http = {
-          enable = true;
-        };
-        socksProxy.enable = true;
-        i2pControl.enable = true;
-        i2cp.enable = true;
-        bob.enable = true;
-        sam.enable = true;
+        http.enabled = true; # web console
+        httpproxy.enabled = true;
+        socksproxy.enabled = true;
+        i2pcontrol.enabled = true;
+        i2cp.enabled = true;
+        bob.enabled = true;
+        sam.enabled = true;
       };
     };
     jellyfin = {

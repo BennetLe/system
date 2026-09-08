@@ -262,7 +262,7 @@ in {
       spice-vdagent
       spice
       desmume
-      jetbrains.idea-oss
+      jetbrains.idea
       jdt-language-server
       waydroid
       burpsuite
@@ -272,7 +272,6 @@ in {
       quickemu
       gvfs
       nemo-with-extensions
-      jmtpfs
       go-mtpfs
       android-file-transfer
       vlc

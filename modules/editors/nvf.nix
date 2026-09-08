@@ -296,10 +296,16 @@
           formatOnSave = true;
           mappings = {
           };
-          harper-ls.enable = true;
           presets = {
             tailwindcss-language-server.enable = true;
             ols.enable = true;
+          };
+          servers = {
+            harper_ls = {
+              enable = true;
+              cmd = ["harper-ls" "--stdio"];
+              filetypes = ["markdown" "text" "typst"];
+            };
           };
         };
 

@@ -14,7 +14,6 @@
         "~/.local/scripts/hypr/screensharing.sh"
         "~/.local/scripts/hypr/start.sh"
         "kdeconnect-indicator"
-        # "hyprpanel"
         "noctalia-shell"
         "hyprsunset"
         "hyprlauncher -d"
