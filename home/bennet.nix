@@ -522,6 +522,39 @@
         enable_audio_bell = false;
         dynamic_background_opacity = true;
         auto_reload_config = -1;
+
+        scrollback_lines = 50000;
+        enabled_layouts = "splits,stack";
+        copy_on_select = "clipboard";
+        clock_format = "%H:%M";
+      };
+
+      keybindings = {
+        # ── tab navigation (≈ tmux windows) ──
+        "alt+shift+h" = "previous_tab";
+        "alt+shift+l" = "next_tab";
+        "ctrl+shift+1" = "goto_tab 1";
+        "ctrl+shift+2" = "goto_tab 2";
+        "ctrl+shift+3" = "goto_tab 3";
+        "ctrl+shift+4" = "goto_tab 4";
+        "ctrl+shift+5" = "goto_tab 5";
+        "ctrl+shift+6" = "goto_tab 6";
+        "ctrl+shift+7" = "goto_tab 7";
+        "ctrl+shift+8" = "goto_tab 8";
+        "ctrl+shift+9" = "goto_tab 9";
+        "ctrl+shift+t" = "new_tab";
+        "ctrl+shift+q" = "close_tab";
+
+        # ── splits (≈ tmux panes) ──
+        "ctrl+shift+enter" = "launch --location=hsplit";
+        "ctrl+shift+minus" = "launch --location=vsplit";
+        "ctrl+shift+w" = "close_window";
+
+        # ── split navigation (arrow keys) ──
+        "ctrl+shift+left" = "neighboring_window left";
+        "ctrl+shift+right" = "neighboring_window right";
+        "ctrl+shift+up" = "neighboring_window up";
+        "ctrl+shift+down" = "neighboring_window down";
       };
     };
 
@@ -538,6 +571,7 @@
         set-option -sa terminal-overrides ",xterm*:Tc"
         set -g history-limit 50000
 
+        set -g allow-passthrough on
         set -g base-index 1
         set -g pane-base-index 1
         set -g extended-keys on
