@@ -179,6 +179,9 @@
       openFirewall = true;
       user = "bennet";
     };
+    shoko = {
+      enable = true;
+    };
     monero = {
       enable = true;
       dataDir = "/media/IronWolf/monero";
