@@ -22,6 +22,16 @@
     };
   };
 
+  users = {
+    groups = {
+      media = {};
+    };
+    users = {
+      bennet.extraGroups = ["media"];
+      sonarr.extraGroups = ["media"];
+    };
+  };
+
   programs = {
     haguichi.enable = true;
     streamcontroller.enable = true;
@@ -179,6 +189,21 @@
       openFirewall = true;
       user = "bennet";
     };
+    seerr = {
+      enable = true;
+      openFirewall = true;
+    };
+    radarr = {
+      enable = true;
+      group = "media";
+    };
+    sonarr = {
+      enable = true;
+      group = "media";
+    };
+    prowlarr = {
+      enable = true;
+    };
     shoko = {
       enable = true;
     };
@@ -286,6 +311,9 @@
         XRT_COMPOSITOR_COMPUTE = "1";
       };
     };
+    tmpfiles.rules = [
+      "d /media/IronWolf/downloads 2775 root media -"
+    ];
   };
 
   security = {
