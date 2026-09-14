@@ -137,6 +137,7 @@
         httptoolkit
         frida-tools
         objection
+        tsukimi
       ]
       ++ [
         pkgsRocm.blender
