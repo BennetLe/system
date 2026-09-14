@@ -542,7 +542,7 @@
         "ctrl+shift+7" = "goto_tab 7";
         "ctrl+shift+8" = "goto_tab 8";
         "ctrl+shift+9" = "goto_tab 9";
-        "ctrl+shift+t" = "new_tab";
+        "ctrl+shift+t" = "launch --type=tab --cwd=current";
         "ctrl+shift+q" = "close_tab";
 
         # ── splits (≈ tmux panes) ──
