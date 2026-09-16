@@ -465,6 +465,9 @@ in {
       remotePlay.openFirewall = true;
       gamescopeSession.enable = true;
       localNetworkGameTransfers.openFirewall = true;
+      package = pkgs.steam.override {
+        extraArgs = "-pipewire -pipewire-dmabuf";
+      };
     };
     gamescope = {
       enable = true;
@@ -724,8 +727,10 @@ in {
       enable = true;
       extraPortals = with pkgs; [
         xdg-desktop-portal-hyprland
+        xdg-desktop-portal-wlr
         # xdg-desktop-portal-gtk
       ];
+      config.common."org.freedesktop.impl.portal.ScreenCast" = "wlr";
     };
   };
 
