@@ -404,6 +404,7 @@ in {
       nodejs_22
       vulkan-tools
       meld
+      dust
     ];
   };
 
