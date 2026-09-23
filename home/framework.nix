@@ -35,7 +35,7 @@
     '';
   };
 
-  imports = import ./hypr;
+  imports = import ./hypr ++ import ./niri;
 
   stylix = {
     enable = true;
@@ -699,6 +699,32 @@
       ];
     };
   };
+
+  # niri equivalent of the hyprland monitor/workspace block above.
+  wayland.windowManager.niri.settings._children = [
+    {
+      output = {
+        _args = ["eDP-1"];
+        mode = "2256x1504@60";
+        position._props = {
+          x = 0;
+          y = 0;
+        };
+        scale = 1.175;
+      };
+    }
+
+    {workspace = {_args = ["1"]; open-on-output = ["eDP-1"];};}
+    {workspace = {_args = ["2"]; open-on-output = ["eDP-1"];};}
+    {workspace = {_args = ["3"]; open-on-output = ["eDP-1"];};}
+    {workspace = {_args = ["4"]; open-on-output = ["eDP-1"];};}
+    {workspace = {_args = ["5"]; open-on-output = ["eDP-1"];};}
+    {workspace = {_args = ["6"]; open-on-output = ["eDP-1"];};}
+    {workspace = {_args = ["7"]; open-on-output = ["eDP-1"];};}
+    {workspace = {_args = ["8"]; open-on-output = ["eDP-1"];};}
+    {workspace = {_args = ["9"]; open-on-output = ["eDP-1"];};}
+    {workspace = {_args = ["10"]; open-on-output = ["eDP-1"];};}
+  ];
 
   programs.home-manager.enable = true;
 }

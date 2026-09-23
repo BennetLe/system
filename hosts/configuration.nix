@@ -458,6 +458,7 @@ in {
       enable = true;
       withUWSM = true;
     };
+    niri.enable = true;
     virt-manager.enable = true;
     zsh.enable = true;
     steam = {
@@ -491,6 +492,10 @@ in {
     #   };
     # };
     direnv.enable = true;
+    noctalia = {
+      enable = true;
+      recommendedServices.enable = true;
+    };
   };
 
   hardware = {
@@ -575,7 +580,7 @@ in {
     libinput.enable = true;
 
     displayManager = {
-      defaultSession = "hyprland-uwsm";
+      defaultSession = "niri";
       gdm = {
         enable = true;
       };

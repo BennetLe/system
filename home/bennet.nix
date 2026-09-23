@@ -29,7 +29,7 @@
     ];
   };
 
-  imports = import ./hypr;
+  imports = import ./hypr ++ import ./niri;
 
   stylix = {
     enable = true;
@@ -734,6 +734,47 @@
       # ];
     };
   };
+
+  # niri equivalent of the hyprland monitor/workspace block above.
+  wayland.windowManager.niri.settings._children = [
+    {
+      output = {
+        _args = ["DP-1"];
+        mode = "3440x1440@144";
+        position._props = {
+          x = 0;
+          y = -450;
+        };
+        scale = 1;
+        # Without this, niri falls back to focusing (and starting the
+        # cursor on) whichever output sorts first by name at startup -
+        # not necessarily this one. Making the primary explicit.
+        focus-at-startup = {};
+      };
+    }
+    {
+      output = {
+        _args = ["DP-2"];
+        mode = "1920x1080@75";
+        position._props = {
+          x = 3440;
+          y = 0;
+        };
+        scale = 1;
+      };
+    }
+
+    {workspace = {_args = ["1"]; open-on-output = ["DP-1"];};}
+    {workspace = {_args = ["2"]; open-on-output = ["DP-1"];};}
+    {workspace = {_args = ["3"]; open-on-output = ["DP-1"];};}
+    {workspace = {_args = ["4"]; open-on-output = ["DP-1"];};}
+    {workspace = {_args = ["5"]; open-on-output = ["DP-2"];};}
+    {workspace = {_args = ["6"]; open-on-output = ["DP-2"];};}
+    {workspace = {_args = ["7"]; open-on-output = ["DP-2"];};}
+    {workspace = {_args = ["8"]; open-on-output = ["DP-2"];};}
+    {workspace = {_args = ["9"]; open-on-output = ["DP-2"];};}
+    {workspace = {_args = ["10"]; open-on-output = ["DP-2"];};}
+  ];
 
   programs.home-manager = {
     enable = true;
