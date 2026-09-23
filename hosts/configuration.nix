@@ -405,6 +405,7 @@ in {
       meld
       dust
       xwayland-satellite
+      nix-search-tv
     ];
   };
 
