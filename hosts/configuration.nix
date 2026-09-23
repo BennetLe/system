@@ -186,7 +186,6 @@ in {
       sherlock
       wpscan
       netexec
-      bloodhound
       villain
       zap
       username-anarchy
