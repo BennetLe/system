@@ -149,6 +149,12 @@
             {match._props = {app-id = "^steam$";};}
             {open-on-workspace = "7";}
             {open-maximized = true;}
+            # Stops the small Steam popup (e.g. the one that flashes up
+            # when launching a game) from stealing focus/switching you to
+            # workspace 7. Also applies to the main Steam client window
+            # itself, since it shares the same app-id - it'll still open
+            # pinned to workspace 7, just without grabbing focus.
+            {open-focused = false;}
           ];
         }
         {
