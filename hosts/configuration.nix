@@ -405,6 +405,7 @@ in {
       vulkan-tools
       meld
       dust
+      xwayland-satellite
     ];
   };
 
