@@ -1,0 +1,31 @@
+name: Flake status
+
+on:
+  push:
+    branches: [master]
+  schedule:
+    - cron: "0 5 * * *"
+  workflow_dispatch:
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: DeterminateSystems/nix-installer-action@main
+        with:
+          extra-conf: |
+            experimental-features = nix-command flakes
+
+      - name: Update flake-status issue
+        run: nix shell --inputs-from . nixpkgs#python3 -c python3 ci/flake-report.py
+        env:
+          # read-only: GitHub compare API + nix fetches of upstream inputs
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          # issue is created/updated on this Gitea instance only
+          GITEA_TOKEN: ${{ gitea.token }}
+          FLAKE_STATUS_TOKEN: ${{ secrets.FLAKE_STATUS_TOKEN }}
+          GITEA_API: ${{ gitea.server_url }}/api/v1
+          REPO: ${{ gitea.repository }}
+          SHA: ${{ gitea.sha }}
