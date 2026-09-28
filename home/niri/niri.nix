@@ -82,6 +82,18 @@
         curve = "ease-out-cubic";
       };
 
+      gestures = {
+        # Moving the cursor into the top-left corner toggles the overview by
+        # default - turn that off.
+        hot-corners.off = {};
+
+        # While dragging something (window, file, tab), holding it near the
+        # screen edge scrolls the view / switches workspaces. A zero-size
+        # trigger area disables both.
+        dnd-edge-view-scroll.trigger-width = 0;
+        dnd-edge-workspace-switch.trigger-height = 0;
+      };
+
       prefer-no-csd = {};
 
       hotkey-overlay.skip-at-startup = {};
