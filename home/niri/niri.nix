@@ -170,6 +170,22 @@
         }
         {
           window-rule._children = [
+            # The exclude above isn't enough on its own: niri always opens a
+            # dialog on its parent's workspace, and the unlock dialog is
+            # parented to the main window on workspace 9. Keep it from pulling
+            # focus over there; keepassxc-dialog-follow.sh (scripts.nix) then
+            # moves it to the workspace you're on and focuses it.
+            {
+              match._props = {
+                app-id = "^org\\.keepassxc\\.KeePassXC$";
+                title = "^Unlock Database - KeePassXC$";
+              };
+            }
+            {open-focused = false;}
+          ];
+        }
+        {
+          window-rule._children = [
             {match._props = {app-id = "^discord$";};}
             {open-on-workspace = "10";}
           ];

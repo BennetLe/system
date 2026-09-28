@@ -57,6 +57,43 @@
     '';
   };
 
+  # Started from autostart.nix. Stands in for Hyprland's
+  # `initial_title ^(Unlock Database - KeePassXC)$, workspace unset`: niri
+  # opens dialogs on their parent's workspace and has no window rule for
+  # "the current workspace", so this watches the event stream and moves the
+  # unlock dialog (e.g. from the browser extension) to the focused workspace.
+  home.file.".local/scripts/niri/keepassxc-dialog-follow.sh" = {
+    executable = true;
+    text = ''
+      #!/usr/bin/env bash
+
+      declare -A handled
+
+      niri msg -j event-stream | jq --unbuffered -r '
+        .WindowOpenedOrChanged.window // empty
+        | select(.app_id == "org.keepassxc.KeePassXC" and .title == "Unlock Database - KeePassXC")
+        | "\(.id) \(.workspace_id)"
+      ' | while read -r id ws_id; do
+        [[ -n ''${handled[$id]} ]] && continue
+        handled[$id]=1
+
+        read -r focused_id focused_idx focused_output < <(niri msg -j workspaces | jq -r \
+          '.[] | select(.is_focused) | "\(.id) \(.idx) \(.output)"')
+        [[ -z $focused_id || $ws_id == "$focused_id" ]] && { niri msg action focus-window --id "$id"; continue; }
+
+        window_output=$(niri msg -j workspaces | jq -r --argjson w "$ws_id" '.[] | select(.id == $w) | .output')
+        if [[ $window_output == "$focused_output" ]]; then
+          # Index is resolved on the window's own monitor, which is the focused one here.
+          niri msg action move-window-to-workspace --window-id "$id" --focus false "$focused_idx"
+        else
+          # Lands on the target monitor's active (= focused) workspace.
+          niri msg action move-window-to-monitor --id "$id" "$focused_output"
+        fi
+        niri msg action focus-window --id "$id"
+      done
+    '';
+  };
+
   # Mod+Shift+J (binds.nix) - toggles the focused column between 1/3 and
   # 2/3 width. There's no niri action for this directly: `switch-preset-column-width`
   # only cycles through the single global `layout.preset-column-widths` list,

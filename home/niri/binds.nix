@@ -132,18 +132,14 @@
         "Mod+Shift+Minus".set-window-height = ["-100"];
         "Mod+Shift+Equal".set-window-height = ["+100"];
 
-        # Bound once here rather than twice like the Hyprland config did
-        # (plain `bind` + `bindle` both claimed these keys there - niri
-        # rejects duplicate binds on the same key). Going with the
-        # sound-up/sound-down scripts, matching the brightness binds below;
-        # tell me if you actually want raw pactl instead.
+        # Volume via noctalia IPC (v5 syntax - see switch-events above).
         "XF86AudioRaiseVolume" = {
           _props."allow-when-locked" = true;
-          spawn-sh = "sound-up";
+          spawn = ["noctalia" "msg" "volume-up" "1"];
         };
         "XF86AudioLowerVolume" = {
           _props."allow-when-locked" = true;
-          spawn-sh = "sound-down";
+          spawn = ["noctalia" "msg" "volume-down" "1"];
         };
 
         "Mod+K".spawn = ["rofi" "-show" "calc" "-modi" "calc" "-no-show-match" "-no-sort" "-no-persist-history"];
