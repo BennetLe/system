@@ -406,6 +406,7 @@ in {
       dust
       xwayland-satellite
       nix-search-tv
+      inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
   };
 

@@ -7,6 +7,7 @@
   imports = [
     ./hardware-configuration.nix
     ./secrets.nix
+    ../../modules/homepage.nix
   ];
 
   home-manager = {
@@ -111,7 +112,6 @@
         nettools
         spice
         virt-viewer
-        agenix-cli
         element-desktop
         kid3-qt
         picard
