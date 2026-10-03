@@ -97,6 +97,9 @@
         melonds
         tome4
 
+        # Astrophotography
+        graxpert
+
         joplin-desktop
         vial
         rocmPackages.rocminfo
