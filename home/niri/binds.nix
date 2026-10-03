@@ -52,6 +52,12 @@
         "Mod+E".spawn = ["nemo"];
         "Mod+V".toggle-window-floating = {};
 
+        "Mod+N".spawn = [
+          "sh"
+          "-c"
+          "pkill gammastep || ${lib.getExe pkgs.gammastep} -O 1000 -g 1:0.1:0.1 -b 0.4"
+        ];
+
         "Mod+Space" = {
           _props.repeat = false;
           toggle-overview = {};
