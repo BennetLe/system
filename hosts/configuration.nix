@@ -411,6 +411,10 @@ in {
   };
 
   programs = {
+    ausweisapp = {
+      enable = true;
+      openFirewall = true;
+    };
     thunar.enable = true;
     proxychains = {
       enable = true;
