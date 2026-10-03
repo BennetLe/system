@@ -20,11 +20,11 @@
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "graxpert-bin";
-  version = "3.0.2";
+  version = "3.1.0rc2";
 
   src = fetchurl {
     url = "https://github.com/Steffenhir/GraXpert/releases/download/${finalAttrs.version}/graxpert-linux-amd64.zip";
-    hash = "sha256-CnNkwzBLoZ8SIx1TPICylAVNZVjVTs2BZo5N7EkJJYg=";
+    hash = "sha256-9lG+Rz/dZSKy6OR9Os/K3tvzzyvpBVKq6TMzlvw1XPk=";
   };
 
   nativeBuildInputs = [unzip autoPatchelfHook makeWrapper copyDesktopItems];
@@ -45,15 +45,8 @@ stdenv.mkDerivation (finalAttrs: {
 
   # bundled onnxruntime CUDA/TensorRT providers; CPU inference works without them
   autoPatchelfIgnoreMissingDeps = [
-    "libcublas.so.12"
-    "libcublasLt.so.12"
-    "libcudart.so.12"
-    "libcudnn.so.8"
-    "libcufft.so.11"
-    "libcurand.so.10"
-    "libnvinfer.so.8"
-    "libnvinfer_plugin.so.8"
-    "libnvonnxparser.so.8"
+    "libcu*" # CUDA, cuBLAS, cuDNN, cuFFT, cuRAND
+    "libnv*" # TensorRT, NVRTC
   ];
 
   desktopItems = [
