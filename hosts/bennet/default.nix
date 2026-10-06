@@ -211,6 +211,10 @@
     shoko = {
       enable = true;
     };
+    bazarr = {
+      enable = true;
+      group = "media"; # write .srt files next to sonarr/radarr-managed media
+    };
     monero = {
       enable = true;
       dataDir = "/media/IronWolf/monero";

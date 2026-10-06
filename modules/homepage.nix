@@ -80,6 +80,18 @@
             };
           }
           {
+            Bazarr = {
+              description = "Subtitle manager";
+              href = "http://127.0.0.1:6767";
+              icon = "bazarr.png";
+              widget = {
+                type = "bazarr";
+                url = "http://127.0.0.1:6767";
+                key = "{{HOMEPAGE_VAR_BAZARR_KEY}}";
+              };
+            };
+          }
+          {
             Prowlarr = {
               description = "Prowlarr server";
               href = "http://localhost:9696";
