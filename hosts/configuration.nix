@@ -40,6 +40,7 @@ in {
       "wireshark"
       "podman"
       "elephant"
+      "render"
     ];
     shell = pkgs.fish;
     useDefaultShell = true;
