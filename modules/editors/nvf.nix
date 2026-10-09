@@ -356,6 +356,7 @@
           ocaml.enable = true;
           sql.enable = true;
           odin.enable = true;
+          wgsl.enable = true;
         };
 
         binds = {
