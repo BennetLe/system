@@ -42,7 +42,6 @@
       brightnessctl
       fprintd
       mysql84
-      mysql-workbench
       btop-rocm
       omnisharp-roslyn
       protontricks
