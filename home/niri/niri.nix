@@ -98,10 +98,14 @@
 
       hotkey-overlay.skip-at-startup = {};
 
-      # Allows noctalia to raise its own windows / notification actions to
-      # focus without a valid xdg-activation serial (niri is stricter about
-      # this by default than most compositors).
-      debug.honor-xdg-activation-with-invalid-serial = {};
+      # debug.honor-xdg-activation-with-invalid-serial is deliberately NOT set.
+      # It made niri honor *any* activation request, including the ones
+      # xwayland-satellite forwards when Steam raises its "Launching..." popup
+      # - which yanked focus over to workspace 7 on every game launch,
+      # bypassing the `open-focused = false` Steam rule below (that rule only
+      # covers the moment a window opens, not later activation requests).
+      # Unhonored requests just mark the window urgent instead. If noctalia
+      # notification actions stop raising their app, this is the trade-off.
 
       # Matches $HYPRSHOT_DIR (home/bennet.nix, home/framework.nix) so the
       # native `screenshot` action (bound in binds.nix) lands in the same place
