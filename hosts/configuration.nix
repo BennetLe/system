@@ -413,6 +413,7 @@ in {
       librepcb
       kdePackages.umbrello
       eloquent
+      arduino-ide
     ];
   };
 
