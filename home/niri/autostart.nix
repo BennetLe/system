@@ -28,6 +28,7 @@
         {spawn-at-startup._args = ["kdeconnect-indicator"];}
         {spawn-at-startup._args = ["noctalia"];}
         {spawn-sh-at-startup = "bash ~/.local/scripts/niri/keepassxc-dialog-follow.sh";}
+        {spawn-sh-at-startup = "xrandr --output DP-1 --primary";}
 
         # Pending your answer: hyprsunset/hyprlauncher are Hyprland-branded -
         # unconfirmed whether they work standalone under niri.
