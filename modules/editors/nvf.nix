@@ -84,6 +84,7 @@
             json5
             json
             qmldir
+            ron
           ];
           context = {
             enable = true;
