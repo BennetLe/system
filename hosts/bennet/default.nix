@@ -141,6 +141,7 @@
         frida-tools
         objection
         tsukimi
+        unsloth-desktop
       ]
       ++ [
         pkgsRocm.blender
