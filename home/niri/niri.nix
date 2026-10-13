@@ -29,7 +29,15 @@
         warp-mouse-to-focus = {};
 
         keyboard = {
-          xkb.layout = "eu,us,de";
+          xkb = {
+            layout = "eu,us,de";
+
+            # Parity with the Hyprland session's `kb_options = ["caps:escape"]`
+            # (home/hypr/hyprland.nix) - Caps Lock becomes a plain Escape, and
+            # the Caps Lock toggle is gone entirely. Session-scoped: TTYs and
+            # SDDM still see a stock Caps Lock.
+            options = "caps:escape";
+          };
           numlock = {};
         };
 

@@ -134,7 +134,7 @@ in {
       exploitdb
       whatweb
       cewl
-      # wifite2
+      wifite2
       aircrack-ng
       airgorah
       hashcat
