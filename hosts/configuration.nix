@@ -191,6 +191,7 @@ in {
       zap
       username-anarchy
       armitage
+      mdk4
 
       # Reverse
       jadx
