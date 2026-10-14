@@ -140,6 +140,13 @@
 
         keymaps = [
           {
+            key = "-";
+            mode = "n";
+            action = "<CMD>Oil<CR>";
+            silent = true;
+            desc = "Open parent directory";
+          }
+          {
             key = "<leader>d";
             mode = ["n" "v"];
             silent = true;
