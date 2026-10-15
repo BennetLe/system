@@ -142,6 +142,7 @@
         objection
         tsukimi
         unsloth-desktop
+        winboat
       ]
       ++ [
         pkgsRocm.blender
