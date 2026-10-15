@@ -143,6 +143,9 @@
         tsukimi
         unsloth-desktop
         winboat
+        (lib.hiPrio (pkgs.writeShellScriptBin "xfreerdp" ''
+          exec ${pkgs.xwayland-run}/bin/xwayland-run -- ${pkgs.freerdp}/bin/xfreerdp "$@"
+        ''))
       ]
       ++ [
         pkgsRocm.blender
