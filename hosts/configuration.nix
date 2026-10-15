@@ -441,7 +441,10 @@ in {
     };
     nix-ld = {
       enable = true;
-      libraries = [];
+      libraries = with pkgs; [
+        elfutils
+        ncurses5
+      ];
     };
     ssh.startAgent = false;
     gnupg.agent = {
