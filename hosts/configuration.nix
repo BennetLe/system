@@ -415,6 +415,7 @@ in {
       kdePackages.umbrello
       eloquent
       arduino-ide
+      vscode
     ];
   };
 
