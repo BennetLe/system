@@ -5,4 +5,6 @@
   (import ./graxpert.nix)
   (import ./siril.nix)
   (import ./arduino-ide.nix)
+  (import ./nix-alien.nix)
+  (import ./hplip.nix)
 ]

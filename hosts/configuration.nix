@@ -195,7 +195,10 @@ in {
 
       # Reverse
       jadx
-      cutter
+      # cutter
+
+      # Game Dev
+      # godot
 
       vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
       wget
@@ -283,7 +286,7 @@ in {
       gnome-keyring
       seahorse
       tmux
-      stirling-pdf
+      # stirling-pdf
       mousai
       textpieces
       easyeffects
@@ -382,7 +385,7 @@ in {
       siril
       linuxPackages.usbip
       # inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
-      noctalia-shell
+      # noctalia-shell
       hyprsunset
       xclicker
       floorp-bin

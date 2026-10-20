@@ -46,7 +46,6 @@
       omnisharp-roslyn
       protontricks
       protonup-qt
-      godot
       jetbrains.idea
     ];
   };

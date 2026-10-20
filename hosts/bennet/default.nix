@@ -34,7 +34,7 @@
   };
 
   programs = {
-    haguichi.enable = true;
+    # haguichi.enable = true;
     streamcontroller.enable = true;
     spicetify = let
       spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
@@ -72,7 +72,6 @@
         # package overlays
         # (import ./pkgs/idea-community.nix {inherit pkgs;})
         # Game dev
-        godot
         pixelorama
         blockbench
 
@@ -174,7 +173,7 @@
     };
     jackett.enable = true;
     flaresolverr.enable = true;
-    logmein-hamachi.enable = true;
+    # logmein-hamachi.enable = true;
     i2pd = {
       enable = true;
       settings = {
