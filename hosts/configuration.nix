@@ -419,6 +419,7 @@ in {
       eloquent
       arduino-ide
       vscode
+      mqttx
     ];
   };
 
