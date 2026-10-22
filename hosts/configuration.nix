@@ -420,6 +420,7 @@ in {
       arduino-ide
       vscode
       mqttx
+      halloy
     ];
   };
 
