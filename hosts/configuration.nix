@@ -421,6 +421,7 @@ in {
       vscode
       mqttx
       halloy
+      cachix
     ];
   };
 
