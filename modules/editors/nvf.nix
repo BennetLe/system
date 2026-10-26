@@ -68,6 +68,13 @@
         };
 
         utility = {
+          preview = {
+            markdownPreview = {
+              enable = true;
+              autoStart = true;
+              autoClose = true;
+            };
+          };
           motion = {
             flash-nvim = {
               enable = true;
@@ -85,6 +92,8 @@
             json
             qmldir
             ron
+            mermaid
+            markdown
           ];
           context = {
             enable = true;
