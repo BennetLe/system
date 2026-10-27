@@ -192,6 +192,7 @@ in {
       username-anarchy
       armitage
       mdk4
+      wirelesstools
 
       # Reverse
       jadx
