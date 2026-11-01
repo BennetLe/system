@@ -423,6 +423,7 @@ in {
       mqttx
       halloy
       cachix
+      krita
     ];
   };
 
