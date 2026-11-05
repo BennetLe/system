@@ -31,6 +31,14 @@
           wrap_swapcol = false;
         };
 
+        # Workspace overview on SUPER+SPACE (hyprspace, loaded in binds.nix).
+        # Colors are 0xAARRGGBB integers in the Lua config; Nix has no hex
+        # literals, so convert with `printf '%d\n' 0x99000000`.
+        plugin.overview = {
+          # Close the overview after clicking a workspace, like niri.
+          exitOnSwitch = true;
+        };
+
         general = {
           gaps_in = 5;
           gaps_out = 10;
