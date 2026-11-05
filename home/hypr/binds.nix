@@ -38,6 +38,12 @@
       bind("SHIFT + C", hl.dsp.window.kill())
       bind("E", exec(fileManager))
       bind("V", hl.dsp.window.float({ action = "toggle" }))
+      -- Toggle a dim red night filter, like niri's gammastep bind. Hyprland
+      -- exposes no gamma ramps to gammastep, so drive the hyprsunset daemon
+      -- (started in autostart.nix) over IPC; gamma doubles as the on/off state.
+      bind("N", exec("if [ \"$(hyprctl hyprsunset gamma)\" = 100 ]; then"
+        .. " hyprctl hyprsunset temperature 1000; hyprctl hyprsunset gamma 40;"
+        .. " else hyprctl hyprsunset gamma 100; hyprctl hyprsunset identity; fi"))
       -- Like niri's screenshot UI: freezes the focused monitor into a fullscreen
       -- satty window with the crop tool active; Enter saves + copies, Escape cancels.
       -- satty can't toggle the pointer live, so CTRL picks the variant with it.
