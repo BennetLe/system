@@ -699,38 +699,41 @@
   wayland.windowManager.hyprland = {
     settings = {
       monitor = [
-        "DP-1,3440x1440@144,0x-450,1"
-        "DP-2,1920x1080@75,3440x0,1"
+        {
+          output = "DP-1";
+          mode = "3440x1440@144";
+          position = "0x-450";
+          scale = 1;
+        }
+        {
+          output = "DP-2";
+          mode = "1920x1080@75";
+          position = "3440x0";
+          scale = 1;
+        }
       ];
 
-      workspace = [
-        "1,monitor:DP-1"
-        "2,monitor:DP-1"
-        "3,monitor:DP-1"
-        "4,monitor:DP-1"
-        "5,monitor:DP-2"
-        "6,monitor:DP-2"
-        "7,monitor:DP-2"
-        "8,monitor:DP-2"
-        "9,monitor:DP-2"
-        "10,monitor:DP-2"
-      ];
+      # Workspaces 1-4 on DP-1, 5-10 on DP-2.
+      workspace_rule = builtins.genList (i: {
+        workspace = toString (i + 1);
+        monitor =
+          if i < 4
+          then "DP-1"
+          else "DP-2";
+      }) 10;
 
-      # workspace = [
-      #   "1,monitor:DP-2"
-      #   "2,monitor:DP-2"
-      #   "3,monitor:DP-2"
-      #   "4,monitor:DP-2"
-      #   "5,monitor:DP-2"
-      #   "6,monitor:DP-2"
-      #   "7,monitor:DP-2"
-      #   "8,monitor:DP-2"
-      #   "9,monitor:DP-2"
-      #   "10,monitor:DP-2"
-      # ];
+      # workspace_rule = builtins.genList (i: {
+      #   workspace = toString (i + 1);
+      #   monitor = "DP-2";
+      # }) 10;
       #
       # monitor = [
-      #   "DP-2, 3840x2160@60, 0x0, 1.5"
+      #   {
+      #     output = "DP-2";
+      #     mode = "3840x2160@60";
+      #     position = "0x0";
+      #     scale = 1.5;
+      #   }
       # ];
     };
   };

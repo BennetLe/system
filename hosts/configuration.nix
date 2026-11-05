@@ -606,7 +606,7 @@ in {
     libinput.enable = true;
 
     displayManager = {
-      defaultSession = "niri";
+      defaultSession = "hyprland-uwsm";
       gdm = {
         enable = true;
       };
