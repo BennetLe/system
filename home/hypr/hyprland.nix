@@ -16,8 +16,8 @@
         # Built-in scrolling layout, tuned to behave like the niri session
         # (home/niri/niri.nix).
         scrolling = {
-          # niri keeps a lone column at its own width instead of stretching it.
-          fullscreen_on_one_column = false;
+          # A lone column spans the whole screen (Hyprland would center it otherwise).
+          fullscreen_on_one_column = true;
           # Default width for new columns (niri's default is also 1/2).
           column_width = 0.5;
           # Mirrors niri's preset-column-widths: SUPER+J (colresize +conf)
