@@ -13,10 +13,22 @@
     configType = "lua";
     settings = {
       config = {
-        # Built-in scrolling layout (replaces the hyprscrolling plugin options).
+        # Built-in scrolling layout, tuned to behave like the niri session
+        # (home/niri/niri.nix).
         scrolling = {
-          fullscreen_on_one_column = true;
+          # niri keeps a lone column at its own width instead of stretching it.
+          fullscreen_on_one_column = false;
+          # Default width for new columns (niri's default is also 1/2).
+          column_width = 0.5;
+          # Mirrors niri's preset-column-widths: SUPER+J (colresize +conf)
+          # toggles between half and full width.
+          explicit_column_widths = "0.5, 1.0";
+          # Scroll just enough to bring the focused column into view, like
+          # niri's default center-focused-column "never".
           focus_fit_method = 1;
+          # niri stops at the first/last column instead of wrapping around.
+          wrap_focus = false;
+          wrap_swapcol = false;
         };
 
         general = {
@@ -25,11 +37,12 @@
           border_size = 2;
           resize_on_border = false;
           allow_tearing = false;
-          layout = "dwindle";
+          layout = "scrolling";
         };
 
         decoration = {
-          rounding = 10;
+          # Matches niri's geometry-corner-radius.
+          rounding = 20;
           active_opacity = 1;
           inactive_opacity = 1;
           fullscreen_opacity = 1;
@@ -160,6 +173,11 @@
           match.initial_title = "^(Unlock Database - KeePassXC)$";
           workspace = "unset";
         }
+        # Full-width columns, like niri's `open-maximized` rules.
+        (class "spotify" // {scrolling_width = 1.0;})
+        (class "steam" // {scrolling_width = 1.0;})
+        (class "org.keepassxc.KeePassXC" // {scrolling_width = 1.0;})
+
         (class "discord" // {workspace = "10 silent";})
         (class "vesktop" // {workspace = "10 silent";})
 

@@ -38,17 +38,42 @@
       bind("SHIFT + C", hl.dsp.window.kill())
       bind("E", exec(fileManager))
       bind("V", hl.dsp.window.float({ action = "toggle" }))
-      bind("P", hl.dsp.window.pseudo())
-      bind("J", hl.dsp.layout("togglesplit"))
-      bind("SHIFT + S", exec("hyprshot -m region -o /home/bennet/Pictures/Hyprshot"))
+      -- Like niri's screenshot UI: freezes the focused monitor into a fullscreen
+      -- satty window with the crop tool active; Enter saves + copies, Escape cancels.
+      -- satty can't toggle the pointer live, so CTRL picks the variant with it.
+      local function screenshot(withCursor)
+        return function()
+          local mon = hl.get_active_monitor()
+          if mon == nil then return end
+          hl.exec_cmd("grim " .. (withCursor and "-c " or "") .. "-o " .. mon.name .. " - | satty --filename -"
+            .. " --fullscreen --initial-tool crop --copy-command wl-copy"
+            .. " --actions-on-enter save-to-clipboard,save-to-file,exit"
+            .. " --output-filename '~/Pictures/Hyprshot/Screenshot from %Y-%m-%d %H-%M-%S.png'")
+        end
+      end
+      bind("SHIFT + S", screenshot(false))
+      bind("CTRL + SHIFT + S", screenshot(true))
       bind("F", hl.dsp.window.fullscreen())
 
-      bind("CTRL + left", hl.dsp.layout("move -col"))
-      bind("CTRL + right", hl.dsp.layout("move +col"))
-      bind("CTRL + f", hl.dsp.layout("fit active"))
+      -- Scrolling layout, mirroring the niri binds (home/niri/binds.nix).
+      -- Toggle column between half and full width (scrolling.explicit_column_widths).
+      bind("J", hl.dsp.layout("colresize +conf"))
+      -- Toggle column between 1/3 and 2/3 width.
+      bind("SHIFT + J", function()
+        local w = hl.get_active_window()
+        if w == nil or w.monitor == nil then return end
+        local width = type(w.size) == "table" and (w.size.x or w.size[1]) or w.size
+        local monWidth = w.monitor.width / w.monitor.scale
+        hl.dispatch(hl.dsp.layout(width < monWidth / 2 and "colresize 0.667" or "colresize 0.333"))
+      end)
 
-      bind("SHIFT + R", exec("bash ~/.local/scripts/hypr/restart_bar.sh"))
-      bind("SHIFT + W", exec("bash ~/.local/scripts/hypr/restart_walker.sh"))
+      bind("CTRL + left", hl.dsp.layout("swapcol l"))
+      bind("CTRL + right", hl.dsp.layout("swapcol r"))
+      bind("CTRL + f", hl.dsp.layout("fit expand"))
+
+      -- Merge the window into the neighbouring column, or pop it back out.
+      bind("bracketleft", hl.dsp.layout("consume_or_expel prev"))
+      bind("bracketright", hl.dsp.layout("consume_or_expel next"))
 
       hl.bind("CTRL + ALT + delete", exec("bash ~/.config/rofi/powermenu/type-6/powermenu.sh"))
 

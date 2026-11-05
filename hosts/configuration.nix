@@ -264,6 +264,7 @@ in {
       p7zip
       qFlipper
       hyprshot
+      satty
       iproute2
       spice-vdagent
       spice
