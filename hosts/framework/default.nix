@@ -53,6 +53,9 @@
     tailscale = {
       enable = true;
       openFirewall = true;
+      extraSetFlags = [
+        "--accept-dns=false"
+      ];
     };
     fprintd = {
       enable = true;

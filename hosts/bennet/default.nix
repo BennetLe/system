@@ -227,6 +227,9 @@
     tailscale = {
       enable = true;
       openFirewall = true;
+      extraSetFlags = [
+        "--accept-dns=false"
+      ];
     };
     mpd = {
       enable = true;

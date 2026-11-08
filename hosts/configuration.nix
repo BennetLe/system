@@ -568,6 +568,8 @@ in {
         local = "/htb/";
         server = [
           "127.0.0.53" # resolved stub → VPN-aware routing (Proton/AdGuard)
+          "/tailcd4427.ts.net/100.100.100.100" # MagicDNS
+          "/100.in-addr.arpa/100.100.100.100" # optional: reverse lookups for tailnet IPs
         ];
       };
     };
@@ -748,6 +750,13 @@ in {
     stateVersion = "24.05";
     # fixed printer
     # nssDatabases.hosts = ["resolve [!UNAVAIL=return]"];
+    nssDatabases.hosts = lib.mkForce [
+      "mymachines"
+      "mdns_minimal [NOTFOUND=return]"
+      "files"
+      "myhostname"
+      "dns"
+    ];
   };
 
   xdg = {
