@@ -6,6 +6,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
+    ./hardware.nix
     ./secrets.nix
     ../../modules/homepage.nix
   ];
