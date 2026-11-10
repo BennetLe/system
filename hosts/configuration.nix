@@ -425,6 +425,7 @@ in {
       halloy
       cachix
       krita
+      picocom
     ];
   };
 
