@@ -364,5 +364,15 @@
       enable32Bit = true;
       extraPackages = [pkgs.rocmPackages.clr.icd];
     };
+    printers = {
+      ensurePrinters = [
+        {
+          name = "Canon_G4010";
+          deviceUri = "ipp://192.168.178.40/ipp/print";
+          model = "everywhere";
+        }
+      ];
+      ensureDefaultPrinter = "Canon_G4010";
+    };
   };
 }
