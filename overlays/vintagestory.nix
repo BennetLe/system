@@ -19,7 +19,6 @@ final: prev: {
     preFixup = let
       runtimeLibs = prev.lib.makeLibraryPath (
         [
-          prev.gtk2
           prev.sqlite
           prev.openal
           prev.cairo

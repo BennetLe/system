@@ -211,10 +211,6 @@ in {
       nushell
       kitty
       hyprland
-      waybar
-      (waybar.overrideAttrs (oldAttrs: {
-        mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
-      }))
       libnotify
       awww
       rofi
@@ -249,7 +245,6 @@ in {
       usbutils
       discord
       vesktop
-      android-studio
       android-tools
       openvpn
       networkmanager-openvpn

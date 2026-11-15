@@ -4,17 +4,6 @@
   lib,
   ...
 }: let
-  # nixpkgs' hyprspace predates Hyprland 0.56 and fails to build; use the
-  # commit upstream's hyprpm.toml pins for 0.56. Bump alongside Hyprland.
-  hyprspace = pkgs.hyprlandPlugins.hyprspace.overrideAttrs {
-    version = "0-unstable-2026-07-25";
-    src = pkgs.fetchFromGitHub {
-      owner = "KZDKM";
-      repo = "Hyprspace";
-      rev = "96a3b958a05a8942d26a5ec510f60217d63a7dce";
-      hash = "sha256-UJyjUHSApvk6DcnrbxzmU4meTZRQeBldqkRoorK2DN8=";
-    };
-  };
 in {
   wayland.windowManager.hyprland = {
     # Plain Lua (auto-required from hyprland.lua) instead of `settings.bind`
@@ -31,7 +20,6 @@ in {
 
       -- Loaded here because extraLuaFiles run before settings.config, so
       -- plugin.overview options set there are already registered.
-      hl.plugin.load("${hyprspace}/lib/libhyprspace.so")
 
       local function bind(keys, dispatcher, opts)
         hl.bind(mainMod .. " + " .. keys, dispatcher, opts)
@@ -88,11 +76,6 @@ in {
         local monWidth = w.monitor.width / w.monitor.scale
         hl.dispatch(hl.dsp.layout(width < monWidth / 2 and "colresize 0.667" or "colresize 0.333"))
       end)
-
-      -- Workspace overview, like niri's SUPER+SPACE (hyprspace, loaded above).
-      -- Plugin dispatchers live under hl.plugin.<name> and run when called;
-      -- `hyprctl dispatch overview:...` no longer works with a Lua config.
-      bind("space", function() hl.plugin.overview.toggle() end)
 
       bind("CTRL + left", hl.dsp.layout("swapcol l"))
       bind("CTRL + right", hl.dsp.layout("swapcol r"))
