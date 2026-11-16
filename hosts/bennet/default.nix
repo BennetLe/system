@@ -153,6 +153,9 @@
         pdfcraft
         photocraft
         lightcraft
+        vectorcraft
+        soundcraft
+        deckcraft
       ]
       ++ [
         pkgsRocm.blender
