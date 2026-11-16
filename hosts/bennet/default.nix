@@ -147,6 +147,12 @@
           exec ${pkgs.xwayland-run}/bin/xwayland-run -- ${pkgs.freerdp}/bin/xfreerdp "$@"
         ''))
         lmms
+        rusty-path-of-building
+        wordcraft
+        cadcraft
+        pdfcraft
+        photocraft
+        lightcraft
       ]
       ++ [
         pkgsRocm.blender
