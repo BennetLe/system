@@ -35,6 +35,19 @@
 
         luaConfigPost = ''
           vim.api.nvim_set_option("clipboard", "unnamedplus")
+
+          -- Rust: don't auto-pair ' for lifetimes (<'a>, &'a, , 'a)
+          vim.api.nvim_create_autocmd("FileType", {
+            pattern = "rust",
+            callback = function(ev)
+              require("mini.pairs").map_buf(ev.buf, "i", "'", {
+                action = "closeopen",
+                pair = "'''",
+                neigh_pattern = "[^%a\\<&].",
+                register = { cr = false },
+              })
+            end,
+          })
         '';
 
         clipboard = {
