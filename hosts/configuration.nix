@@ -13,6 +13,7 @@ in {
     ++ (import ../modules/themes);
 
   boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
     extraModprobeConfig = ''
       install algif_aead /bin/false
     '';
@@ -491,7 +492,7 @@ in {
       gamescopeSession.enable = true;
       localNetworkGameTransfers.openFirewall = true;
       package = pkgs.steam.override {
-        extraArgs = "-pipewire -pipewire-dmabuf";
+        extraArgs = "-pipewire-dmabuf";
       };
     };
     gamescope = {
