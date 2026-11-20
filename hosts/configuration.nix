@@ -492,7 +492,18 @@ in {
       gamescopeSession.enable = true;
       localNetworkGameTransfers.openFirewall = true;
       package = pkgs.steam.override {
-        extraArgs = "-pipewire-dmabuf";
+        # extraArgs = "-pipewire-dmabuf";
+        extraArgs = "-pipewire";
+        extraEnv = {
+          QT_QPA_PLATFORM = "xcb";
+          SDL_VIDEODRIVER = "x11";
+        };
+        extraLibraries = pkgs:
+          with pkgs; [
+            libsm
+            libice
+            openssl
+          ];
       };
     };
     gamescope = {

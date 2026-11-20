@@ -66,6 +66,9 @@
       };
       timeout = 5;
     };
+    extraModprobeConfig = ''
+      options cfg80211 ieee80211_regdom=DE
+    '';
   };
   environment = {
     systemPackages = with pkgs;
@@ -156,6 +159,7 @@
         vectorcraft
         soundcraft
         deckcraft
+        iw
       ]
       ++ [
         pkgsRocm.blender
@@ -383,5 +387,6 @@
       ];
       ensureDefaultPrinter = "Canon_G4010";
     };
+    enableRedistributableFirmware = true;
   };
 }
