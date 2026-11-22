@@ -323,6 +323,7 @@
     hosts = {
       # "10.129.251.69" = ["editor.htb"];
     };
+    networkmanager.wifi.powersave = false;
   };
 
   systemd = {
