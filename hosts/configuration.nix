@@ -663,6 +663,8 @@ in {
         game-devices-udev-rules
         zsa-udev-rules
         nitrokey-udev-rules
+        platformio-core
+        openocd
       ];
       extraRules = ''
         # CMSIS-DAP for microbit
